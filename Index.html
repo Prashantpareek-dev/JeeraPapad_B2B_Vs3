@@ -1,30 +1,25 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JeeraPapad Co. – Premium Manufacturer | Direct Factory Rates</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Haldiram's Bikaneri Katran Papad</title>
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700;900&display=swap"
-    rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Khand:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --red: #D42B2B;
-      --red-light: #F04040;
-      --red-pale: #FFF0F0;
-      --yellow: #F5A800;
-      --yellow-light: #FFF8E6;
-      --yellow-dark: #C48500;
-      --white: #FFFFFF;
-      --off-white: #FAFAF8;
-      --gray-100: #F5F5F3;
-      --gray-200: #EBEBEA;
-      --gray-300: #D6D6D4;
-      --gray-500: #8A8A88;
-      --gray-700: #4A4A48;
-      --black: #1A1A18;
-      --nav-h: 72px;
+      --saffron: #E8881A;
+      --deep-red: #C0392B;
+      --gold: #D4A017;
+      --cream: #FDF6E3;
+      --brown: #5C3317;
+      --charcoal: #1A1A1A;
+      --off-white: #FAF3E0;
+      --sand: #F0D9B5;
+      --muted-red: #8B1A1A;
+      --green: #2E7D32;
     }
 
     *,
@@ -37,2053 +32,1438 @@
 
     html {
       scroll-behavior: smooth;
-      font-size: 16px;
     }
 
     body {
-      font-family: 'DM Sans', 'Noto Sans Devanagari', sans-serif;
-      background: var(--white);
-      color: var(--black);
+      font-family: 'Khand', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
       overflow-x: hidden;
     }
 
-    /* ─── SCROLLBAR ─── */
-    ::-webkit-scrollbar {
-      width: 5px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--gray-100);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--red);
-      border-radius: 10px;
-    }
-
-    /* ─── ANNOUNCEMENT BAR ─── */
-    .announcement {
-      background: var(--black);
-      color: var(--white);
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--deep-red);
+      color: #fff;
       text-align: center;
-      padding: 10px 20px;
-      font-size: 0.82rem;
-      letter-spacing: 0.5px;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 6px 16px;
       font-weight: 500;
-      position: relative;
-      overflow: hidden;
     }
 
-    .announcement-ticker {
-      display: flex;
-      animation: ticker 30s linear infinite;
-      white-space: nowrap;
-      gap: 80px;
-    }
-
-    .announcement-ticker span {
-      flex-shrink: 0;
-    }
-
-    .announcement-ticker span em {
-      color: var(--yellow);
-      font-style: normal;
-      font-weight: 700;
-    }
-
-    @keyframes ticker {
-      0% {
-        transform: translateX(0)
-      }
-
-      100% {
-        transform: translateX(-50%)
-      }
-    }
-
-    /* ─── NAVBAR ─── */
-    nav {
-      height: var(--nav-h);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--gray-200);
+    /* ─── HEADER / NAV ─── */
+    header {
+      background: var(--off-white);
+      border-bottom: 3px solid var(--saffron);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 14px 60px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 60px;
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      transition: box-shadow 0.3s;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
-    nav.scrolled {
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: baseline;
-      gap: 4px;
-      text-decoration: none;
-    }
-
-    .nav-logo-main {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-      color: var(--black);
-    }
-
-    .nav-logo-sub {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--red);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-left: 4px;
-    }
-
-    .nav-links {
+    .logo-wrap {
       display: flex;
       align-items: center;
-      gap: 32px;
-      list-style: none;
+      gap: 12px;
     }
 
-    .nav-links a {
+    .logo-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      background: var(--deep-red);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 0 3px var(--saffron);
+    }
+
+    .logo-circle span {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 900;
+      color: var(--deep-red);
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 0.72rem;
+      color: var(--brown);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+    }
+
+    nav a {
       text-decoration: none;
-      color: var(--gray-700);
+      color: var(--charcoal);
       font-size: 0.9rem;
-      font-weight: 500;
-      transition: color 0.2s;
-      position: relative;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
     }
 
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--red);
-      transition: width 0.3s;
+    nav a:hover {
+      color: var(--saffron);
+      border-color: var(--saffron);
     }
 
-    .nav-links a:hover {
-      color: var(--black);
+    .btn-cart {
+      background: var(--deep-red);
+      color: #fff;
+      border: none;
+      padding: 9px 22px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background 0.2s, transform 0.1s;
     }
 
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      background: var(--red);
-      color: var(--white) !important;
-      padding: 10px 22px;
-      border-radius: 6px;
-      font-weight: 600 !important;
-      transition: background 0.2s, transform 0.2s !important;
-    }
-
-    .nav-cta::after {
-      display: none !important;
-    }
-
-    .nav-cta:hover {
-      background: var(--red-light) !important;
-      transform: translateY(-1px) !important;
+    .btn-cart:hover {
+      background: var(--saffron);
+      transform: translateY(-1px);
     }
 
     /* ─── HERO ─── */
     .hero {
-      min-height: calc(100vh - var(--nav-h));
-      background: var(--off-white);
+      min-height: 92vh;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: center;
       position: relative;
       overflow: hidden;
     }
 
-    .hero-bg-text {
+    .hero-bg-pattern {
       position: absolute;
-      font-family: 'Playfair Display', serif;
-      font-size: 22vw;
-      font-weight: 900;
-      color: var(--gray-200);
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset: 0;
       pointer-events: none;
-      user-select: none;
-      white-space: nowrap;
       z-index: 0;
-      letter-spacing: -10px;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(232, 136, 26, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(192, 57, 43, 0.10) 0%, transparent 45%);
+    }
+
+    /* diagonal divider */
+    .hero-bg-pattern::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, #3D1008 0%, #6B1E0A 60%, #993A1A 100%);
+      clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
     }
 
     .hero-left {
-      padding: 80px 60px 80px 80px;
       position: relative;
       z-index: 2;
+      padding: 80px 50px 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    .hero-pill {
+    .hero-eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: var(--yellow-light);
-      border: 1.5px solid var(--yellow);
-      color: var(--yellow-dark);
+      background: var(--sand);
+      border-left: 4px solid var(--saffron);
+      padding: 6px 14px;
       font-size: 0.78rem;
       font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 28px;
-      animation: fadein 0.8s ease both;
+      color: var(--brown);
+      margin-bottom: 22px;
+      width: fit-content;
     }
 
-    .hero-pill::before {
-      content: '✦';
-      font-size: 0.7rem;
+    .hero-eyebrow .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--saffron);
     }
 
-    .hero h1 {
+    .hero-title {
       font-family: 'Playfair Display', serif;
-      font-size: 4.2rem;
+      font-size: clamp(2.4rem, 4vw, 3.8rem);
       font-weight: 900;
-      line-height: 1.05;
-      color: var(--black);
-      margin-bottom: 12px;
-      animation: slidein 0.8s ease 0.1s both;
+      line-height: 1.1;
+      color: var(--muted-red);
+      margin-bottom: 10px;
     }
 
-    .hero h1 .accent {
-      color: var(--red);
+    .hero-title em {
       font-style: italic;
+      color: var(--saffron);
     }
 
-    .hero h1 .small {
-      font-size: 2.8rem;
-      font-weight: 400;
-      display: block;
-      color: var(--gray-700);
-    }
-
-    .hero-desc {
+    .hero-subtitle {
+      font-family: 'Lora', serif;
       font-size: 1.1rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      margin-bottom: 36px;
-      max-width: 440px;
-      animation: slidein 0.8s ease 0.2s both;
+      color: var(--brown);
+      font-style: italic;
+      margin-bottom: 28px;
+      max-width: 420px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+
+    .price-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .price-tax {
+      font-size: 0.75rem;
+      color: #888;
     }
 
     .hero-actions {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
-      margin-bottom: 48px;
-      animation: slidein 0.8s ease 0.3s both;
+      margin-bottom: 44px;
+    }
+
+    .btn-link {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn-primary {
-      background: var(--red);
-      color: var(--white);
-      padding: 16px 36px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 700;
+      background: var(--deep-red);
+      color: #fff;
       border: none;
+      padding: 14px 36px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.15), transparent);
-      transform: translateX(-100%);
-      transition: transform 0.5s;
+      border-radius: 2px;
+      box-shadow: 4px 4px 0 var(--saffron);
+      transition: transform 0.15s, box-shadow 0.15s;
     }
 
     .btn-primary:hover {
-      background: var(--red-light);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(212, 43, 43, 0.3);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--saffron);
     }
 
-    .btn-primary:hover::after {
-      transform: translateX(100%);
-    }
-
-    .btn-primary:active {
-      transform: scale(0.97);
-    }
-
-    .btn-outline {
+    .btn-secondary {
       background: transparent;
-      color: var(--black);
-      padding: 16px 32px;
-      border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
-      border: 1.5px solid var(--gray-300);
+      color: var(--deep-red);
+      border: 2px solid var(--deep-red);
+      padding: 12px 34px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      border-radius: 2px;
+      transition: background 0.2s, color 0.2s;
     }
 
-    .btn-outline:hover {
-      border-color: var(--black);
-      background: var(--black);
-      color: var(--white);
+    .btn-secondary:hover {
+      background: var(--deep-red);
+      color: #fff;
     }
 
-    .hero-stats {
+    .trust-badges {
       display: flex;
-      gap: 32px;
-      animation: fadein 0.8s ease 0.5s both;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .hero-stat {}
-
-    .hero-stat-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      color: var(--black);
-      line-height: 1;
+    .hero-quick-strip {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
     }
 
-    .hero-stat-num span {
-      color: var(--red);
+    .quick-chip {
+      background: #fff;
+      border: 1px dashed #d9b174;
+      color: var(--brown);
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+      font-weight: 600;
     }
 
-    .hero-stat-label {
-      font-size: 0.82rem;
-      color: var(--gray-500);
-      margin-top: 2px;
+    .badge {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--brown);
     }
 
-    .stat-divider {
-      width: 1px;
-      background: var(--gray-200);
+    .badge-icon {
+      font-size: 1.1rem;
     }
 
     .hero-right {
       position: relative;
-      height: 100%;
-      min-height: 600px;
+      z-index: 2;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px;
-      z-index: 2;
+      padding: 60px 60px 60px 40px;
     }
 
-    .hero-img-card {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.1), 0 8px 30px rgba(0, 0, 0, 0.06);
+    .product-image-wrap {
       position: relative;
-      animation: float 5s ease-in-out infinite;
-      max-width: 480px;
-      width: 100%;
+      animation: floatImg 3.5s ease-in-out infinite;
     }
 
-    @keyframes float {
+    @keyframes floatImg {
 
       0%,
       100% {
-        transform: translateY(0)
+        transform: translateY(0px) rotate(-2deg);
       }
 
       50% {
-        transform: translateY(-14px)
+        transform: translateY(-18px) rotate(2deg);
       }
     }
 
-    .hero-img-card img {
+    .product-img-placeholder {
+      width: 340px;
+      height: 380px;
+      background: radial-gradient(circle at 30% 20%, #fff6e9 0%, #f9d8ab 45%, #efb06a 100%);
+      border-radius: 8px;
+      border: 3px solid rgba(255, 255, 255, 0.45);
+      box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.4), -5px -5px 20px rgba(255, 200, 100, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-img-placeholder img {
       width: 100%;
-      height: 320px;
+      height: 100%;
       object-fit: contain;
-      border-radius: 12px;
-      background: var(--off-white);
+      object-position: center;
+      display: block;
+      position: relative;
+      z-index: 1;
+      padding: 12px;
     }
 
-    .hero-card-badge {
-      position: absolute;
-      top: -18px;
-      right: 24px;
-      background: var(--yellow);
-      color: var(--black);
-      padding: 8px 20px;
-      border-radius: 50px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      box-shadow: 0 4px 16px rgba(245, 168, 0, 0.4);
-    }
-
-    .hero-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 20px;
-      margin-top: 20px;
-      border-top: 1px solid var(--gray-100);
-    }
-
-    .hero-card-title {
+    .product-pack-label {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 700;
+      font-size: 1.3rem;
+      font-weight: 900;
+      color: #fff;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+      z-index: 1;
+      padding: 0 20px;
     }
 
-    .hero-card-tag {
-      background: var(--red-pale);
-      color: var(--red);
-      padding: 6px 14px;
-      border-radius: 50px;
+    .product-pack-sub {
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      z-index: 1;
+      margin-top: 8px;
+    }
+
+    .product-glow {
+      position: absolute;
+      inset: -20px;
+      background: radial-gradient(circle at 50% 50%, rgba(232, 136, 26, 0.3), transparent 65%);
+      pointer-events: none;
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -14px;
+      right: -14px;
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--brown);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 0.62rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.3;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      animation: spinBadge 10s linear infinite;
+    }
+
+    @keyframes spinBadge {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .weight-tag {
+      position: absolute;
+      bottom: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--deep-red);
+      color: #fff;
+      padding: 7px 20px;
       font-size: 0.8rem;
       font-weight: 700;
-    }
-
-    .floating-chip {
-      position: absolute;
-      background: var(--white);
-      border-radius: 12px;
-      padding: 12px 16px;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-      font-size: 0.82rem;
-      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      box-shadow: 0 4px 14px rgba(192, 57, 43, 0.5);
       white-space: nowrap;
+    }
+
+    /* ─── STORY BAND ─── */
+    .story-band {
+      background: var(--deep-red);
+      color: #fff;
+      padding: 22px 60px;
+      overflow: hidden;
       display: flex;
       align-items: center;
-      gap: 8px;
-      animation: chipFloat 4s ease-in-out infinite;
+      gap: 40px;
     }
 
-    .chip1 {
-      top: 20%;
-      left: -20px;
-      animation-delay: 0.5s;
+    .story-band-inner {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
     }
 
-    .chip2 {
-      bottom: 25%;
-      right: -20px;
-      animation-delay: 1.2s;
-    }
-
-    .chip3 {
-      top: 60%;
-      left: -30px;
-      animation-delay: 0.8s;
-    }
-
-    @keyframes chipFloat {
-
-      0%,
-      100% {
-        transform: translateY(0)
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
       }
 
-      50% {
-        transform: translateY(-8px)
+      to {
+        transform: translateX(-50%);
       }
     }
 
-    .chip-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #22c55e;
-    }
-
-    .chip-dot.yellow {
-      background: var(--yellow);
-    }
-
-    /* ─── TRUST BAR ─── */
-    .trust-bar {
-      background: var(--white);
-      border-top: 1px solid var(--gray-200);
-      border-bottom: 1px solid var(--gray-200);
-      padding: 20px 0;
-    }
-
-    .trust-bar-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 60px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.9rem;
+    .story-band span {
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       font-weight: 600;
-      color: var(--gray-700);
     }
 
-    .trust-icon-wrap {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: var(--yellow-light);
+    .story-band .sep {
+      color: var(--saffron);
+      font-size: 1.2rem;
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section {
+      padding: 90px 80px;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      font-weight: 900;
+      color: var(--muted-red);
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* ─── HERITAGE / DESCRIPTION ─── */
+    .heritage {
+      background: var(--off-white);
+    }
+
+    .heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .heritage-visual {
+      position: relative;
+      height: 420px;
+      background: radial-gradient(circle at 25% 20%, #fff8ee 0%, #f5dfc0 38%, #e8bd8a 100%);
+      border-radius: 4px;
+      overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 12px 12px 0 var(--sand);
     }
 
-    .trust-divider {
-      width: 1px;
-      height: 32px;
-      background: var(--gray-200);
-    }
-
-    /* ─── SECTION SHARED ─── */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 60px;
-    }
-
-    .section-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      color: var(--red);
-      margin-bottom: 14px;
-    }
-
-    .section-tag::before {
-      content: '—';
-      opacity: 0.5;
-    }
-
-    .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      font-weight: 900;
-      line-height: 1.1;
-      color: var(--black);
-      margin-bottom: 16px;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--red);
-    }
-
-    .section-sub {
-      font-size: 1.05rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-      max-width: 560px;
-    }
-
-    /* ─── WHY SECTION ─── */
-    .why-section {
-      background: var(--white);
-      padding: 100px 0;
-    }
-
-    .why-header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .why-header .section-sub {
-      margin: 0 auto;
-    }
-
-    .why-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .why-card {
-      background: var(--off-white);
-      border-radius: 16px;
-      padding: 36px 30px;
+    .heritage-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 14px;
       position: relative;
-      overflow: hidden;
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: default;
-      border: 1.5px solid transparent;
+      z-index: 1;
     }
 
-    .why-card::before {
-      content: '';
+    .heritage-visual-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.06);
+      text-align: center;
+      line-height: 1.1;
+      user-select: none;
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, var(--red-pale), transparent);
-      opacity: 0;
-      transition: opacity 0.4s;
-    }
-
-    .why-card:hover {
-      transform: translateY(-8px);
-      border-color: var(--red);
-      background: var(--white);
-      box-shadow: 0 20px 60px rgba(212, 43, 43, 0.1);
-    }
-
-    .why-card:hover::before {
-      opacity: 1;
-    }
-
-    .why-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--gray-200);
-      position: absolute;
-      top: 16px;
-      right: 20px;
-      transition: color 0.4s;
-      user-select: none;
-    }
-
-    .why-card:hover .why-num {
-      color: var(--red-pale);
-    }
-
-    .why-icon-wrap {
-      width: 52px;
-      height: 52px;
-      border-radius: 12px;
-      background: var(--yellow-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.5rem;
-      margin-bottom: 20px;
-      transition: background 0.3s, transform 0.3s;
-      position: relative;
-      z-index: 1;
-    }
-
-    .why-card:hover .why-icon-wrap {
-      background: var(--yellow);
-      transform: scale(1.1) rotate(-5deg);
-    }
-
-    .why-card h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      position: relative;
-      z-index: 1;
-    }
-
-    .why-card p {
-      font-size: 0.93rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-      position: relative;
-      z-index: 1;
-    }
-
-    /* ─── PRODUCT SECTION ─── */
-    .products-section {
-      background: var(--gray-100);
-      padding: 100px 0;
-    }
-
-    .products-header {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .product-card {
-      background: var(--white);
-      border-radius: 20px;
-      overflow: hidden;
-      border: 1.5px solid var(--gray-200);
-      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
-      position: relative;
-    }
-
-    .product-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.12);
-      border-color: var(--yellow);
-    }
-
-    .product-card.featured {
-      border-color: var(--red);
-      box-shadow: 0 0 0 3px var(--red-pale);
-    }
-
-    .product-img-wrap {
-      background: var(--off-white);
-      height: 250px;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 30px;
-      position: relative;
-      overflow: hidden;
-      transition: background 0.3s;
     }
 
-    .product-card:hover .product-img-wrap {
-      background: var(--yellow-light);
+    .heritage-icon {
+      font-size: 6rem;
+      z-index: 1;
+      filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.5));
     }
 
-    .product-img-wrap img {
-      height: 180px;
-      object-fit: contain;
-      transition: transform 0.4s;
-    }
-
-    .product-card:hover .product-img-wrap img {
-      transform: scale(1.08) rotate(-2deg);
-    }
-
-    .product-ribbon {
+    .heritage-corner {
       position: absolute;
-      top: 16px;
-      left: 0;
-      background: var(--red);
-      color: var(--white);
+      bottom: 20px;
+      right: 20px;
+      background: var(--saffron);
+      padding: 8px 16px;
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 5px 16px 5px 12px;
-      clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+      color: #fff;
     }
 
-    .product-ribbon.yellow {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .product-body {
-      padding: 26px;
-    }
-
-    .product-size {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--black);
-      line-height: 1;
-      margin-bottom: 4px;
-    }
-
-    .product-name {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-      margin-bottom: 18px;
-      font-weight: 500;
-    }
-
-    .product-features {
-      list-style: none;
-      margin-bottom: 22px;
+    .heritage-content {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 24px;
     }
 
-    .product-features li {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.87rem;
-      color: var(--gray-700);
+    .heritage-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: var(--brown);
+      border-left: 5px solid var(--saffron);
+      padding-left: 20px;
+      line-height: 1.6;
     }
 
-    .feat-dot {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background: var(--yellow-light);
-      border: 1.5px solid var(--yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.6rem;
-      color: var(--yellow-dark);
-      flex-shrink: 0;
+    /* ─── INGREDIENTS ─── */
+    .ingredients {
+      background: var(--cream);
     }
 
-    .product-price-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 18px;
-      border-top: 1px solid var(--gray-100);
-    }
-
-    .price-label {
-      font-size: 0.78rem;
-      color: var(--gray-500);
-    }
-
-    .price-cta {
-      background: var(--black);
-      color: var(--white);
-      padding: 9px 20px;
-      border-radius: 6px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .product-card.featured .price-cta {
-      background: var(--red);
-    }
-
-    .price-cta:hover {
-      opacity: 0.85;
-      transform: translateX(2px);
-    }
-
-    /* ─── OFFER CARDS ─── */
-    .offers-section {
-      background: var(--white);
-      padding: 80px 0;
-    }
-
-    .offers-header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .offers-grid {
+    .ingredients-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
+      margin-top: 48px;
     }
 
-    .offer-card {
-      border-radius: 16px;
-      padding: 32px 24px;
+    .ingredient-card {
+      background: var(--off-white);
+      border: 1px solid var(--sand);
+      padding: 28px 20px;
       text-align: center;
-      border: 1.5px solid var(--gray-200);
-      transition: all 0.3s;
-      background: var(--white);
-      cursor: default;
+      border-radius: 2px;
       position: relative;
       overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .offer-card::after {
+    .ingredient-card::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       right: 0;
       height: 3px;
-      background: linear-gradient(90deg, var(--red), var(--yellow));
+      background: var(--saffron);
       transform: scaleX(0);
+      transform-origin: left;
       transition: transform 0.3s;
     }
 
-    .offer-card:hover {
-      border-color: transparent;
-      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.1);
-      transform: translateY(-6px);
+    .ingredient-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
     }
 
-    .offer-card:hover::after {
+    .ingredient-card:hover::after {
       transform: scaleX(1);
     }
 
-    .offer-icon-big {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-      display: block;
+    .ingredient-icon {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
     }
 
-    .offer-card h3 {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--black);
-    }
-
-    .offer-card p {
-      font-size: 0.87rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-
-    .offer-card-badge {
-      display: inline-block;
-      background: var(--red-pale);
-      color: var(--red);
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 50px;
-      margin-bottom: 14px;
-    }
-
-    /* ─── BEFORE / AFTER ─── */
-    .transformation {
-      background: var(--off-white);
-      padding: 100px 0;
-      overflow: hidden;
-    }
-
-    .transformation-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.12);
-    }
-
-    .trans-panel {
-      padding: 60px 50px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .trans-panel.before-panel {
-      background: var(--white);
-    }
-
-    .trans-panel.after-panel {
-      background: var(--black);
-    }
-
-    .trans-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.75rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      padding: 6px 16px;
-      border-radius: 50px;
-      margin-bottom: 28px;
-    }
-
-    .trans-label.before {
-      background: var(--gray-100);
-      color: var(--gray-500);
-    }
-
-    .trans-label.after {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .trans-panel h3 {
+    .ingredient-name {
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-
-    .trans-panel.before-panel h3 {
-      color: var(--black);
-    }
-
-    .trans-panel.after-panel h3 {
-      color: var(--white);
-    }
-
-    .trans-panel p {
-      font-size: 1rem;
-      line-height: 1.7;
-      margin-bottom: 28px;
-    }
-
-    .trans-panel.before-panel p {
-      color: var(--gray-500);
-    }
-
-    .trans-panel.after-panel p {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .trans-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .trans-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
-    }
-
-    .trans-panel.before-panel .trans-list li {
-      color: var(--gray-700);
-    }
-
-    .trans-panel.after-panel .trans-list li {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .trans-check {
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.7rem;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-
-    .trans-check.x {
-      background: var(--gray-100);
-      color: var(--gray-500);
-    }
-
-    .trans-check.v {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .trans-divider {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px;
-      position: relative;
-      z-index: 10;
-      flex-shrink: 0;
-    }
-
-    .trans-arrow {
-      width: 60px;
-      height: 60px;
-      background: var(--red);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--white);
-      font-size: 1.4rem;
-      box-shadow: 0 0 0 6px var(--white);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      animation: pulse-arrow 2s ease-in-out infinite;
-      z-index: 20;
-    }
-
-    @keyframes pulse-arrow {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 6px rgba(212, 43, 43, 0.2)
-      }
-
-      50% {
-        box-shadow: 0 0 0 16px rgba(212, 43, 43, 0.1)
-      }
-    }
-
-    /* ─── HOW TO ORDER ─── */
-    .how-section {
-      background: var(--white);
-      padding: 100px 0;
-    }
-
-    .how-header {
-      text-align: center;
-      margin-bottom: 70px;
-    }
-
-    .how-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 0;
-      position: relative;
-    }
-
-    .how-steps::before {
-      content: '';
-      position: absolute;
-      top: 32px;
-      left: 12%;
-      right: 12%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--yellow), var(--red));
-      z-index: 0;
-    }
-
-    .how-step {
-      text-align: center;
-      position: relative;
-      z-index: 1;
-      padding: 0 20px;
-    }
-
-    .step-num {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      font-weight: 900;
-      margin: 0 auto 20px;
-      transition: all 0.3s;
-      cursor: default;
-    }
-
-    .step-num:hover {
-      transform: scale(1.15);
-    }
-
-    .step-num.s1 {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .step-num.s2 {
-      background: var(--red-pale);
-      color: var(--red);
-      border: 2px solid var(--red);
-    }
-
-    .step-num.s3 {
-      background: var(--yellow-light);
-      color: var(--yellow-dark);
-      border: 2px solid var(--yellow);
-    }
-
-    .step-num.s4 {
-      background: var(--red);
-      color: var(--white);
-    }
-
-    .how-step h4 {
       font-size: 1rem;
       font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .how-step p {
-      font-size: 0.87rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-
-    /* ─── BULK PRICING ─── */
-    .pricing-section {
-      background: var(--black);
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .pricing-section::before {
-      content: '';
-      position: absolute;
-      top: -200px;
-      right: -200px;
-      width: 600px;
-      height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(245, 168, 0, 0.08), transparent 70%);
-    }
-
-    .pricing-section::after {
-      content: '';
-      position: absolute;
-      bottom: -200px;
-      left: -200px;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(212, 43, 43, 0.1), transparent 70%);
-    }
-
-    .pricing-inner {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 80px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .pricing-content .section-tag {
-      color: var(--yellow);
-    }
-
-    .pricing-content .section-title {
-      color: var(--white);
-    }
-
-    .pricing-content .section-sub {
-      color: rgba(255, 255, 255, 0.5);
-      max-width: 400px;
-      margin-bottom: 40px;
-    }
-
-    .tier-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .tier-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1.5px solid rgba(255, 255, 255, 0.1);
-      border-radius: 12px;
-      padding: 20px 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .tier-card:hover {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: rgba(255, 255, 255, 0.2);
-      transform: translateX(8px);
-    }
-
-    .tier-card.best {
-      background: rgba(245, 168, 0, 0.08);
-      border-color: var(--yellow);
-    }
-
-    .tier-card.best:hover {
-      background: rgba(245, 168, 0, 0.12);
-    }
-
-    .tier-badge-new {
-      background: rgba(255, 255, 255, 0.1);
-      color: var(--white);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      font-weight: 900;
-      white-space: nowrap;
-      min-width: 80px;
-      text-align: center;
-    }
-
-    .tier-card.best .tier-badge-new {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .tier-info-new {
-      flex: 1;
-    }
-
-    .tier-info-new h4 {
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--white);
-      margin-bottom: 3px;
-    }
-
-    .tier-info-new p {
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.5);
-    }
-
-    .tier-tag {
-      background: var(--red);
-      color: var(--white);
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 10px;
-      border-radius: 50px;
-    }
-
-    .pricing-visual {
-      position: relative;
-    }
-
-    .pricing-card-big {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 40px;
-      position: relative;
-    }
-
-    .pricing-card-big::before {
-      content: '';
-      position: absolute;
-      inset: -2px;
-      border-radius: 26px;
-      background: linear-gradient(135deg, var(--yellow), var(--red));
-      z-index: -1;
-    }
-
-    .pcb-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 24px;
-      padding-bottom: 24px;
-      border-bottom: 1px solid var(--gray-100);
-    }
-
-    .pcb-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      font-weight: 900;
-    }
-
-    .pcb-logo {
-      background: var(--red-pale);
-      padding: 8px 16px;
-      border-radius: 8px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--red);
-    }
-
-    .pcb-perks {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 28px;
-    }
-
-    .pcb-perks li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--gray-700);
-    }
-
-    .perk-icon-sm {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      background: var(--yellow-light);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .pcb-cta {
-      width: 100%;
-      background: var(--red);
-      color: var(--white);
-      padding: 16px;
-      border-radius: 10px;
-      font-size: 1rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .pcb-cta:hover {
-      background: var(--red-light);
-      transform: translateY(-2px);
-      box-shadow: 0 10px 30px rgba(212, 43, 43, 0.4);
-    }
-
-    .pcb-note {
-      text-align: center;
-      font-size: 0.8rem;
-      color: var(--gray-500);
-      margin-top: 12px;
-    }
-
-    .pricing-stat-float {
-      position: absolute;
-      background: var(--yellow);
-      color: var(--black);
-      border-radius: 12px;
-      padding: 14px 20px;
-      text-align: center;
-      box-shadow: 0 12px 40px rgba(245, 168, 0, 0.4);
-    }
-
-    .psf1 {
-      top: -20px;
-      left: -24px;
-    }
-
-    .psf2 {
-      bottom: -20px;
-      right: -24px;
-    }
-
-    .psf-num {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      line-height: 1;
-    }
-
-    .psf-label {
-      font-size: 0.72rem;
-      font-weight: 600;
-    }
-
-    /* ─── TRUST / QUALITY ─── */
-    .quality-section {
-      background: var(--white);
-      padding: 100px 0;
-    }
-
-    .quality-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .quality-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .quality-card {
-      padding: 32px 24px;
-      border-radius: 16px;
-      background: var(--gray-100);
-      text-align: center;
-      transition: all 0.3s;
-      cursor: default;
-      border: 1.5px solid transparent;
-    }
-
-    .quality-card:hover {
-      background: var(--white);
-      border-color: var(--yellow);
-      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-      transform: translateY(-6px);
-    }
-
-    .quality-icon {
-      font-size: 2.4rem;
-      margin-bottom: 16px;
-      display: block;
-      transition: transform 0.3s;
-    }
-
-    .quality-card:hover .quality-icon {
-      transform: scale(1.2);
-    }
-
-    .quality-card h3 {
-      font-size: 1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-    }
-
-    .quality-card p {
-      font-size: 0.85rem;
-      color: var(--gray-500);
-      line-height: 1.6;
-    }
-
-    .quality-badge {
-      display: inline-block;
-      background: var(--yellow-light);
-      color: var(--yellow-dark);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-top: 10px;
-    }
-
-    /* ─── REVIEWS ─── */
-    .reviews-section {
-      background: var(--off-white);
-      padding: 100px 0;
-    }
-
-    .reviews-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .reviews-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
-    .review-card {
-      background: var(--white);
-      border-radius: 16px;
-      padding: 32px;
-      border: 1.5px solid var(--gray-200);
-      transition: all 0.3s;
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-    }
-
-    .review-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
-      border-color: var(--yellow);
-    }
-
-    .review-quote {
-      font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      color: var(--yellow);
-      line-height: 0.8;
-      margin-bottom: 16px;
-      opacity: 0.4;
-    }
-
-    .review-stars {
-      display: flex;
-      gap: 3px;
-      margin-bottom: 14px;
-    }
-
-    .star-icon {
-      color: var(--yellow);
-      font-size: 0.9rem;
-    }
-
-    .review-text {
-      font-size: 0.95rem;
-      color: var(--gray-700);
-      line-height: 1.7;
-      margin-bottom: 24px;
-      font-style: italic;
-    }
-
-    .reviewer-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .reviewer-avatar {
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      background: var(--black);
-      color: var(--yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 0.9rem;
-      flex-shrink: 0;
-    }
-
-    .reviewer-name {
-      font-size: 0.95rem;
-      font-weight: 700;
-    }
-
-    .reviewer-place {
-      font-size: 0.8rem;
-      color: var(--gray-500);
-    }
-
-    .verified-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      background: var(--red-pale);
-      color: var(--red);
-      font-size: 0.7rem;
-      font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 50px;
-      margin-left: auto;
-    }
-
-    /* ─── FAQ ─── */
-    .faq-section {
-      background: var(--white);
-      padding: 100px 0;
-    }
-
-    .faq-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
-
-    .faq-container {
-      max-width: 760px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .faq-item {
-      background: var(--off-white);
-      border-radius: 12px;
-      border: 1.5px solid var(--gray-200);
-      overflow: hidden;
-      transition: all 0.3s;
-    }
-
-    .faq-item:hover {
-      border-color: var(--gray-300);
-    }
-
-    .faq-item.open {
-      border-color: var(--red);
-      background: var(--white);
-    }
-
-    .faq-q {
-      width: 100%;
-      background: transparent;
-      border: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 26px;
-      cursor: pointer;
-      text-align: left;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.97rem;
-      font-weight: 600;
-      color: var(--black);
-      gap: 16px;
-    }
-
-    .faq-toggle {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--gray-200);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      font-weight: 700;
-      flex-shrink: 0;
-      transition: all 0.3s;
-      color: var(--gray-500);
-    }
-
-    .faq-item.open .faq-toggle {
-      background: var(--red);
-      color: var(--white);
-      transform: rotate(45deg);
-    }
-
-    .faq-a {
-      display: none;
-      padding: 0 26px 22px;
-      font-size: 0.92rem;
-      color: var(--gray-500);
-      line-height: 1.7;
-    }
-
-    .faq-item.open .faq-a {
-      display: block;
-      animation: fadein 0.3s ease;
-    }
-
-    /* ─── ORDER FORM ─── */
-    .order-section {
-      background: linear-gradient(135deg, var(--black) 0%, #1a1a18 100%);
-      padding: 100px 0;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .order-bg {
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image:
-        radial-gradient(circle at 20% 20%, rgba(245, 168, 0, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(212, 43, 43, 0.08) 0%, transparent 50%);
-    }
-
-    .order-inner {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-      position: relative;
-      z-index: 1;
-    }
-
-    .order-info .section-tag {
-      color: var(--yellow);
-    }
-
-    .order-info .section-title {
-      color: var(--white);
-    }
-
-    .order-info .section-sub {
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 40px;
-    }
-
-    .order-perks-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 40px;
-    }
-
-    .order-perk {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 0.95rem;
-      font-weight: 500;
-      padding: 14px 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      transition: all 0.3s;
-      cursor: default;
-    }
-
-    .order-perk:hover {
-      background: rgba(255, 255, 255, 0.07);
-      transform: translateX(6px);
-    }
-
-    .perk-icon-new {
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      background: rgba(245, 168, 0, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1rem;
-      flex-shrink: 0;
-    }
-
-    .order-urgency {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      background: rgba(212, 43, 43, 0.1);
-      border: 1px solid rgba(212, 43, 43, 0.3);
-      border-radius: 10px;
-      padding: 14px 18px;
-      color: var(--red-light);
-      font-size: 0.9rem;
-      font-weight: 600;
-    }
-
-    .order-urgency::before {
-      content: '⚡';
-      font-size: 1rem;
-    }
-
-    .order-form {
-      background: var(--white);
-      border-radius: 24px;
-      padding: 44px 40px;
-      box-shadow: 0 40px 120px rgba(0, 0, 0, 0.3);
-    }
-
-    .form-header {
-      margin-bottom: 30px;
-    }
-
-    .form-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
+      color: var(--muted-red);
       margin-bottom: 6px;
     }
 
-    .form-header p {
-      font-size: 0.87rem;
-      color: var(--gray-500);
+    .ingredient-desc {
+      font-size: 0.82rem;
+      color: #777;
+      line-height: 1.5;
     }
 
-    .form-top-bar {
-      height: 4px;
-      border-radius: 2px;
-      background: linear-gradient(90deg, var(--red), var(--yellow));
-      margin-bottom: 28px;
-      border-radius: 4px;
+    /* ─── FEATURES ─── */
+    .features {
+      background: linear-gradient(160deg, #2A0C05 0%, #5C1A0A 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
     }
 
-    .form-group {
-      margin-bottom: 18px;
+    .features::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(232, 136, 26, 0.08);
+      pointer-events: none;
     }
 
-    .form-group label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      color: var(--gray-700);
-      margin-bottom: 7px;
+    .features .section-heading {
+      color: var(--gold);
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-      width: 100%;
-      padding: 13px 16px;
-      border: 1.5px solid var(--gray-200);
-      border-radius: 10px;
-      font-size: 0.93rem;
-      font-family: 'DM Sans', sans-serif;
-      color: var(--black);
-      background: var(--off-white);
-      transition: all 0.2s;
-      outline: none;
+    .features .section-body {
+      color: rgba(255, 255, 255, 0.7);
     }
 
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-      border-color: var(--red);
-      background: var(--white);
-      box-shadow: 0 0 0 4px rgba(212, 43, 43, 0.08);
-    }
-
-    .form-row {
+    .features-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      margin-top: 52px;
     }
 
-    .form-submit {
-      width: 100%;
-      background: var(--red);
-      color: var(--white);
-      padding: 17px;
-      border: none;
-      border-radius: 10px;
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 34px 28px;
+      border-radius: 4px;
+      transition: background 0.2s, transform 0.2s;
+      position: relative;
+    }
+
+    .feature-card:hover {
+      background: rgba(232, 136, 26, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .feature-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: rgba(232, 136, 26, 0.18);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    .feature-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .feature-desc {
+      font-size: 0.88rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.65;
+    }
+
+    /* ─── HOW TO SERVE ─── */
+    .serve {
+      background: var(--off-white);
+    }
+
+    .serve-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .step {
+      padding: 32px 24px;
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      border-radius: 2px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--sand);
+      line-height: 1;
+      position: absolute;
+      top: 16px;
+      right: 20px;
+    }
+
+    .step-icon {
+      font-size: 2rem;
+      margin-bottom: 14px;
+    }
+
+    .step-title {
       font-size: 1rem;
       font-weight: 700;
-      font-family: 'DM Sans', sans-serif;
-      cursor: pointer;
-      transition: all 0.3s;
-      margin-top: 6px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-    }
-
-    .form-submit:hover {
-      background: var(--red-light);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 40px rgba(212, 43, 43, 0.4);
-    }
-
-    .form-privacy {
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--gray-500);
-      margin-top: 12px;
-    }
-
-    .form-loading {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .spinner {
-      width: 44px;
-      height: 44px;
-      border: 3px solid var(--gray-200);
-      border-top-color: var(--red);
-      border-radius: 50%;
-      animation: spin 0.7s linear infinite;
-      margin: 0 auto 16px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .form-success {
-      display: none;
-      text-align: center;
-      padding: 40px 20px;
-    }
-
-    .success-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: #dcfce7;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      margin: 0 auto 20px;
-      animation: pop-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-
-    .form-success h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.6rem;
-      font-weight: 900;
-      color: #16a34a;
+      color: var(--muted-red);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
       margin-bottom: 8px;
     }
 
-    .form-success p {
-      font-size: 0.95rem;
-      color: var(--gray-500);
+    .step-desc {
+      font-size: 0.85rem;
+      color: #666;
       line-height: 1.6;
     }
 
-    .success-whatsapp {
-      margin-top: 20px;
-      background: #25D366;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-      transition: all 0.3s;
+    /* ─── FAQ ─── */
+    .faq {
+      background: var(--cream);
     }
 
-    .success-whatsapp:hover {
-      background: #1aab50;
-      transform: translateY(-2px);
+    .faq-list {
+      margin-top: 48px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .faq-q {
+      padding: 20px 0;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-q:hover {
+      color: var(--deep-red);
+    }
+
+    .faq-toggle {
+      font-size: 1.4rem;
+      color: var(--saffron);
+      transition: transform 0.3s;
+    }
+
+    .faq-a {
+      font-family: 'Lora', serif;
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.7;
+      padding: 0 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* ─── TRUST / STATS ─── */
+    .trust {
+      background: var(--deep-red);
+      color: #fff;
+      padding: 70px 80px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .trust-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .trust-stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    .trust-sep {
+      width: 1px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ─── CTA STRIP ─── */
+    .cta-strip {
+      background: var(--off-white);
+      padding: 90px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      border-top: 4px solid var(--saffron);
+    }
+
+    .cta-text {
+      max-width: 520px;
+    }
+
+    .cta-text .section-heading {
+      margin-bottom: 10px;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .pincode-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pincode-input {
+      border: 2px solid var(--sand);
+      background: #fff;
+      padding: 10px 16px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      outline: none;
+      border-radius: 2px;
+      width: 160px;
+      transition: border-color 0.2s;
+    }
+
+    .pincode-input:focus {
+      border-color: var(--saffron);
+    }
+
+    .btn-check {
+      background: var(--saffron);
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    /* ─── TASTE MOMENTS ─── */
+    .taste-moments {
+      background: var(--cream);
+    }
+
+    .taste-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .taste-card {
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--sand);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07);
+      transition: transform 0.22s, box-shadow 0.22s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .taste-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 38px rgba(0,0,0,0.13);
+    }
+
+    .taste-card-top {
+      position: relative;
+      height: 148px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .taste-card-top--palette {
+      background: linear-gradient(135deg, #7b3f00 0%, #c47c2a 100%);
+    }
+
+    .taste-card-top--snack {
+      background: linear-gradient(135deg, #2e5a1c 0%, #6aaa3a 100%);
+    }
+
+    .taste-card-top--guest {
+      background: linear-gradient(135deg, #6b1a1a 0%, #c0392b 100%);
+    }
+
+    .taste-card-top--movie {
+      background: linear-gradient(135deg, #1a2352 0%, #3a54a7 100%);
+    }
+
+    .taste-card-emoji {
+      font-size: 3.6rem;
+      z-index: 1;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.35));
+    }
+
+    .taste-card-overlay-text {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.10);
+      letter-spacing: -1px;
+      user-select: none;
+      line-height: 1;
+    }
+
+    .taste-card-body {
+      padding: 20px 18px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .taste-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      background: rgba(232,136,26,0.10);
+      border-radius: 999px;
+      padding: 3px 10px;
+      width: fit-content;
+    }
+
+    .taste-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--muted-red);
+      line-height: 1.3;
+    }
+
+    .taste-desc {
+      font-family: 'Lora', serif;
+      font-size: 0.84rem;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    .taste-tips {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--sand);
+    }
+
+    .taste-tips li {
+      font-size: 0.8rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .taste-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .taste-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ─── ORDER FORM ─── */
+    .order-form-section {
+      background: var(--cream);
+      border-top: 4px solid var(--saffron);
+    }
+
+    .order-form-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--sand);
+      box-shadow: 10px 10px 0 rgba(232, 136, 26, 0.16);
+      border-radius: 6px;
+      padding: 34px 30px;
+    }
+
+    .order-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .order-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .order-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .order-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .order-steps {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .order-step {
+      border: 1px solid var(--sand);
+      background: var(--off-white);
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #5d4a33;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .order-step span {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .order-input,
+    .order-textarea {
+      border: 2px solid var(--sand);
+      background: #fff;
+      padding: 12px 14px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      border-radius: 4px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .order-input:focus,
+    .order-textarea:focus {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 3px rgba(232, 136, 26, 0.18);
+    }
+
+    .order-textarea {
+      resize: vertical;
+      min-height: 96px;
+    }
+
+    .package-choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .package-choice {
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      background: var(--off-white);
+      padding: 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .package-choice-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.92rem;
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
+    .package-qty {
+      width: 96px;
+      border: 1px solid #d8c29b;
+      background: #fff;
+      border-radius: 4px;
+      padding: 7px 8px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .package-qty:disabled {
+      background: #f2ebdf;
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+
+    .form-actions {
+      margin-top: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 0.82rem;
+      color: #6b614f;
+      line-height: 1.5;
+    }
+
+    .form-message {
+      margin-top: 14px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #165b2e;
+      background: #eaf8ee;
+      border: 1px solid #9fd6ae;
+      border-radius: 4px;
+      padding: 10px 12px;
+      display: none;
+    }
+
+    /* ─── QUALITY TRUST ─── */
+    .quality-trust {
+      background: linear-gradient(160deg, #1c0a03 0%, #3d1208 60%, #6b2010 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quality-trust::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 90%, rgba(232,136,26,0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(212,160,23,0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .quality-trust .section-heading {
+      color: var(--gold);
+    }
+
+    .quality-trust .section-body {
+      color: rgba(255,255,255,0.7);
+    }
+
+    .quality-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+      margin-top: 48px;
+    }
+
+    .quality-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 30px 22px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 14px;
+      transition: background 0.22s, transform 0.22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quality-card:hover {
+      background: rgba(232,136,26,0.13);
+      transform: translateY(-5px);
+    }
+
+    .quality-card-icon {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 1.9rem;
+      flex-shrink: 0;
+    }
+
+    .quality-card-icon--blue  { background: rgba(41,97,201,0.22); }
+    .quality-card-icon--green { background: rgba(46,125,50,0.22); }
+    .quality-card-icon--gold  { background: rgba(212,160,23,0.22); }
+    .quality-card-icon--red   { background: rgba(192,57,43,0.22); }
+
+    .quality-card-badge {
+      display: inline-block;
+      font-size: 0.66rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .quality-card-badge--blue  { color: #7eb4ff; background: rgba(41,97,201,0.18); }
+    .quality-card-badge--green { color: #80d480; background: rgba(46,125,50,0.18); }
+    .quality-card-badge--gold  { color: var(--gold); background: rgba(212,160,23,0.18); }
+    .quality-card-badge--red   { color: #f39191; background: rgba(192,57,43,0.18); }
+
+    .quality-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .quality-card-desc {
+      font-size: 0.83rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.65;
+    }
+
+    .quality-card-watermark {
+      position: absolute;
+      bottom: -8px;
+      right: -6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(255,255,255,0.04);
+      user-select: none;
+      line-height: 1;
+    }
+
+    .quality-assurance-bar {
+      margin-top: 44px;
+      padding: 18px 24px;
+      border: 1px solid rgba(212,160,23,0.35);
+      border-radius: 6px;
+      background: rgba(212,160,23,0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .quality-assurance-bar span {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .quality-assurance-bar strong {
+      color: var(--gold);
+    }
+
+    .quality-divider {
+      width: 1px;
+      height: 18px;
+      background: rgba(212,160,23,0.3);
+    }
+
+    @media (max-width: 900px) {
+      .quality-trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .quality-trust-grid {
+        grid-template-columns: 1fr;
+      }
+      .quality-divider { display: none; }
     }
 
     /* ─── FOOTER ─── */
     footer {
-      background: var(--black);
-      color: var(--white);
-      padding: 70px 0 0;
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 60px 80px 30px;
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1.2fr;
-      gap: 60px;
-      margin-bottom: 60px;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 50px;
     }
 
-    .footer-brand-logo {
+    .footer-brand .brand-name {
+      color: var(--gold);
       font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 900;
-      margin-bottom: 16px;
-    }
-
-    .footer-brand-logo span {
-      color: var(--yellow);
+      font-size: 1.5rem;
     }
 
     .footer-brand p {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.45);
+      font-size: 0.85rem;
       line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .footer-trust-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .ftb {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: rgba(255, 255, 255, 0.5);
-      padding: 5px 12px;
-      border-radius: 6px;
-      font-size: 0.75rem;
-      font-weight: 500;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, 0.55);
     }
 
     .footer-col h4 {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      letter-spacing: 2px;
-      color: var(--yellow);
+      color: var(--saffron);
       margin-bottom: 18px;
       font-weight: 700;
     }
@@ -2092,285 +1472,72 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .footer-col ul li a {
-      color: rgba(255, 255, 255, 0.45);
+    .footer-col ul a {
       text-decoration: none;
-      font-size: 0.9rem;
-      transition: color 0.2s, transform 0.2s;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-
-    .footer-col ul li a:hover {
-      color: var(--white);
-      transform: translateX(4px);
-    }
-
-    .footer-contact p {
-      color: rgba(255, 255, 255, 0.45);
-      font-size: 0.9rem;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.85rem;
       transition: color 0.2s;
-      cursor: pointer;
     }
 
-    .footer-contact p:hover {
-      color: rgba(255, 255, 255, 0.8);
-    }
-
-    .footer-divider {
-      height: 1px;
-      background: rgba(255, 255, 255, 0.07);
+    .footer-col ul a:hover {
+      color: var(--gold);
     }
 
     .footer-bottom {
-      padding: 24px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 24px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .footer-bottom p {
-      color: rgba(255, 255, 255, 0.25);
-      font-size: 0.82rem;
-    }
-
-    .footer-bottom-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .footer-bottom-links a {
-      color: rgba(255, 255, 255, 0.25);
-      text-decoration: none;
-      font-size: 0.82rem;
-      transition: color 0.2s;
-    }
-
-    .footer-bottom-links a:hover {
-      color: rgba(255, 255, 255, 0.6);
-    }
-
-    .footer-cta-strip {
-      background: var(--red);
-      padding: 24px 60px;
-      display: flex;
       align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 0;
-    }
-
-    .footer-cta-strip p {
-      color: var(--white);
-      font-size: 1.05rem;
-      font-weight: 600;
-    }
-
-    .footer-btn-row {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .f-btn {
-      padding: 11px 26px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.3s;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .f-btn-wa {
-      background: #25D366;
-      color: white;
-    }
-
-    .f-btn-wa:hover {
-      background: #1aab50;
-      transform: translateY(-2px);
-    }
-
-    .f-btn-call {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    .f-btn-call:hover {
-      background: var(--yellow-dark);
-      transform: translateY(-2px);
-    }
-
-    /* ─── STICKY ─── */
-    .sticky-wrap {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      z-index: 888;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-end;
-    }
-
-    .sticky-btn {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 22px;
-      border-radius: 50px;
-      font-size: 0.9rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      text-decoration: none;
-      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-      transition: all 0.3s;
-      font-family: 'DM Sans', sans-serif;
-      animation: slide-right 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) backwards;
-    }
-
-    .sticky-btn:nth-child(1) {
-      animation-delay: 0.3s;
-    }
-
-    .sticky-btn:nth-child(2) {
-      animation-delay: 0.5s;
-    }
-
-    @keyframes slide-right {
-      0% {
-        transform: translateX(80px);
-        opacity: 0
-      }
-
-      100% {
-        transform: translateX(0);
-        opacity: 1
-      }
-    }
-
-    .sticky-btn:hover {
-      transform: translateY(-3px);
-    }
-
-    .sticky-wa {
-      background: #25D366;
-      color: white;
-    }
-
-    .sticky-call {
-      background: var(--yellow);
-      color: var(--black);
-    }
-
-    /* ─── DISCLAIMER ─── */
-    .disclaimer {
-      background: #111;
-      padding: 20px 60px;
-      text-align: center;
-    }
-
-    .disclaimer p {
-      color: rgba(255, 255, 255, 0.2);
       font-size: 0.78rem;
-      line-height: 1.6;
-      max-width: 900px;
-      margin: 0 auto;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 14px;
+    }
+
+    .social-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.6);
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .social-btn:hover {
+      background: var(--saffron);
+      color: #fff;
     }
 
     /* ─── ANIMATIONS ─── */
-    @keyframes fadein {
-      from {
-        opacity: 0
-      }
-
-      to {
-        opacity: 1
-      }
-    }
-
-    @keyframes slidein {
-      from {
-        opacity: 0;
-        transform: translateY(24px)
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0)
-      }
-    }
-
-    @keyframes pop-in {
-      0% {
-        transform: scale(0);
-        opacity: 0
-      }
-
-      100% {
-        transform: scale(1);
-        opacity: 1
-      }
-    }
-
-    .reveal {
+    .fade-up {
       opacity: 0;
-      transform: translateY(36px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .reveal.visible {
+    .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .reveal-left {
-      opacity: 0;
-      transform: translateX(-40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal-left.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .reveal-right {
-      opacity: 0;
-      transform: translateX(40px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-    }
-
-    .reveal-right.visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
     /* ─── RESPONSIVE ─── */
-    @media (max-width: 1024px) {
-      nav {
-        padding: 0 30px;
+    @media (max-width: 900px) {
+      header {
+        padding: 14px 24px;
       }
 
-      .nav-links {
+      nav {
         display: none;
       }
 
@@ -2379,152 +1546,60 @@
         min-height: auto;
       }
 
-      .hero-left {
-        padding: 60px 30px;
+      .hero-bg-pattern::after {
+        display: none;
       }
 
       .hero-right {
-        min-height: 400px;
+        background: linear-gradient(135deg, #3D1008, #993A1A);
       }
 
-      .hero h1 {
-        font-size: 3rem;
+      .hero-left {
+        padding: 60px 28px 40px;
       }
 
-      .why-grid {
-        grid-template-columns: repeat(2, 1fr);
+      section {
+        padding: 60px 28px;
       }
 
-      .products-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .offers-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .transformation-inner {
+      .heritage-grid,
+      .ingredients-grid,
+      .features-grid,
+      .serve-steps {
         grid-template-columns: 1fr;
       }
 
-      .trans-divider {
-        display: none;
-      }
-
-      .how-steps {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .how-steps::before {
-        display: none;
-      }
-
-      .pricing-inner {
-        grid-template-columns: 1fr;
-        gap: 50px;
-      }
-
-      .quality-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .reviews-grid {
+      .trust-grid {
         grid-template-columns: 1fr 1fr;
-      }
-
-      .order-inner {
-        grid-template-columns: 1fr;
       }
 
       .footer-grid {
         grid-template-columns: 1fr 1fr;
-        gap: 40px;
       }
 
-      .container {
-        padding: 0 30px;
+      .cta-strip {
+        padding: 60px 28px;
       }
 
-      .footer-cta-strip {
-        padding: 24px 30px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero h1 {
-        font-size: 2.2rem;
+      .trust {
+        padding: 60px 28px;
       }
 
-      .hero h1 .small {
-        font-size: 1.8rem;
+      .order-form-wrap {
+        padding: 24px 18px;
       }
 
-      .section-title {
-        font-size: 2.1rem;
-      }
-
-      .why-grid,
-      .offers-grid,
-      .quality-grid {
+      .order-form-grid,
+      .package-choices {
         grid-template-columns: 1fr;
       }
 
-      .products-grid {
+      .order-steps {
         grid-template-columns: 1fr;
       }
 
-      .reviews-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .how-steps {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .hero-stats {
-        flex-direction: column;
-        gap: 16px;
-      }
-
-      .stat-divider {
-        display: none;
-      }
-
-      .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .order-form {
-        padding: 28px 20px;
-      }
-
-      .footer-cta-strip {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .footer-bottom {
-        flex-direction: column;
-        text-align: center;
-      }
-
-      .container {
-        padding: 0 20px;
-      }
-
-      .chip1,
-      .chip2,
-      .chip3 {
-        display: none;
-      }
-
-      .trans-panel {
-        padding: 40px 30px;
+      footer {
+        padding: 50px 28px 24px;
       }
     }
   </style>
@@ -2532,836 +1607,654 @@
 
 <body>
 
-  <!-- ANNOUNCEMENT BAR -->
-  <div class="announcement">
-    <div class="announcement-ticker">
-      <span>🚀 <em>FREE DELIVERY</em> on All Orders &nbsp;·&nbsp;</span>
-      <span>💵 <em>COD Available</em> – Pay on Delivery &nbsp;·&nbsp;</span>
-      <span>🎁 <em>FREE Diet Chart</em> with Every Order &nbsp;·&nbsp;</span>
-      <span>🏭 <em>Direct Manufacturer</em> – No Middleman &nbsp;·&nbsp;</span>
-      <span>📦 Minimum Order <em>5 KG</em> Only &nbsp;·&nbsp;</span>
-      <span>✅ <em>Hygienic Production</em> – Quality Checked &nbsp;·&nbsp;</span>
-      <span>🚀 <em>FREE DELIVERY</em> on All Orders &nbsp;·&nbsp;</span>
-      <span>💵 <em>COD Available</em> – Pay on Delivery &nbsp;·&nbsp;</span>
-      <span>🎁 <em>FREE Diet Chart</em> with Every Order &nbsp;·&nbsp;</span>
-      <span>🏭 <em>Direct Manufacturer</em> – No Middleman &nbsp;·&nbsp;</span>
-      <span>📦 Minimum Order <em>5 KG</em> Only &nbsp;·&nbsp;</span>
-      <span>✅ <em>Hygienic Production</em> – Quality Checked &nbsp;·&nbsp;</span>
-    </div>
-  </div>
+  <!-- TOP BAR -->
+  <div class="topbar">🚚 Orders above ₹500 get Free Delivery &nbsp;|&nbsp; ⚠️ CAUTION: Beware of Fraud! We do not accept
+    unsolicited payments &nbsp;|&nbsp; 📦 Estimated delivery 3-5 working days</div>
 
-  <!-- NAVBAR -->
-  <nav id="navbar">
-    <a href="#" class="nav-logo">
-      <span class="nav-logo-main">JeeraPapad</span><span class="nav-logo-sub">Co.</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#products">Products</a></li>
-      <li><a href="#why">Benefits</a></li>
-      <li><a href="#pricing">Bulk Pricing</a></li>
-      <li><a href="#reviews">Reviews</a></li>
-      <li><a href="#faq">FAQ</a></li>
-      <li><a href="#order-section" class="nav-cta">Order Now →</a></li>
-    </ul>
-  </nav>
-
-  <!-- ─── HERO ─── -->
-  <section class="hero">
-    <div class="hero-bg-text">PAPAD</div>
-    <div class="hero-left">
-      <div class="hero-pill">✦ Retailers ke liye Best Deal</div>
-      <h1>
-        Premium Jeera
-        <span class="accent">Papad</span>
-        <span class="small">Direct Factory Rate par</span>
-      </h1>
-      <p class="hero-desc">Fast selling product + achha margin + regular demand. Seedha manufacturer se – bina kisi
-        middleman ke. All India delivery available.</p>
-      <div class="hero-actions">
-        <a href="#order-section" class="btn-primary">Price List Request karein →</a>
-        <a href="#products" class="btn-outline">Products Dekhein</a>
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-circle"><span>Hd</span></div>
+      <div>
+        <div class="brand-name">Haldiram's</div>
+        <div class="brand-tagline">Taste of Tradition</div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <div class="hero-stat-num">5<span>KG</span></div>
-          <div class="hero-stat-label">Min. Order</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">All<span>🇮🇳</span></div>
-          <div class="hero-stat-label">India Delivery</div>
-        </div>
-        <div class="stat-divider"></div>
-        <div class="hero-stat">
-          <div class="hero-stat-num">COD<span>✓</span></div>
-          <div class="hero-stat-label">Available</div>
-        </div>
+    </div>
+    <nav>
+      <a href="#">Sweets</a>
+      <a href="#">Savories</a>
+      <a href="#">Ready to Eat</a>
+      <a href="#">Ghee</a>
+      <a href="#">Refreshments</a>
+    </nav>
+    <button class="btn-cart">🛒 Add to Cart</button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="dot"></div> Traditional Rajasthani Recipe · In Stock
+      </div>
+      <h1 class="hero-title">Bikaneri<br><em>Katran</em><br>Papad</h1>
+      <p class="hero-subtitle">Crafted with the spirit of Bikaner — thin, crunchy, and packed with authentic chatpata
+        flavour.</p>
+      <div class="price-tag">
+        <span class="price-label">Price</span>
+        <span class="price-amount">₹130<sup style="font-size:1.2rem">.00</sup></span>
+        <span class="price-tax">500 gm · Inclusive of all taxes</span>
+      </div>
+      <div class="hero-actions">
+        <a class="btn-primary btn-link" href="#order-form">Buy Now</a>
+        <a class="btn-secondary btn-link" href="#order-form">Quick Order</a>
+      </div>
+      <div class="trust-badges">
+        <div class="badge"><span class="badge-icon">✅</span> 91% Positive Ratings</div>
+        <div class="badge"><span class="badge-icon">📦</span> 100K+ Orders</div>
+        <div class="badge"><span class="badge-icon">🏆</span> 11+ Years on Amazon</div>
+      </div>
+      <div class="hero-quick-strip">
+        <div class="quick-chip">No Added Colours</div>
+        <div class="quick-chip">Ready to Serve</div>
+        <div class="quick-chip">PAN India Delivery</div>
       </div>
     </div>
     <div class="hero-right">
-      <div class="floating-chip chip1">
-        <div class="chip-dot"></div>
-        <span>Live Orders Coming In</span>
-      </div>
-      <div class="floating-chip chip2">
-        <div class="chip-dot yellow"></div>
-        <span>COD Available ✓</span>
-      </div>
-      <div class="floating-chip chip3">
-        <div class="chip-dot"></div>
-        <span>FREE Delivery</span>
-      </div>
-      <div class="hero-img-card">
-        <div class="hero-card-badge">🔥 Best Seller</div>
-        <img src="./Image/product.png" alt="Premium Jeera Papad"
-          onerror="this.style.cssText='width:100%;height:320px;background:linear-gradient(135deg,#FFF8E6,#FFF0F0);border-radius:12px;display:flex;align-items:center;justify-content:center;';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23FFF8E6%22 width=%22400%22 height=%22320%22 rx=%2212%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F5A800%22 font-size=%2248%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2222%22 font-weight=%22bold%22%3EJeera Papad%3C/text%3E%3C/svg%3E'" />
-        <div class="hero-card-footer">
-          <div class="hero-card-title">Jeera Papad</div>
-          <div class="hero-card-tag">Direct Factory Rate</div>
+      <div class="product-image-wrap">
+        <div class="product-glow"></div>
+        <div class="product-img-placeholder">
+          <img src="./Image/10.avif" alt="Haldiram's Bikaneri Katran Papad pack">
         </div>
+        <div class="floating-badge">Top<br>Brand</div>
+        <div class="weight-tag">500 gm Pack</div>
       </div>
     </div>
   </section>
 
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <div class="trust-bar-inner">
-      <div class="trust-item">
-        <div class="trust-icon-wrap">🚚</div>
-        <span>FREE Delivery</span>
+  <!-- MARQUEE BAND -->
+  <div class="story-band">
+    <div class="story-band-inner">
+      <span>Authentic Bikaner Recipe</span><span class="sep">✦</span>
+      <span>Thin &amp; Crispy Texture</span><span class="sep">✦</span>
+      <span>No Artificial Colours</span><span class="sep">✦</span>
+      <span>Perfect with Dal-Chawal</span><span class="sep">✦</span>
+      <span>Rajasthan's Finest Papad</span><span class="sep">✦</span>
+      <span>Chatpata Masala Flavour</span><span class="sep">✦</span>
+      <!-- duplicate for seamless loop -->
+      <span>Authentic Bikaner Recipe</span><span class="sep">✦</span>
+      <span>Thin &amp; Crispy Texture</span><span class="sep">✦</span>
+      <span>No Artificial Colours</span><span class="sep">✦</span>
+      <span>Perfect with Dal-Chawal</span><span class="sep">✦</span>
+      <span>Rajasthan's Finest Papad</span><span class="sep">✦</span>
+      <span>Chatpata Masala Flavour</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- HERITAGE / DESCRIPTION -->
+  <section class="heritage">
+    <div class="heritage-grid">
+      <div class="heritage-visual fade-up">
+        <img src="./Image/trust.avif" alt="Traditional Bikaneri papad presentation">
       </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">💵</div>
-        <span>COD Available</span>
+      <div class="heritage-content fade-up">
+        <div class="section-label">Our Story</div>
+        <h2 class="section-heading">A Culinary Tribute to Royal Bikaner</h2>
+        <blockquote class="heritage-quote">"Each crunchy bite immediately takes you to the vibrant and historic climes
+          of this royal city."</blockquote>
+        <p class="section-body">Haldiram's Bikaneri Katran Papad is a culinary tribute to the rich heritage of Bikaner,
+          Rajasthan. The familiarity of this adored snack brings back cherished moments of being fed Papads alongside
+          Dal-Chawal by our mothers.</p>
+        <p class="section-body" style="margin-top:12px">The art of Papad-making has been perfected for generations in
+          Bikaner. Crafted with the finest ingredients and inspired by the years-old cooking secrets of our
+          grandmothers, Haldiram's replicates traditional methods to create this Namkeen snack — keeping it close to
+          time-honoured recipes.</p>
       </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">🏭</div>
-        <span>Direct Manufacturer</span>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section class="ingredients">
+    <div style="text-align:center">
+      <div class="section-label">What's Inside</div>
+      <h2 class="section-heading" style="margin:0 auto 6px">Finest Natural Ingredients</h2>
+      <p class="section-body" style="margin:0 auto; text-align:center">Carefully selected, traditionally combined —
+        every ingredient tells a story of purity.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-icon">🫘</div>
+        <div class="ingredient-name">Urad Dal</div>
+        <div class="ingredient-desc">Split black pulse — the soul of every traditional Papad, giving it that signature
+          crisp.</div>
       </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">✅</div>
-        <span>Quality Checked</span>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-icon">🟢</div>
+        <div class="ingredient-name">Moong Dal</div>
+        <div class="ingredient-desc">Split green gram for a light, digestible texture and authentic Bikaneri taste.
+        </div>
       </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">📦</div>
-        <span>Strong Packing</span>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-icon">🌾</div>
+        <div class="ingredient-name">Rice Flour</div>
+        <div class="ingredient-desc">Adds the signature crispy, airy bite that makes each piece irresistible.</div>
       </div>
-      <div class="trust-divider"></div>
-      <div class="trust-item">
-        <div class="trust-icon-wrap">🎁</div>
-        <span>FREE Diet Chart</span>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-icon">🌶️</div>
+        <div class="ingredient-name">Blend of Spices</div>
+        <div class="ingredient-desc">A secret masala mix delivering the perfect chatpata kick to your meals.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES / WHY HALDIRAM'S -->
+  <section class="features">
+    <div class="section-label" style="color:var(--saffron)">Why Choose Haldiram's</div>
+    <h2 class="section-heading">Trusted by 100,000+ Families</h2>
+    <p class="section-body">From your grandmother's kitchen to your modern dining table — the same authentic crunch,
+      reimagined for every occasion.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-number">01</div>
+        <div class="feature-title">Thin &amp; Shredded Cut</div>
+        <div class="feature-desc">'Katran' signifies distinctive thin, shredded pieces — unlike traditional round Papads
+          — making them perfect for snacking anytime.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">02</div>
+        <div class="feature-title">Re-Crispable</div>
+        <div class="feature-desc">Gone soft? Simply reheat in a dry skillet or frying pan until crispy again. Freshness,
+          always on your terms.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">03</div>
+        <div class="feature-title">Versatile Pairing</div>
+        <div class="feature-desc">Perfect with Dal-Chawal, as a standalone snack, or mixed with tomatoes, onions, chaat
+          masala and peanuts for a street-style treat.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">04</div>
+        <div class="feature-title">91% Positive Ratings</div>
+        <div class="feature-desc">Backed by over 100,000 happy customers across India and a Top Brand designation on
+          Amazon.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">05</div>
+        <div class="feature-title">11+ Years of Trust</div>
+        <div class="feature-desc">A legacy brand with over a decade of consistent quality, hygiene, and flavour that
+          keeps families coming back.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">06</div>
+        <div class="feature-title">PAN India Delivery</div>
+        <div class="feature-desc">Delivered safely to your doorstep anywhere in India. Check your pincode for estimated
+          delivery timelines.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO SERVE -->
+  <section class="serve">
+    <div class="section-label">Serving Ideas</div>
+    <h2 class="section-heading">Endless Ways to Enjoy</h2>
+    <div class="serve-steps">
+      <div class="step fade-up">
+        <div class="step-num">1</div>
+        <div class="step-icon">🫕</div>
+        <div class="step-title">Classic Dal-Chawal</div>
+        <div class="step-desc">The timeless way — enjoy alongside a warm bowl of Dal-Chawal for a complete, comforting
+          meal that brings back childhood memories.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-icon">🥗</div>
+        <div class="step-num">2</div>
+        <div class="step-title">Chatpata Street Mix</div>
+        <div class="step-desc">Toss with finely chopped tomatoes, onions, a pinch of salt, Chaat Masala, roasted
+          peanuts, and chilli flakes. Level up your spice game.</div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-icon">☕</div>
+        <div class="step-num">3</div>
+        <div class="step-title">Tea-Time Snack</div>
+        <div class="step-desc">The perfect crispy companion to your evening chai. Light, flavourful, and utterly moreish
+          — one handful is never enough.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TASTE MOMENTS -->
+  <section class="taste-moments">
+    <div style="text-align:center;margin-bottom:52px">
+      <div class="section-label">Papad in Your Life</div>
+      <h2 class="section-heading" style="margin:0 auto 10px">How Papad Makes Every Moment Better</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center">Four real-life occasions where one handful of Bikaneri Katran Papad turns the ordinary into a memory worth savouring.</p>
+    </div>
+    <div class="taste-grid">
+
+      <!-- Card 1 -->
+      <div class="taste-card fade-up">
+        <div class="taste-card-top taste-card-top--palette">
+          <div class="taste-card-emoji">🎨</div>
+          <div class="taste-card-overlay-text">Elevate</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Flavour Journey</div>
+          <h3 class="taste-title">Expand Your Palate</h3>
+          <p class="taste-desc">Layer flavours you never thought possible. Pair Katran Papad with different chutneys — mint, tamarind, or raw mango — and discover a new taste dimension every single time.</p>
+          <ul class="taste-tips">
+            <li>🟢 Mint chutney for a refreshing kick</li>
+            <li>🟤 Tamarind chutney for tangy depth</li>
+            <li>🟡 Aam ka murabba for sweet contrast</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="taste-card fade-up">
+        <div class="taste-card-top taste-card-top--snack">
+          <div class="taste-card-emoji">🌮</div>
+          <div class="taste-card-overlay-text">Snack</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Any Time Snack</div>
+          <h3 class="taste-title">The Perfect Snack Sidekick</h3>
+          <p class="taste-desc">Replace boring chips and namkeen with something that's packed with traditional goodness. Munch straight from the pack or toss into a bowl with your favourite toppings for an instant chaat.</p>
+          <ul class="taste-tips">
+            <li>🧅 Diced onion + green chilli mix</li>
+            <li>🥜 Roasted peanuts for extra crunch</li>
+            <li>🌶️ Chaat masala + lemon squeeze</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="taste-card fade-up">
+        <div class="taste-card-top taste-card-top--guest">
+          <div class="taste-card-emoji">🏡</div>
+          <div class="taste-card-overlay-text">Host</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Guest Serving</div>
+          <h3 class="taste-title">Impress Every Guest Instantly</h3>
+          <p class="taste-desc">First impressions matter. Set a beautiful bowl of Katran Papad on the table the moment guests arrive. No fuss, no cooking — just authentic crunch that sparks conversation.</p>
+          <ul class="taste-tips">
+            <li>🫙 Serve in a clay or brass bowl</li>
+            <li>🍋 Pair with pickle and yoghurt dip</li>
+            <li>✨ Perfect starter before any meal</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="taste-card fade-up">
+        <div class="taste-card-top taste-card-top--movie">
+          <div class="taste-card-emoji">🎬</div>
+          <div class="taste-card-overlay-text">Relax</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Movie Night</div>
+          <h3 class="taste-title">Ditch the Popcorn, Go Desi</h3>
+          <p class="taste-desc">Movie nights just got an upgrade. Swap microwaved popcorn for a big bowl of Bikaneri Katran Papad. Lighter, crunchier, and infinitely more flavourful — episode after episode.</p>
+          <ul class="taste-tips">
+            <li>🍿 Zero prep, just open and munch</li>
+            <li>🥤 Pairs great with nimbu paani</li>
+            <li>🎭 Binge-watch approved snack</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STATS / TRUST -->
+  <div class="trust">
+    <div class="trust-grid">
+      <div>
+        <div class="trust-stat-num">91%</div>
+        <div class="trust-stat-label">Positive Ratings</div>
+      </div>
+      <div>
+        <div class="trust-stat-num">100K+</div>
+        <div class="trust-stat-label">Recent Orders</div>
+      </div>
+      <div>
+        <div class="trust-stat-num">11+</div>
+        <div class="trust-stat-label">Years on Amazon</div>
+      </div>
+      <div>
+        <div class="trust-stat-num">₹130</div>
+        <div class="trust-stat-label">For 500 gm Pack</div>
       </div>
     </div>
   </div>
 
-  <!-- ─── WHY SECTION ─── -->
-  <section class="why-section" id="why">
-    <div class="container">
-      <div class="why-header">
-        <div class="section-tag">Kyun Choose Karein</div>
-        <h2 class="section-title">Aapke Shop ke liye<br /><em>Perfect Product</em></h2>
-        <p class="section-sub">Jeera Papad ek aise product hai jo ek baar add karne ke baad customers khud se khareed ke
-          le jaate hain – aapko zyada mehnat ki zaroorat hi nahi.</p>
+  <!-- QUALITY & TRUST -->
+  <section class="quality-trust">
+    <div class="section-label" style="color:var(--saffron)">Certified Quality</div>
+    <h2 class="section-heading">You Can Trust Every Bite</h2>
+    <p class="section-body">Every pack of Haldiram's Bikaneri Katran Papad is backed by stringent quality certifications and a commitment to purity — no shortcuts, no compromises.</p>
+
+    <div class="quality-trust-grid">
+
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon quality-card-icon--blue">🏛️</div>
+        <div class="quality-card-badge quality-card-badge--blue">Govt. Certified</div>
+        <div class="quality-card-title">FSSAI Licensed</div>
+        <div class="quality-card-desc">Manufactured and packaged under a valid FSSAI licence, ensuring full compliance with India's Food Safety and Standards Authority regulations for safe consumption.</div>
+        <div class="quality-card-watermark">FSSAI</div>
       </div>
-      <div class="why-grid">
-        <div class="why-card reveal">
-          <div class="why-num">01</div>
-          <div class="why-icon-wrap">🛒</div>
-          <h3>Daily Use Item</h3>
-          <p>Roz bikne wala product hai – har ghar mein daily demand rehti hai. Kabhi stock idle nahi rahta aapke shelf
-            par.</p>
+
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon quality-card-icon--green">🏭</div>
+        <div class="quality-card-badge quality-card-badge--green">Manufacturing</div>
+        <div class="quality-card-title">GMP Compliant</div>
+        <div class="quality-card-desc">Produced in a GMP-certified facility following Good Manufacturing Practices — consistent hygiene, controlled processes, and quality at every single stage of production.</div>
+        <div class="quality-card-watermark">GMP</div>
+      </div>
+
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon quality-card-icon--gold">🌿</div>
+        <div class="quality-card-badge quality-card-badge--gold">100% Natural</div>
+        <div class="quality-card-title">No Preservatives</div>
+        <div class="quality-card-desc">Absolutely zero artificial preservatives, no added colours, and no synthetic flavour enhancers. Only real ingredients — the same way your grandmother made it.</div>
+        <div class="quality-card-watermark">Pure</div>
+      </div>
+
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon quality-card-icon--red">📅</div>
+        <div class="quality-card-badge quality-card-badge--red">Shelf Life</div>
+        <div class="quality-card-title">6-Month Freshness</div>
+        <div class="quality-card-desc">Stays crisp and flavourful for up to 6 months from manufacturing date. Store in a cool, dry place and seal tightly after opening to preserve every crunch.</div>
+        <div class="quality-card-watermark">6M</div>
+      </div>
+
+    </div>
+
+    <div class="quality-assurance-bar">
+      <span>🏛️ <strong>FSSAI Licensed</strong></span>
+      <div class="quality-divider"></div>
+      <span>🏭 <strong>GMP Certified Facility</strong></span>
+      <div class="quality-divider"></div>
+      <span>🌿 <strong>No Artificial Preservatives</strong></span>
+      <div class="quality-divider"></div>
+      <span>🎨 <strong>No Added Colours</strong></span>
+      <div class="quality-divider"></div>
+      <span>📅 <strong>6-Month Shelf Life</strong></span>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="section-label">Common Questions</div>
+    <h2 class="section-heading">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What does 'Katran' signify in Bikaneri Katran Papad?
+          <span class="faq-toggle">+</span>
         </div>
-        <div class="why-card reveal" style="transition-delay:0.1s">
-          <div class="why-num">02</div>
-          <div class="why-icon-wrap">📈</div>
-          <h3>High Demand Everywhere</h3>
-          <p>Sheher ho ya gaon – Jeera Papad ki demand har jagah hai. Aapke area mein bhi top-selling product ban sakta
-            hai.</p>
+        <div class="faq-a">The term 'Katran' in Haldiram's Bikaneri Katran Papad signifies its distinctive appearance —
+          thin, shredded pieces of Papad. Unlike traditional round Papads, Haldiram's Bikaneri Katran Papad is cut into
+          small pieces, making it perfect for snacking.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I reheat Haldiram's Bikaneri Katran Papad after it becomes soft?
+          <span class="faq-toggle">+</span>
         </div>
-        <div class="why-card reveal" style="transition-delay:0.2s">
-          <div class="why-num">03</div>
-          <div class="why-icon-wrap">💰</div>
-          <h3>Achha Profit Margin</h3>
-          <p>Direct factory rate par lein, market price par bechein – consistently achha margin milega aapko har sale
-            par.</p>
+        <div class="faq-a">Yes, you can reheat Haldiram's Bikaneri Katran Papad in a dry skillet or frying pan until it
+          becomes crispy again. Just a minute or two on medium heat restores the satisfying crunch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What is an innovative way to serve Haldiram's Bikaneri Katran Papad?
+          <span class="faq-toggle">+</span>
         </div>
-        <div class="why-card reveal" style="transition-delay:0.3s">
-          <div class="why-num">04</div>
-          <div class="why-icon-wrap">⚡</div>
-          <h3>Easy to Sell</h3>
-          <p>Customer already familiar hai – koi extra marketing nahi chahiye. Bas shelf par rakhein, khud bikta hai yeh
-            product.</p>
+        <div class="faq-a">If you want to serve Haldiram's Bikaneri Katran Papad in an innovative way, mix it with
+          well-chopped tomatoes and onions, add a pinch of salt and Chaat Masala. Add peanuts and a hint of chilli
+          flakes to level up your spice game!</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How should I store Bikaneri Katran Papad to keep it fresh?
+          <span class="faq-toggle">+</span>
         </div>
-        <div class="why-card reveal" style="transition-delay:0.4s">
-          <div class="why-num">05</div>
-          <div class="why-icon-wrap">🔄</div>
-          <h3>Repeat Orders Guaranteed</h3>
-          <p>Ek baar customer ko pasand aa gaya to bar bar aayega. Aapke shop ka loyal customer base banata hai yeh
-            product.</p>
+        <div class="faq-a">Store the Papad in a cool, dry place away from moisture and direct sunlight. Once opened,
+          seal the packet tightly or transfer to an airtight container to maintain freshness and crunch.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is this product available for PAN India delivery?
+          <span class="faq-toggle">+</span>
         </div>
-        <div class="why-card reveal" style="transition-delay:0.5s">
-          <div class="why-num">06</div>
-          <div class="why-icon-wrap">🛡️</div>
-          <h3>Low Risk Product</h3>
-          <p>Fast-moving item hai – stock kabhi pile nahi hoga. Invest karein aur quickly return paayen apne paisa ka.
-          </p>
-        </div>
+        <div class="faq-a">Yes! Haldiram's delivers this product PAN India with an estimated standard delivery timeline
+          of 3-5 working days, though delivery time may vary depending on your pin code.</div>
       </div>
     </div>
   </section>
 
-  <!-- ─── PRODUCTS ─── -->
-  <section class="products-section" id="products">
-    <div class="container">
-      <div class="products-header">
-        <div>
-          <div class="section-tag">Product Range</div>
-          <h2 class="section-title">Retail Packs for<br /><em>Easy Resale</em></h2>
-        </div>
-        <a href="#order-section" class="btn-primary" style="text-decoration:none">Sab Order Karein →</a>
-      </div>
-      <div class="products-grid">
-        <div class="product-card reveal">
-          <div class="product-img-wrap">
-            <div class="product-ribbon">Fast Seller</div>
-            <img src="./Image/product.png" alt="250g Pack"
-              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23FFF0F0%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2220%22 font-weight=%22bold%22%3E250g%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="product-body">
-            <div class="product-size">250g</div>
-            <p class="product-name">Jeera Papad – Small Pack</p>
-            <ul class="product-features">
-              <li><span class="feat-dot">✓</span> Single family use pack</li>
-              <li><span class="feat-dot">✓</span> Affordable entry price</li>
-              <li><span class="feat-dot">✓</span> Ready for direct resale</li>
-              <li><span class="feat-dot">✓</span> Maximum customer reach</li>
-            </ul>
-            <div class="product-price-row">
-              <div>
-                <div class="price-label">Best for new customers</div>
-              </div>
-              <button class="price-cta"
-                onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now
-                →</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card featured reveal" style="transition-delay:0.15s">
-          <div class="product-img-wrap">
-            <div class="product-ribbon yellow">⭐ Best Value</div>
-            <img src="./Image/product.png" alt="500g Pack"
-              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23FFF8E6%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F5A800%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C48500%22 font-size=%2220%22 font-weight=%22bold%22%3E500g%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="product-body">
-            <div class="product-size">500g</div>
-            <p class="product-name">Jeera Papad – Medium Pack</p>
-            <ul class="product-features">
-              <li><span class="feat-dot">✓</span> Medium family size</li>
-              <li><span class="feat-dot">✓</span> Higher profit margin</li>
-              <li><span class="feat-dot">✓</span> Most popular size</li>
-              <li><span class="feat-dot">✓</span> Ready for direct resale</li>
-            </ul>
-            <div class="product-price-row">
-              <div>
-                <div class="price-label">Most popular among retailers</div>
-              </div>
-              <button class="price-cta"
-                onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now
-                →</button>
-            </div>
-          </div>
-        </div>
-        <div class="product-card reveal" style="transition-delay:0.3s">
-          <div class="product-img-wrap">
-            <div class="product-ribbon">Premium</div>
-            <img src="./Image/product.png" alt="1 KG Pack"
-              onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23F5F5F3%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%231A1A18%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%231A1A18%22 font-size=%2220%22 font-weight=%22bold%22%3E1 KG%3C/text%3E%3C/svg%3E'" />
-          </div>
-          <div class="product-body">
-            <div class="product-size">1 KG</div>
-            <p class="product-name">Jeera Papad – Large Pack</p>
-            <ul class="product-features">
-              <li><span class="feat-dot">✓</span> Bulk family pack</li>
-              <li><span class="feat-dot">✓</span> Maximum profit margin</li>
-              <li><span class="feat-dot">✓</span> Restaurant grade quality</li>
-              <li><span class="feat-dot">✓</span> Ready for direct resale</li>
-            </ul>
-            <div class="product-price-row">
-              <div>
-                <div class="price-label">Best margin per unit</div>
-              </div>
-              <button class="price-cta"
-                onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now
-                →</button>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="cta-text">
+      <div class="section-label">Order Today</div>
+      <h2 class="section-heading">Ready to Experience the Crunch?</h2>
+      <p class="section-body">Check availability at your pincode and get authentic Bikaneri Katran Papad delivered to
+        your doorstep.</p>
     </div>
-  </section>
-
-  <!-- ─── OFFERS ─── -->
-  <section class="offers-section">
-    <div class="container">
-      <div class="offers-header">
-        <div class="section-tag">Exclusive Offers</div>
-        <h2 class="section-title">Aapke Saath <em>Special Benefits</em></h2>
+    <div class="cta-actions">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="pincode-row">
+          <input class="pincode-input" type="text" placeholder="Enter Pincode" maxlength="6">
+          <button class="btn-check">Check</button>
+        </div>
+        <button class="btn-primary" style="width:100%">Buy Now — ₹130</button>
       </div>
-      <div class="offers-grid">
-        <div class="offer-card reveal">
-          <span class="offer-card-badge">Free</span>
-          <div class="offer-icon-big">🚚</div>
-          <h3>FREE Delivery</h3>
-          <p>Har order par free delivery – koi extra charge nahi. All India delivery available hai.</p>
-        </div>
-        <div class="offer-card reveal" style="transition-delay:0.1s">
-          <span class="offer-card-badge">Convenient</span>
-          <div class="offer-icon-big">💵</div>
-          <h3>COD Available</h3>
-          <p>Cash on Delivery – pehle product receive karein, phir payment karein. Zero risk.</p>
-        </div>
-        <div class="offer-card reveal" style="transition-delay:0.2s">
-          <span class="offer-card-badge">Gift</span>
-          <div class="offer-icon-big">🎁</div>
-          <h3>FREE Diet Chart</h3>
-          <p>Har order ke saath FREE diet chart milega. Customer ko extra value dein apne shop se.</p>
-        </div>
-        <div class="offer-card reveal" style="transition-delay:0.3s">
-          <span class="offer-card-badge">Exclusive</span>
-          <div class="offer-icon-big">🏭</div>
-          <h3>Direct Factory Rate</h3>
-          <p>Seedha manufacturer se – koi middleman nahi, isliye best rate guaranteed hai aapko.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── TRANSFORMATION ─── -->
-  <section class="transformation" id="transformation">
-    <div class="container">
-      <div style="text-align:center;margin-bottom:60px;">
-        <div class="section-tag">Before & After</div>
-        <h2 class="section-title">Jeera Papad Add Karne se<br /><em>Kya Fark Padta Hai?</em></h2>
-      </div>
-      <div class="transformation-inner">
-        <div class="trans-panel before-panel reveal-left">
-          <div class="trans-label before">😟 Pehle – Bina Jeera Papad</div>
-          <h3>Aapke Shop mein Kya Ho Raha Tha?</h3>
-          <p>Customer aata tha, papad dhundhta tha, nahi milta tha to doosre shop chala jaata tha. Repeat customer nahi
-            banta tha aur daily income mein gap tha.</p>
-          <ul class="trans-list">
-            <li><span class="trans-check x">✗</span> Customer loss ho raha tha baar baar</li>
-            <li><span class="trans-check x">✗</span> High-demand product miss ho raha tha</li>
-            <li><span class="trans-check x">✗</span> Competitor ke paas ja raha tha traffic</li>
-            <li><span class="trans-check x">✗</span> Daily income mein gap tha</li>
-            <li><span class="trans-check x">✗</span> Repeat customers nahi bante the</li>
-          </ul>
-        </div>
-        <div class="trans-divider">
-          <div class="trans-arrow">→</div>
-        </div>
-        <div class="trans-panel after-panel reveal-right">
-          <div class="trans-label after">😊 Baad – Jeera Papad Add Karne ke Baad</div>
-          <h3>Ab Aapka Shop Kya Karega?</h3>
-          <p>Ek high-demand product add kiya aur customer roz aane laga. Repeat orders shuru, income regular, shop ki
-            growth tezi se hogi.</p>
-          <ul class="trans-list">
-            <li><span class="trans-check v">✓</span> Customer roz repeat aata hai</li>
-            <li><span class="trans-check v">✓</span> Daily income consistently increase</li>
-            <li><span class="trans-check v">✓</span> Competitor se ek step aage</li>
-            <li><span class="trans-check v">✓</span> Consistent profit margin guaranteed</li>
-            <li><span class="trans-check v">✓</span> Loyal customer base ban gaya</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── HOW TO ORDER ─── -->
-  <section class="how-section">
-    <div class="container">
-      <div class="how-header">
-        <div class="section-tag">Simple Process</div>
-        <h2 class="section-title">Order Karna <em>Bilkul Aasaan</em> Hai</h2>
-      </div>
-      <div class="how-steps">
-        <div class="how-step reveal">
-          <div class="step-num s1">1</div>
-          <h4>Form Bharein</h4>
-          <p>Neeche diye form mein apni details aur requirement bharen – sirf 2 minute lagenge.</p>
-        </div>
-        <div class="how-step reveal" style="transition-delay:0.15s">
-          <div class="step-num s2">2</div>
-          <h4>Call/WhatsApp</h4>
-          <p>24 ghante mein humari team aapse contact karegi – price list aur details share ki jayegi.</p>
-        </div>
-        <div class="how-step reveal" style="transition-delay:0.3s">
-          <div class="step-num s3">3</div>
-          <h4>Order Confirm</h4>
-          <p>Quantity aur pack size confirm karein. COD ya advance payment – aapki choice.</p>
-        </div>
-        <div class="how-step reveal" style="transition-delay:0.45s">
-          <div class="step-num s4">4</div>
-          <h4>Delivery Milegi</h4>
-          <p>Aapke door tak free delivery. Product receive karein aur selling shuru karein!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── BULK PRICING ─── -->
-  <section class="pricing-section" id="pricing">
-    <div class="container">
-      <div class="pricing-inner">
-        <div class="pricing-content reveal-left">
-          <div class="section-tag">Bulk Pricing</div>
-          <h2 class="section-title">Jitna Bada Order,<br /><em>Utna Better Rate</em></h2>
-          <p class="section-sub">Hum direct manufacturer hain – koi middleman nahi. Isliye aapko market mein best rate
-            de sakte hain consistently.</p>
-          <div class="tier-cards">
-            <div class="tier-card"
-              onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
-              <div class="tier-badge-new">5 KG</div>
-              <div class="tier-info-new">
-                <h4>Minimum Order – Start Here</h4>
-                <p>Pehli baar try karne ke liye perfect. Dekho customer response.</p>
-              </div>
-            </div>
-            <div class="tier-card best"
-              onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
-              <div class="tier-badge-new">10 KG+</div>
-              <div class="tier-info-new">
-                <h4>Best Margin – Recommended</h4>
-                <p>Jyadatar retailers is size par order karte hain – maximum benefit.</p>
-              </div>
-              <div class="tier-tag">⭐ Best</div>
-            </div>
-            <div class="tier-card"
-              onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
-              <div class="tier-badge-new">Custom</div>
-              <div class="tier-info-new">
-                <h4>Wholesale / Distributor</h4>
-                <p>Aapki exact requirement ke hisaab se arrangement hogi.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="pricing-visual reveal-right">
-          <div class="pricing-stat-float psf1">
-            <div class="psf-num">10+</div>
-            <div class="psf-label">KG Best Rate</div>
-          </div>
-          <div class="pricing-card-big">
-            <div class="pcb-header">
-              <div class="pcb-title">Retailer Benefits</div>
-              <div class="pcb-logo">JeeraPapad Co.</div>
-            </div>
-            <ul class="pcb-perks">
-              <li><span class="perk-icon-sm">🚚</span> FREE Delivery har order par</li>
-              <li><span class="perk-icon-sm">💵</span> COD Available – zero risk</li>
-              <li><span class="perk-icon-sm">🎁</span> FREE Diet Chart with every order</li>
-              <li><span class="perk-icon-sm">🏭</span> Direct manufacturer se – no middleman</li>
-              <li><span class="perk-icon-sm">✅</span> Quality checked har batch</li>
-              <li><span class="perk-icon-sm">📦</span> Strong packing – damage free</li>
-              <li><span class="perk-icon-sm">🔄</span> Regular supply – long-term partner</li>
-            </ul>
-            <button class="pcb-cta"
-              onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Price List Request
-              Karein →</button>
-            <p class="pcb-note">⚠ Limited area-wise supply – abhi contact karein</p>
-          </div>
-          <div class="pricing-stat-float psf2">
-            <div class="psf-num">All 🇮🇳</div>
-            <div class="psf-label">India Delivery</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── QUALITY / TRUST ─── -->
-  <section class="quality-section">
-    <div class="container">
-      <div class="quality-header">
-        <div class="section-tag">Why Trust Us</div>
-        <h2 class="section-title">Direct Manufacturer –<br /><em>Quality Guaranteed</em></h2>
-      </div>
-      <div class="quality-grid">
-        <div class="quality-card reveal">
-          <span class="quality-icon">🏭</span>
-          <h3>Direct Manufacturer</h3>
-          <p>Hum seedhe manufacturer hain – koi bichaulia nahi. Isliye best factory rate guaranteed hai aapko har time.
-          </p>
-          <div class="quality-badge">No Middleman</div>
-        </div>
-        <div class="quality-card reveal" style="transition-delay:0.1s">
-          <span class="quality-icon">🧼</span>
-          <h3>Hygienic Process</h3>
-          <p>Clean aur hygienic facility mein manufacturing hoti hai. Koi compromise nahi quality par – kabhi bhi.</p>
-          <div class="quality-badge">Certified Clean</div>
-        </div>
-        <div class="quality-card reveal" style="transition-delay:0.2s">
-          <span class="quality-icon">✅</span>
-          <h3>Quality Checked</h3>
-          <p>Har batch quality check ke baad hi pack kiya jaata hai – consistent taste guaranteed. Customer satisfied
-            rahega.</p>
-          <div class="quality-badge">Batch Tested</div>
-        </div>
-        <div class="quality-card reveal" style="transition-delay:0.3s">
-          <span class="quality-icon">📦</span>
-          <h3>Strong Packing</h3>
-          <p>Dum-dar packaging – transport mein damage nahi hoga. Product fresh aur safe pahunchega aapke door tak.</p>
-          <div class="quality-badge">Damage-Free</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── REVIEWS ─── -->
-  <section class="reviews-section" id="reviews">
-    <div class="container">
-      <div class="reviews-header">
-        <div class="section-tag">Social Proof</div>
-        <h2 class="section-title">Hamare <em>Retailers</em> Kya Kehte Hain?</h2>
-      </div>
-      <div class="reviews-grid">
-        <div class="review-card reveal">
-          <div class="review-quote">"</div>
-          <div class="review-stars">
-            <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span
-              class="star-icon">★</span><span class="star-icon">★</span>
-          </div>
-          <p class="review-text">Bahut achha product hai. Meri shop mein pehle hafte mein hi poora stock bikk gaya. Ab
-            regularly order karta hoon aur margin bhi bahut accha mil raha hai seedha factory se.</p>
-          <div class="reviewer-row">
-            <div class="reviewer-avatar">RK</div>
-            <div>
-              <div class="reviewer-name">Ramesh Kumar</div>
-              <div class="reviewer-place">Kirana Shop Owner, Jaipur</div>
-            </div>
-            <div class="verified-tag">✓ Verified</div>
-          </div>
-        </div>
-        <div class="review-card reveal" style="transition-delay:0.15s">
-          <div class="review-quote">"</div>
-          <div class="review-stars">
-            <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span
-              class="star-icon">★</span><span class="star-icon">★</span>
-          </div>
-          <p class="review-text">Quality ekdum first class hai. Customers ne taste ki bahut tarif ki. Ab meri shop mein
-            Jeera Papad ka permanent corner ban gaya hai. Repeat customers roz aate hain.</p>
-          <div class="reviewer-row">
-            <div class="reviewer-avatar">SP</div>
-            <div>
-              <div class="reviewer-name">Sunita Patil</div>
-              <div class="reviewer-place">General Store, Pune</div>
-            </div>
-            <div class="verified-tag">✓ Verified</div>
-          </div>
-        </div>
-        <div class="review-card reveal" style="transition-delay:0.3s">
-          <div class="review-quote">"</div>
-          <div class="review-stars">
-            <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span
-              class="star-icon">★</span><span class="star-icon">★</span>
-          </div>
-          <p class="review-text">Direct factory se lena bahut faydemand raha. Delivery time par aayi, packing strong
-            thi, quality excellent. Ab aur bhi products ke baare mein baat karne wala hoon inse.</p>
-          <div class="reviewer-row">
-            <div class="reviewer-avatar">MV</div>
-            <div>
-              <div class="reviewer-name">Mahesh Verma</div>
-              <div class="reviewer-place">Wholesale Distributor, Delhi</div>
-            </div>
-            <div class="verified-tag">✓ Verified</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FAQ ─── -->
-  <section class="faq-section" id="faq">
-    <div class="container">
-      <div class="faq-header">
-        <div class="section-tag">FAQ</div>
-        <h2 class="section-title">Aapke <em>Sawaalon</em> ke Jawab</h2>
-      </div>
-      <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Minimum order kitna hai? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">Minimum order 5 KG se start hota hai. Best margin ke liye 10 KG ya usse zyada recommend
-            karte hain. Jitna bada order, utna better rate aapko milega.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Kya sample available hai? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">Haan, sample available hai. WhatsApp par contact karke details le sakte hain. Sample lene
-            ke baad hi full order karna comfortable lagega.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Retail pack mein kaun kaun se sizes milte hain? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">250g, 500g aur 1 KG packs available hain. Ye packs ready for resale hain – aap directly
-            apne shop mein bech sakte hain bina kisi extra kaam ke.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Margin kitna milega? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">Margin aapke order quantity par depend karta hai. Bulk order par better profit margin diya
-            jaata hai. WhatsApp par contact karke exact margin calculation jaante hain.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Delivery kaise aur kitne din mein hogi? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">All India delivery available hai. Transport / courier ke through dispatch kiya jaata hai.
-            Free delivery milegi aapko har order par – koi extra charge nahi.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Payment kaise karna hoga? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">COD (Cash on Delivery) available hai. Advance payment ya partial advance bhi accept karte
-            hain order ke hisaab se. Details WhatsApp / call par share ki jayegi.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Quality kaise ensure karte hain? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">Hygienic process mein manufacturing hoti hai. Har batch quality check ke baad pack kiya
-            jaata hai. Consistent taste aur quality har time guaranteed hai.</div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-q" onclick="toggleFaq(this)">Kya regular supply milegi? <span
-              class="faq-toggle">+</span></button>
-          <div class="faq-a">Haan, hum long-term retailers ke saath regular supply maintain karte hain. Ek baar
-            partnership shuru ho gayi to consistent supply ensured hai.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── ORDER FORM ─── -->
-  <section class="order-section" id="order-section">
-    <div class="order-bg"></div>
-    <div class="container">
-      <div class="order-inner">
-        <div class="order-info">
-          <div class="section-tag">Abhi Order Karein</div>
-          <h2 class="section-title">Aaj Hi Ek<br /><em>High Demand Product</em><br />Add Karein</h2>
-          <p class="section-sub">Limited retailers ko hi supply di ja rahi hai (area-wise) – abhi contact karein aur
-            apne area ka slot secure karein.</p>
-          <ul class="order-perks-list">
-            <li class="order-perk"><span class="perk-icon-new">🚚</span> FREE Delivery – har order par, zero extra
-              charge</li>
-            <li class="order-perk"><span class="perk-icon-new">💵</span> COD Available – pehle product, phir payment
-            </li>
-            <li class="order-perk"><span class="perk-icon-new">🎁</span> FREE Diet Chart – har order ke saath gift</li>
-            <li class="order-perk"><span class="perk-icon-new">🏭</span> Direct Manufacturer – best rate guaranteed</li>
-            <li class="order-perk"><span class="perk-icon-new">📦</span> Strong Packing – product safe pahunchega</li>
-            <li class="order-perk"><span class="perk-icon-new">⭐</span> Quality Checked – inspected before dispatch</li>
-          </ul>
-          <div class="order-urgency">Limited area-wise slots remaining – jaldi karein!</div>
-        </div>
-        <div>
-          <div class="order-form" id="mainForm">
-            <div class="form-top-bar"></div>
-            <div class="form-header">
-              <h3>Price List & Sample Request</h3>
-              <p>Form bharein – 24 ghante mein reply milegi</p>
-            </div>
-            <div id="formContent">
-              <div class="form-row">
-                <div class="form-group">
-                  <label>Aapka Naam *</label>
-                  <input type="text" placeholder="Full name" id="fname" required />
-                </div>
-                <div class="form-group">
-                  <label>Phone / WhatsApp *</label>
-                  <input type="tel" placeholder="10-digit number" id="fphone" required />
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Shop / Business Name</label>
-                <input type="text" placeholder="Aapke shop ka naam" id="fshop" />
-              </div>
-              <div class="form-row">
-                <div class="form-group">
-                  <label>City / State *</label>
-                  <input type="text" placeholder="City, State" id="fcity" required />
-                </div>
-                <div class="form-group">
-                  <label>Order Quantity</label>
-                  <select id="fqty">
-                    <option value="">Select karein</option>
-                    <option value="sample">Sample chahiye</option>
-                    <option value="5kg">5 KG (Minimum)</option>
-                    <option value="10kg">10 KG (Best Rate)</option>
-                    <option value="20kg">20 KG+</option>
-                    <option value="custom">Custom Quantity</option>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label>Pack Size Preference</label>
-                <select id="fpack">
-                  <option value="">Select karein</option>
-                  <option value="250g">250g Packs</option>
-                  <option value="500g">500g Packs</option>
-                  <option value="1kg">1 KG Packs</option>
-                  <option value="mixed">Mixed Sizes</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label>Message (Optional)</label>
-                <textarea rows="3" placeholder="Koi aur jankari chahiye? Likhein..." id="fmsg"></textarea>
-              </div>
-              <button class="form-submit" onclick="submitForm()">
-                <span>Price List & Sample Request Bhejein</span> <span>→</span>
-              </button>
-              <p class="form-privacy">🔒 Aapki information safe hai – spam nahi karenge</p>
-            </div>
-            <div class="form-loading" id="formLoading">
-              <div class="spinner"></div>
-              <p style="font-size:0.95rem;color:#666;">Aapka request process ho raha hai...</p>
-            </div>
-            <div class="form-success" id="formSuccess">
-              <div class="success-icon">✓</div>
-              <h3>Request Successful!</h3>
-              <p>Aapka request humein mil gaya. 24 ghante mein humari team WhatsApp ya call par price list aur sample
-                details ke saath contact karegi.</p>
-              <a href="https://wa.me/yourwhatsappnumber" class="success-whatsapp">💬 WhatsApp par Baat Karein</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER CTA STRIP ─── -->
-  <div class="footer-cta-strip">
-    <p>Apne area mein high demand product add karein – aaj hi contact karein</p>
-    <div class="footer-btn-row">
-      <a href="https://wa.me/yourwhatsappnumber" class="f-btn f-btn-wa">💬 WhatsApp Now</a>
-      <a href="tel:yourphonenumber" class="f-btn f-btn-call">📞 Call Now</a>
     </div>
   </div>
 
-  <!-- ─── FOOTER ─── -->
+  <!-- ORDER FORM -->
+  <section class="order-form-section" id="order-form">
+    <div class="order-form-wrap fade-up">
+      <div class="section-label">Place Your Order</div>
+      <h2 class="section-heading" style="margin-bottom:8px">Quick Order Form</h2>
+      <p class="section-body" style="max-width:100%">Submit your details and choose one or more package sizes with quantity.
+        Our team will contact you to confirm your order.</p>
+
+      <div class="order-steps">
+        <div class="order-step"><span>1</span> Fill your details</div>
+        <div class="order-step"><span>2</span> Choose pack sizes</div>
+        <div class="order-step"><span>3</span> Submit order</div>
+      </div>
+
+      <form id="papadOrderForm" class="order-form-grid">
+        <div class="order-field">
+          <label class="order-label" for="customerName">Full Name</label>
+          <input class="order-input" id="customerName" name="name" type="text" placeholder="Enter your full name" required>
+        </div>
+
+        <div class="order-field">
+          <label class="order-label" for="customerPhone">Phone Number</label>
+          <input class="order-input" id="customerPhone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}" maxlength="10"
+            placeholder="10-digit mobile number" required>
+        </div>
+
+        <div class="order-field order-field-full">
+          <label class="order-label" for="customerAddress">Address</label>
+          <textarea class="order-textarea" id="customerAddress" name="address" placeholder="House no, street, area, city"
+            required></textarea>
+        </div>
+
+        <div class="order-field">
+          <label class="order-label" for="customerPincode">Pincode</label>
+          <input class="order-input" id="customerPincode" name="pincode" type="text" inputmode="numeric" pattern="[0-9]{6}" maxlength="6"
+            placeholder="6-digit pincode" required>
+        </div>
+
+        <div class="order-field order-field-full">
+          <div class="order-label">Package Size (Multiple Choice)</div>
+          <div class="package-choices">
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="200 gm">
+                200 gm Pack
+              </span>
+              <input type="number" class="package-qty" name="qty_200" min="1" value="1" disabled>
+            </label>
+
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="500 gm">
+                500 gm Pack
+              </span>
+              <input type="number" class="package-qty" name="qty_500" min="1" value="1" disabled>
+            </label>
+
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="1 kg">
+                1 kg Pack
+              </span>
+              <input type="number" class="package-qty" name="qty_1kg" min="1" value="1" disabled>
+            </label>
+
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="2 kg">
+                2 kg Bulk Pack
+              </span>
+              <input type="number" class="package-qty" name="qty_2kg" min="1" value="1" disabled>
+            </label>
+          </div>
+        </div>
+
+        <div class="order-field order-field-full form-actions">
+          <p class="form-note">By submitting, you agree to be contacted for order confirmation and delivery details.</p>
+          <button type="submit" class="btn-primary">Submit Order</button>
+        </div>
+      </form>
+      <div id="formMessage" class="form-message"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <div class="footer-brand-logo">Jeera<span>Papad</span> Co.</div>
-          <p>Hum ek direct manufacturer hain jo high-quality jeera papad banate hain. Humara focus hai retailers ko
-            consistent quality, achha margin aur regular supply provide karna – bina kisi middleman ke.</p>
-          <div class="footer-trust-row">
-            <span class="ftb">✔ Direct Manufacturer</span>
-            <span class="ftb">✔ Hygienic Production</span>
-            <span class="ftb">✔ Quality Checked</span>
-            <span class="ftb">✔ All India Delivery</span>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#products">Products</a></li>
-            <li><a href="#pricing">Bulk Pricing</a></li>
-            <li><a href="#order-section">Order Now</a></li>
-            <li><a href="#faq">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Business</h4>
-          <ul>
-            <li><a href="#">Retailers Welcome</a></li>
-            <li><a href="#">Distributors</a></li>
-            <li><a href="#">Wholesale Supply</a></li>
-            <li><a href="#">Long-term Partnership</a></li>
-            <li><a href="#">Bulk Orders</a></li>
-          </ul>
-        </div>
-        <div class="footer-col footer-contact">
-          <h4>Contact Us</h4>
-          <p>📞 Call: [Your Phone Number]</p>
-          <p>💬 WhatsApp: [Your WhatsApp]</p>
-          <p>📍 [Your City / Factory Location]</p>
-          <p>🕐 Mon–Sat: 9 AM – 7 PM</p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Haldiram's</div>
+        <p>A legacy of authentic Indian flavours, crafted with love and tradition since generations. Bringing the taste
+          of home to every corner of India.</p>
+        <div class="social-row" style="margin-top:18px">
+          <a class="social-btn" href="#">f</a>
+          <a class="social-btn" href="#">in</a>
+          <a class="social-btn" href="#">yt</a>
+          <a class="social-btn" href="#">📌</a>
         </div>
       </div>
-      <div class="footer-divider"></div>
-      <div class="footer-bottom">
-        <p>© 2024 JeeraPapad Co. – Direct Manufacturer. All Rights Reserved.</p>
-        <div class="footer-bottom-links">
-          <a href="#">Privacy Policy</a>
-          <a href="#">Terms</a>
-          <a href="#">Contact</a>
-        </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Process</a></li>
+          <li><a href="#">CSR Activities</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Store Locator</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Our Policies</h4>
+        <ul>
+          <li><a href="#">Cancellation &amp; Refund</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Reach Us</h4>
+        <ul>
+          <li><a href="#">support@haldirams.com</a></li>
+          <li><a href="#">+91 712-2779451</a></li>
+          <li><a href="#">Mon–Sat: 10AM – 6PM</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Haldiram's India Pvt Ltd. All rights reserved.</span>
+      <span>VISA · Mastercard · American Express · Net Banking</span>
     </div>
   </footer>
 
-  <!-- ─── DISCLAIMER ─── -->
-  <div class="disclaimer">
-    <p>Disclaimer: Is website par di gayi sabhi jankari sirf retailers aur distributors ke liye hai. Product images,
-      margins aur pricing indicative hain aur actual order ke waqt discuss ki jayegi. COD aur free delivery ki offer
-      specific conditions par lagu hoti hai – order confirm karte samay details confirm karein.</p>
-  </div>
-
-  <!-- ─── STICKY BUTTONS ─── -->
-  <div class="sticky-wrap">
-    <a href="https://wa.me/yourwhatsappnumber" class="sticky-btn sticky-wa">💬 WhatsApp</a>
-    <a href="tel:yourphonenumber" class="sticky-btn sticky-call">📞 Call Now</a>
-  </div>
-
   <script>
-    // Navbar scroll effect
-    window.addEventListener('scroll', () => {
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
-    });
-
     // FAQ toggle
-    function toggleFaq(btn) {
-      const item = btn.closest('.faq-item');
+    function toggleFaq(el) {
+      const item = el.parentElement;
       const isOpen = item.classList.contains('open');
-      document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
       if (!isOpen) item.classList.add('open');
     }
 
-    // Form submit
-    function submitForm() {
-      const fname = document.getElementById('fname').value.trim();
-      const fphone = document.getElementById('fphone').value.trim();
-      const fcity = document.getElementById('fcity').value.trim();
-      if (!fname || !fphone || !fcity) {
-        alert('Please naam, phone number aur city zaroor bharen.');
-        return;
-      }
-      document.getElementById('formContent').style.display = 'none';
-      document.getElementById('formLoading').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('formLoading').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 2200);
+    // Scroll fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Enable quantity input only for selected package sizes and validate form submission.
+    const packageChecks = document.querySelectorAll('.package-check');
+    packageChecks.forEach((check) => {
+      const qtyInput = check.closest('.package-choice').querySelector('.package-qty');
+      check.addEventListener('change', () => {
+        qtyInput.disabled = !check.checked;
+      });
+    });
+
+    const orderForm = document.getElementById('papadOrderForm');
+    const formMessage = document.getElementById('formMessage');
+
+    function keepDigitsOnly(input) {
+      input.value = input.value.replace(/\D/g, '');
     }
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+    document.getElementById('customerPhone').addEventListener('input', (e) => keepDigitsOnly(e.target));
+    document.getElementById('customerPincode').addEventListener('input', (e) => keepDigitsOnly(e.target));
 
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+    orderForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      formMessage.style.display = 'none';
+
+      const selected = Array.from(document.querySelectorAll('.package-check:checked'));
+      if (selected.length === 0) {
+        formMessage.textContent = 'Please select at least one package size.';
+        formMessage.style.color = '#842029';
+        formMessage.style.background = '#f8e8eb';
+        formMessage.style.borderColor = '#efb7c0';
+        formMessage.style.display = 'block';
+        return;
+      }
+
+      const selectedSummary = selected.map((item) => {
+        const qty = item.closest('.package-choice').querySelector('.package-qty').value;
+        return `${item.value} x ${qty}`;
+      }).join(', ');
+
+      formMessage.textContent = `Order submitted successfully. Selected: ${selectedSummary}`;
+      formMessage.style.color = '#165b2e';
+      formMessage.style.background = '#eaf8ee';
+      formMessage.style.borderColor = '#9fd6ae';
+      formMessage.style.display = 'block';
+
+      orderForm.reset();
+      document.querySelectorAll('.package-qty').forEach((qty) => {
+        qty.disabled = true;
+        qty.value = 1;
       });
     });
   </script>
