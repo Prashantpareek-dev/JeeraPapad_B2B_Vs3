@@ -1,0 +1,2062 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Jeera Papad – Direct Factory Rate | Retailers ke liye Best Deal</title>
+<link href="https://fonts.googleapis.com/css2?family=Hind:wght@300;400;500;600;700&family=Tiro+Devanagari+Hindi:ital@0;1&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red: #E51C1C;
+  --red-dark: #B01010;
+  --red-light: #FF3A3A;
+  --yellow: #FFD600;
+  --yellow-light: #FFF3A0;
+  --yellow-dark: #C8A000;
+  --black: #000000;
+  --white: #ffffff;
+  --gray-light: #f5f5f5;
+  --gray: #e0e0e0;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Hind', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+  cursor: default;
+}
+img { max-width: 100%; display: block; }
+
+/* SCROLLBAR */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 3px; }
+
+/* TOP BAR */
+.top-bar {
+  background: var(--black);
+  color: var(--yellow);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  overflow: hidden;
+}
+.top-bar-ticker {
+  display: flex;
+  animation: ticker 20s linear infinite;
+  white-space: nowrap;
+  gap: 60px;
+}
+.top-bar-ticker span { flex-shrink: 0; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ===== HERO / HOOK SECTION ===== */
+.hero {
+  background: var(--black);
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,214,0,0.03) 40px, rgba(255,214,0,0.03) 41px);
+  pointer-events: none;
+}
+.hero-left {
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-tag {
+  display: inline-block;
+  background: var(--yellow);
+  color: var(--black);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: pulse-tag 2s ease-in-out infinite;
+}
+@keyframes pulse-tag {
+  0%,100%{transform:scale(1)} 50%{transform:scale(1.04)}
+}
+.hero h1 {
+  font-size: 3.2rem;
+  line-height: 1.1;
+  color: var(--white);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.hero h1 span { color: var(--yellow); display: block; font-size: 3.8rem; }
+.hero-sub {
+  font-size: 1.3rem;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+.hero-badge {
+  background: rgba(255,214,0,0.12);
+  border: 1px solid var(--yellow);
+  color: var(--yellow);
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.hero-badge:hover {
+  background: var(--yellow);
+  color: var(--black);
+  transform: translateY(-2px);
+}
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--red);
+  color: var(--white);
+  padding: 18px 42px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 6px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.hero-cta::before {
+  content:'';
+  position:absolute;
+  left:-75%;
+  top:0;
+  width:50%;
+  height:100%;
+  background:rgba(255,255,255,0.2);
+  transform:skewX(-15deg);
+  transition:left 0.5s;
+}
+.hero-cta:hover::before { left:125%; }
+.hero-cta:hover { background: var(--red-dark); transform: translateY(-3px); box-shadow: 0 12px 30px rgba(229,28,28,0.5); }
+.hero-cta:active { transform: scale(0.97); }
+.hero-right {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+  overflow: hidden;
+}
+.hero-img-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%);
+}
+.hero-img-wrap img {
+  width: 85%;
+  max-width: 460px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.7));
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100%{transform:translateY(0) rotate(-2deg)} 50%{transform:translateY(-18px) rotate(2deg)}
+}
+.hero-offer-strip {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.offer-pill {
+  background: var(--yellow);
+  color: var(--black);
+  padding: 10px 22px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 16px rgba(255,214,0,0.4);
+  animation: pop-in 0.6s cubic-bezier(0.175,0.885,0.32,1.275) backwards;
+}
+.offer-pill:nth-child(1){animation-delay:0.2s}
+.offer-pill:nth-child(2){animation-delay:0.4s}
+.offer-pill:nth-child(3){animation-delay:0.6s}
+@keyframes pop-in {
+  0%{transform:scale(0) translateY(20px);opacity:0}
+  100%{transform:scale(1) translateY(0);opacity:1}
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits {
+  background: var(--yellow);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.benefits::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: var(--black);
+  clip-path: polygon(0 0, 100% 0, 100% 40%, 0 100%);
+}
+.benefits::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: var(--white);
+  clip-path: polygon(0 0, 100% 60%, 100% 100%, 0 100%);
+}
+.section-inner { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
+.section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: var(--black);
+  opacity: 0.5;
+  margin-bottom: 8px;
+  text-align: center;
+}
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 60px;
+  color: var(--black);
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  position: relative;
+  z-index: 1;
+}
+.benefit-item {
+  background: var(--white);
+  padding: 40px 30px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s;
+  border: 3px solid transparent;
+}
+.benefit-item::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: var(--red);
+  transition: width 0.4s;
+}
+.benefit-item:hover { transform: translateY(-8px); border-color: var(--red); box-shadow: 0 20px 60px rgba(229,28,28,0.2); }
+.benefit-item:hover::before { width: 100%; }
+.benefit-item:active { transform: translateY(-4px) scale(0.98); }
+.benefit-img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  transition: transform 0.4s;
+  clip-path: polygon(0 0, 100% 0, 95% 100%, 5% 100%);
+}
+.benefit-item:hover .benefit-img { transform: scale(1.04); }
+.benefit-num {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--yellow);
+  -webkit-text-stroke: 2px var(--black);
+  line-height: 1;
+  margin-bottom: 10px;
+}
+.benefit-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--black);
+}
+.benefit-desc { font-size: 1rem; color: #444; line-height: 1.6; }
+
+/* ===== PRODUCTS SECTION ===== */
+.products {
+  background: var(--black);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.products .section-title { color: var(--white); }
+.products .section-label { color: rgba(255,255,255,0.5); }
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.product-card {
+  background: #111;
+  border: 1px solid #222;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  transform-style: preserve-3d;
+}
+.product-card:hover {
+  transform: translateY(-12px) rotateY(4deg);
+  border-color: var(--yellow);
+  box-shadow: 0 30px 80px rgba(255,214,0,0.2), -8px 0 30px rgba(229,28,28,0.2);
+}
+.product-card:active { transform: translateY(-6px) scale(0.98); }
+.product-card-img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
+  transition: transform 0.4s;
+}
+.product-card:hover .product-card-img { transform: scale(1.06); }
+.product-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--red);
+  color: var(--white);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.product-card-body { padding: 24px; }
+.product-size {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--yellow);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.product-name { font-size: 1.1rem; color: rgba(255,255,255,0.7); margin-bottom: 16px; }
+.product-features { list-style: none; margin-bottom: 20px; }
+.product-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.95rem;
+  padding: 4px 0;
+}
+.product-features li::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: var(--yellow);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.product-cta {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--yellow);
+  color: var(--yellow);
+  padding: 12px;
+  text-align: center;
+  font-family: 'Hind', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.product-cta:hover { background: var(--yellow); color: var(--black); }
+
+/* ===== OFFERS SECTION ===== */
+.offers {
+  background: var(--red);
+  padding: 80px 0;
+  position: relative;
+  overflow: hidden;
+}
+.offers::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.08) 0%, transparent 50%),
+                    radial-gradient(circle at 80% 50%, rgba(0,0,0,0.15) 0%, transparent 50%);
+}
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+.offer-card {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.2);
+  padding: 30px 24px;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,214,0,0.2) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.offer-card:hover { transform: scale(1.05); background: rgba(255,255,255,0.15); }
+.offer-card:hover::before { opacity: 1; }
+.offer-card:active { transform: scale(0.97); }
+.offer-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+}
+.offer-card h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
+.offer-card p { font-size: 0.95rem; color: rgba(255,255,255,0.8); }
+
+/* ===== BEFORE AFTER SECTION ===== */
+.before-after {
+  background: var(--white);
+  padding: 120px 0;
+  overflow: hidden;
+}
+.ba-header { text-align: center; margin-bottom: 70px; }
+.ba-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  margin-bottom: 80px;
+}
+.ba-grid.reverse { direction: rtl; }
+.ba-grid.reverse > * { direction: ltr; }
+.ba-content {}
+.ba-phase {
+  display: inline-block;
+  padding: 6px 20px;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+.ba-phase.before { background: #f0f0f0; color: #666; }
+.ba-phase.after { background: var(--yellow); color: var(--black); }
+.ba-content h3 { font-size: 2rem; font-weight: 700; margin-bottom: 14px; line-height: 1.2; }
+.ba-content p { font-size: 1.1rem; color: #555; line-height: 1.7; margin-bottom: 20px; }
+.ba-points { list-style: none; }
+.ba-points li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 0;
+  font-size: 1rem;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+}
+.ba-points li span.check {
+  width: 22px;
+  height: 22px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-top: 2px;
+}
+.ba-visual {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.ba-visual img {
+  width: 100%;
+  height: 380px;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+.ba-visual:hover img { transform: scale(1.04); }
+.ba-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+.ba-divider {
+  text-align: center;
+  padding: 40px 0;
+  position: relative;
+}
+.ba-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--gray);
+}
+.ba-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background: var(--red);
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  color: white;
+  font-size: 1.5rem;
+  box-shadow: 0 8px 24px rgba(229,28,28,0.4);
+  animation: bounce-arrow 1.5s ease-in-out infinite;
+}
+@keyframes bounce-arrow {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)}
+}
+
+/* ===== BULK ORDER / PRICING ===== */
+.bulk-order {
+  background: #f8f8f8;
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.bulk-order::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: var(--black);
+  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.bulk-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.bulk-content h2 { font-size: 2.5rem; font-weight: 700; margin-bottom: 20px; }
+.bulk-content p { font-size: 1.1rem; color: #555; line-height: 1.7; margin-bottom: 30px; }
+.order-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.tier {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--white);
+  border-radius: 8px;
+  border-left: 4px solid var(--gray);
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.tier::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0;
+  background: rgba(255,214,0,0.1);
+  transition: width 0.3s;
+}
+.tier:hover { border-color: var(--yellow); transform: translateX(6px); }
+.tier:hover::after { width: 100%; }
+.tier.highlight { border-color: var(--red); background: rgba(229,28,28,0.05); }
+.tier.highlight:hover { border-color: var(--red-dark); }
+.tier-badge {
+  background: var(--black);
+  color: var(--yellow);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  min-width: 80px;
+  text-align: center;
+}
+.tier.highlight .tier-badge { background: var(--red); color: var(--white); }
+.tier-info h4 { font-size: 1.1rem; font-weight: 700; margin-bottom: 4px; }
+.tier-info p { font-size: 0.95rem; color: #666; }
+.bulk-visual {
+  position: relative;
+  z-index: 1;
+}
+.bulk-img-frame {
+  position: relative;
+  padding: 20px;
+  background: var(--yellow);
+  clip-path: polygon(0 5%, 5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
+}
+.bulk-img-frame img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  clip-path: polygon(0 5%, 5% 0, 100% 0, 100% 95%, 95% 100%, 0 100%);
+}
+.bulk-stat {
+  position: absolute;
+  background: var(--red);
+  color: var(--white);
+  padding: 16px 24px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(229,28,28,0.4);
+}
+.bulk-stat.stat1 { top: -20px; right: -20px; }
+.bulk-stat.stat2 { bottom: -20px; left: -20px; }
+.bulk-stat h3 { font-size: 2rem; font-weight: 700; line-height: 1; }
+.bulk-stat p { font-size: 0.85rem; opacity: 0.85; }
+
+/* ===== TRUST / MANUFACTURER ===== */
+.trust {
+  background: var(--black);
+  padding: 100px 0;
+  overflow: hidden;
+  position: relative;
+}
+.trust::before {
+  content: 'QUALITY';
+  position: absolute;
+  font-size: 18rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.02);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  white-space: nowrap;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  position: relative;
+  z-index: 1;
+}
+.trust-card {
+  background: #111;
+  padding: 40px 30px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 3px solid transparent;
+}
+.trust-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+  transform-origin: left;
+}
+.trust-card:hover { background: #1a1a1a; border-bottom-color: var(--red); }
+.trust-card:hover::before { transform: scaleX(1); }
+.trust-card:active { transform: scale(0.97); }
+.trust-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  clip-path: polygon(5% 0, 95% 0, 100% 90%, 50% 100%, 0 90%);
+  transition: transform 0.4s;
+}
+.trust-card:hover .trust-img { transform: scale(1.06); }
+.trust-icon {
+  font-size: 2.8rem;
+  margin-bottom: 14px;
+  display: block;
+  transition: transform 0.3s;
+}
+.trust-card:hover .trust-icon { transform: scale(1.2) rotate(5deg); }
+.trust-card h3 { font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 8px; }
+.trust-card p { font-size: 0.95rem; color: rgba(255,255,255,0.5); line-height: 1.5; }
+
+/* ===== PROFIT TRIGGER ===== */
+.profit {
+  background: var(--yellow);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.profit-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.profit-content h2 { font-size: 2.6rem; font-weight: 700; margin-bottom: 20px; color: var(--black); }
+.profit-content p { font-size: 1.15rem; color: rgba(0,0,0,0.7); line-height: 1.7; margin-bottom: 30px; }
+.profit-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+.profit-stat {
+  background: var(--black);
+  color: var(--white);
+  padding: 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.profit-stat::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0;
+  background: var(--red);
+  transition: height 0.3s;
+}
+.profit-stat:hover { transform: translateY(-4px); }
+.profit-stat:hover::before { height: 100%; }
+.profit-stat:active { transform: scale(0.97); }
+.profit-stat h3 { font-size: 2rem; font-weight: 700; color: var(--yellow); position: relative; z-index: 1; }
+.profit-stat p { font-size: 0.9rem; color: rgba(255,255,255,0.7); margin-top: 4px; position: relative; z-index: 1; }
+.profit-visual {
+  position: relative;
+}
+.profit-img-wrap {
+  position: relative;
+  clip-path: polygon(0 0, 85% 0, 100% 15%, 100% 100%, 15% 100%, 0 85%);
+  overflow: hidden;
+  background: var(--red);
+}
+.profit-img-wrap img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  mix-blend-mode: multiply;
+  opacity: 0.8;
+  transition: transform 0.5s;
+}
+.profit-img-wrap:hover img { transform: scale(1.05); }
+
+/* ===== REVIEWS ===== */
+.reviews {
+  background: var(--white);
+  padding: 120px 0;
+  overflow: hidden;
+}
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 1;
+}
+.review-card {
+  background: var(--white);
+  border: 1px solid #e0e0e0;
+  padding: 32px;
+  border-radius: 8px;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+.review-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  font-size: 8rem;
+  color: var(--yellow);
+  font-family: Georgia, serif;
+  line-height: 1;
+  pointer-events: none;
+  opacity: 0.3;
+}
+.review-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); border-color: var(--yellow); }
+.review-card:hover::before { opacity: 0.6; }
+.review-card:active { transform: translateY(-4px) scale(0.98); }
+.review-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 50% 100%, 0 80%);
+  transition: transform 0.4s;
+}
+.review-card:hover .review-img { transform: scale(1.03); }
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 12px;
+}
+.star {
+  width: 16px;
+  height: 16px;
+  background: var(--yellow);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.review-text { font-size: 1.05rem; color: #444; line-height: 1.7; margin-bottom: 20px; font-style: italic; position: relative; z-index: 1; }
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  background: var(--black);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--yellow);
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.reviewer-info h4 { font-size: 1rem; font-weight: 700; }
+.reviewer-info p { font-size: 0.85rem; color: #888; }
+
+/* ===== FAQ ===== */
+.faq {
+  background: #f8f8f8;
+  padding: 100px 0;
+  overflow: hidden;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq-item {
+  background: var(--white);
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.faq-item:hover { border-color: var(--red); box-shadow: 0 8px 24px rgba(229,28,28,0.1); }
+.faq-q {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  font-size: 1rem;
+  font-weight: 700;
+  gap: 10px;
+  background: var(--white);
+  transition: background 0.3s;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: 'Hind', sans-serif;
+  cursor: pointer;
+}
+.faq-q:hover { background: #fff8f8; }
+.faq-icon {
+  width: 28px;
+  height: 28px;
+  background: var(--yellow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.1rem;
+  font-weight: 700;
+  transition: transform 0.3s;
+  color: var(--black);
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); background: var(--red); color: white; }
+.faq-a {
+  display: none;
+  padding: 0 24px 20px;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.7;
+  border-top: 1px solid #f0f0f0;
+  padding-top: 14px;
+}
+.faq-item.open .faq-a { display: block; animation: faq-open 0.3s ease; }
+@keyframes faq-open {
+  0%{opacity:0;transform:translateY(-10px)} 100%{opacity:1;transform:translateY(0)}
+}
+
+/* ===== ORDER FORM ===== */
+.order-section {
+  background: var(--black);
+  padding: 120px 0;
+  position: relative;
+  overflow: hidden;
+}
+.order-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-conic-gradient(rgba(255,214,0,0.03) 0% 25%, transparent 0% 50%) 0 0/60px 60px;
+}
+.order-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.order-info h2 { font-size: 2.5rem; font-weight: 700; color: var(--white); margin-bottom: 20px; }
+.order-info p { font-size: 1.1rem; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 30px; }
+.order-perks { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.order-perk {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--white);
+  font-size: 1.05rem;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 6px;
+  border-left: 3px solid var(--yellow);
+  transition: all 0.3s;
+  cursor: default;
+}
+.order-perk:hover { background: rgba(255,214,0,0.1); transform: translateX(6px); }
+.perk-icon { font-size: 1.4rem; flex-shrink: 0; }
+.order-form {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 48px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.order-form::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--red), var(--yellow));
+}
+.form-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 8px; }
+.form-sub { font-size: 1rem; color: #666; margin-bottom: 28px; }
+.form-group { margin-bottom: 20px; }
+.form-group label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: 'Hind', sans-serif;
+  color: var(--black);
+  transition: border-color 0.3s;
+  background: #fafafa;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--red);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(229,28,28,0.1);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-submit {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  padding: 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-family: 'Hind', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  margin-top: 8px;
+}
+.form-submit:hover { background: var(--red-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(229,28,28,0.4); }
+.form-submit:active { transform: scale(0.98); }
+.form-loading {
+  display: none;
+  text-align: center;
+  padding: 30px;
+}
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 4px solid #f0f0f0;
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.form-success {
+  display: none;
+  text-align: center;
+  padding: 30px;
+}
+.success-icon {
+  width: 70px;
+  height: 70px;
+  background: #e8f5e9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+  font-size: 2rem;
+  animation: pop-in 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.form-success h3 { font-size: 1.5rem; font-weight: 700; color: #2e7d32; margin-bottom: 8px; }
+.form-success p { font-size: 1rem; color: #555; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: #050505;
+  padding: 80px 0 0;
+  border-top: 3px solid var(--red);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand {}
+.footer-logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 12px;
+}
+.footer-logo span { color: var(--yellow); }
+.footer-brand p { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.7; margin-bottom: 20px; }
+.footer-trust-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ftb {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.6);
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+.footer-col h4 { font-size: 1rem; font-weight: 700; color: var(--yellow); margin-bottom: 16px; text-transform: uppercase; letter-spacing: 1px; }
+.footer-col ul { list-style: none; }
+.footer-col ul li { margin-bottom: 10px; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-col ul li a:hover { color: var(--yellow); }
+.footer-col ul li a::before { content: '→'; font-size: 0.8rem; opacity: 0; transition: opacity 0.3s; }
+.footer-col ul li a:hover::before { opacity: 1; }
+.footer-contact p {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+.footer-contact p:hover { color: var(--yellow); }
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { color: rgba(255,255,255,0.3); font-size: 0.85rem; }
+.footer-cta-bar {
+  background: var(--red);
+  padding: 20px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-cta-bar p { color: var(--white); font-size: 1.1rem; font-weight: 600; }
+.footer-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.f-btn {
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Hind', sans-serif;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+  text-decoration: none;
+  display: inline-block;
+}
+.f-btn.wa { background: #25D366; color: white; }
+.f-btn.wa:hover { background: #1aab50; transform: translateY(-2px); }
+.f-btn.call { background: var(--yellow); color: var(--black); }
+.f-btn.call:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+
+/* ===== DISCLAIMER ===== */
+.disclaimer {
+  background: #1a1a1a;
+  padding: 30px 40px;
+  text-align: center;
+}
+.disclaimer p { color: rgba(255,255,255,0.3); font-size: 0.82rem; line-height: 1.6; max-width: 800px; margin: 0 auto; }
+
+/* ===== STICKY CTA ===== */
+.sticky-cta {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 888;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+.sticky-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Hind', sans-serif;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  transition: all 0.3s;
+  animation: slide-in-right 0.5s cubic-bezier(0.175,0.885,0.32,1.275) backwards;
+}
+.sticky-btn:nth-child(1){animation-delay:0.2s}
+.sticky-btn:nth-child(2){animation-delay:0.4s}
+@keyframes slide-in-right {
+  0%{transform:translateX(100px);opacity:0}
+  100%{transform:translateX(0);opacity:1}
+}
+.sticky-btn.wa-sticky { background: #25D366; color: white; }
+.sticky-btn.call-sticky { background: var(--yellow); color: var(--black); }
+.sticky-btn:hover { transform: translateY(-3px); }
+
+/* SECTION TRANSITIONS */
+.section-separator {
+  height: 4px;
+  background: linear-gradient(90deg, var(--black), var(--red), var(--yellow), var(--red), var(--black));
+  background-size: 300% 100%;
+  animation: gradient-shift 4s linear infinite;
+}
+@keyframes gradient-shift {
+  0%{background-position:0%} 100%{background-position:300%}
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 40px; order: 2; }
+  .hero-right { min-height: 400px; clip-path: none; order: 1; }
+  .hero h1 { font-size: 2.4rem; }
+  .hero h1 span { font-size: 2.8rem; }
+  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .offers-grid { grid-template-columns: repeat(2, 1fr); }
+  .bulk-inner { grid-template-columns: 1fr; gap: 40px; }
+  .bulk-order::before { display: none; }
+  .trust-grid { grid-template-columns: repeat(2, 1fr); }
+  .profit-inner { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .order-inner { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .ba-grid { grid-template-columns: 1fr; }
+  .ba-grid.reverse { direction: ltr; }
+}
+@media (max-width: 640px) {
+  .section-inner { padding: 0 20px; }
+  .hero-left { padding: 40px 20px; }
+  .hero h1 { font-size: 1.8rem; }
+  .hero h1 span { font-size: 2.2rem; }
+  .section-title { font-size: 2rem; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .offers-grid { grid-template-columns: 1fr 1fr; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .profit-stats { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+  .form-row { grid-template-columns: 1fr; }
+  .hero-right { min-height: 300px; }
+  .footer-cta-bar { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .sticky-cta { bottom: 16px; right: 16px; }
+  .sticky-btn { font-size: 0.9rem; padding: 12px 18px; }
+  .order-form { padding: 30px 20px; }
+}
+
+/* ANIMATIONS ON SCROLL */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+</style>
+</head>
+<body>
+
+<!-- TOP TICKER BAR -->
+<div class="top-bar">
+  <div class="top-bar-ticker">
+    <span>🚀 FREE DELIVERY on All Orders</span>
+    <span>💰 COD Available</span>
+    <span>🎁 FREE Diet Chart</span>
+    <span>⭐ Direct Manufacturer – No Middleman</span>
+    <span>📦 Minimum Order 5 KG</span>
+    <span>🏭 Hygienic Production – Quality Checked</span>
+    <span>🚀 FREE DELIVERY on All Orders</span>
+    <span>💰 COD Available</span>
+    <span>🎁 FREE Diet Chart</span>
+    <span>⭐ Direct Manufacturer – No Middleman</span>
+    <span>📦 Minimum Order 5 KG</span>
+    <span>🏭 Hygienic Production – Quality Checked</span>
+  </div>
+</div>
+
+<!-- ===== HERO / HOOK ===== -->
+<section class="hero">
+  <div class="hero-left">
+    <span class="hero-tag">🔥 Retailers ke liye Best Deal</span>
+    <h1>
+      High Demand
+      <span>Jeera Papad</span>
+      Direct Factory Rate par
+    </h1>
+    <p class="hero-sub">Fast selling product + achha margin + regular demand – bina kisi middleman ke, seedha manufacturer se.</p>
+    <div class="hero-badges">
+      <span class="hero-badge">✔ No Middleman</span>
+      <span class="hero-badge">✔ Direct Supply</span>
+      <span class="hero-badge">✔ Bulk Orders</span>
+      <span class="hero-badge">✔ All India Delivery</span>
+    </div>
+    <a href="#order-section" class="hero-cta">
+      Price List &amp; Sample ke liye Click karein →
+    </a>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="./Image/product.png" alt="Jeera Papad Product" onerror="this.style.background='#c00';this.style.minHeight='300px';this.alt='Jeera Papad'"/>
+    </div>
+  </div>
+  <div class="hero-offer-strip">
+    <div class="offer-pill">🚚 FREE Delivery</div>
+    <div class="offer-pill">💵 COD Available</div>
+    <div class="offer-pill">🎁 FREE Diet Chart</div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== OFFERS STRIP ===== -->
+<section class="offers">
+  <div class="section-inner">
+    <div class="offers-grid reveal">
+      <div class="offer-card">
+        <span class="offer-icon">🚚</span>
+        <h3>FREE Delivery</h3>
+        <p>Har order par free delivery – koi extra charge nahi</p>
+      </div>
+      <div class="offer-card">
+        <span class="offer-icon">💵</span>
+        <h3>COD Available</h3>
+        <p>Cash on Delivery – pehle product lein, phir pay karein</p>
+      </div>
+      <div class="offer-card">
+        <span class="offer-icon">🎁</span>
+        <h3>FREE Diet Chart</h3>
+        <p>Har order ke saath free diet chart milega</p>
+      </div>
+      <div class="offer-card">
+        <span class="offer-icon">🏭</span>
+        <h3>Direct Factory</h3>
+        <p>Seedha manufacturer se – best rate guaranteed</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== BENEFITS ===== -->
+<section class="benefits">
+  <div class="section-inner" style="padding-top:80px;">
+    <p class="section-label">Kyun choose karein</p>
+    <h2 class="section-title">Kyu ye product aapke shop ke liye best hai?</h2>
+    <div class="benefits-grid">
+      <div class="benefit-item reveal">
+        <img src="./Image/product.png" alt="Daily Use Item" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23E51C1C%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Daily Use</text></svg>'"/>
+        <div class="benefit-num">01</div>
+        <h3 class="benefit-title">Daily use item</h3>
+        <p class="benefit-desc">Roz bikne wala product – jab bhi khaana khao, papad chahiye. Har ghar me daily demand rahti hai.</p>
+      </div>
+      <div class="benefit-item reveal" style="transition-delay:0.1s">
+        <img src="./Image/product.png" alt="High Demand" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23FFD600%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23000%22 font-size=%2224%22>High Demand</text></svg>'"/>
+        <div class="benefit-num">02</div>
+        <h3 class="benefit-title">High demand in every area</h3>
+        <p class="benefit-desc">Sheher ho ya gaon – Jeera Papad ki demand har jagah hai. Aapke area me bhi top-selling product ban sakta hai.</p>
+      </div>
+      <div class="benefit-item reveal" style="transition-delay:0.2s">
+        <img src="./Image/product.png" alt="Good Profit Margin" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23000%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2224%22>Good Margin</text></svg>'"/>
+        <div class="benefit-num">03</div>
+        <h3 class="benefit-title">Good profit margin</h3>
+        <p class="benefit-desc">Direct factory rate par lein aur market price par bechein – achha profit margin milega aapko har sale par.</p>
+      </div>
+      <div class="benefit-item reveal" style="transition-delay:0.3s">
+        <img src="./Image/product.png" alt="Easy to Sell" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23E51C1C%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Easy to Sell</text></svg>'"/>
+        <div class="benefit-num">04</div>
+        <h3 class="benefit-title">Easy to sell</h3>
+        <p class="benefit-desc">Customer already familiar hai is product se. Koi extra marketing ki zaroorat nahi – bas shelf par rakhein, bikta hai.</p>
+      </div>
+      <div class="benefit-item reveal" style="transition-delay:0.4s">
+        <img src="./Image/product.png" alt="Repeat Orders" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23FFD600%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23000%22 font-size=%2224%22>Repeat Orders</text></svg>'"/>
+        <div class="benefit-num">05</div>
+        <h3 class="benefit-title">Repeat order product</h3>
+        <p class="benefit-desc">Ek baar customer ko pasand aa gaya to bar bar aayega – regular income ka best zariya hai ye product.</p>
+      </div>
+      <div class="benefit-item reveal" style="transition-delay:0.5s">
+        <img src="./Image/product.png" alt="Low Risk" class="benefit-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22200%22><rect fill=%22%23000%22 width=%22400%22 height=%22200%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2224%22>Low Risk</text></svg>'"/>
+        <div class="benefit-num">06</div>
+        <h3 class="benefit-title">Low risk + regular income</h3>
+        <p class="benefit-desc">Fast-moving consumer product hai – stock idle nahi rahta. Invest karein aur quickly return paayen apne paisa ka.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== PRODUCTS ===== -->
+<section class="products">
+  <div class="section-inner">
+    <p class="section-label">Retail ke liye</p>
+    <h2 class="section-title">Retail Sale ke liye Available Packs</h2>
+    <p style="text-align:center;color:rgba(255,255,255,0.5);font-size:1.1rem;margin-top:-40px;margin-bottom:50px;">Aap apne shop me easily resale kar sakte hain</p>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <img src="./Image/product.png" alt="250g Pack" class="product-card-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect fill=%22%23E51C1C%22 width=%22400%22 height=%22240%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2232%22>250g Pack</text></svg>'"/>
+        <div class="product-badge">Best Seller</div>
+        <div class="product-card-body">
+          <div class="product-size">250g</div>
+          <p class="product-name">Jeera Papad – Small Pack</p>
+          <ul class="product-features">
+            <li>Single family use</li>
+            <li>Fast selling size</li>
+            <li>Ready for resale</li>
+            <li>Affordable price point</li>
+          </ul>
+          <button class="product-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:0.15s">
+        <img src="./Image/product.png" alt="500g Pack" class="product-card-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect fill=%22%23FFD600%22 width=%22400%22 height=%22240%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23000%22 font-size=%2232%22>500g Pack</text></svg>'"/>
+        <div class="product-badge" style="background:var(--yellow);color:var(--black);">Popular</div>
+        <div class="product-card-body">
+          <div class="product-size">500g</div>
+          <p class="product-name">Jeera Papad – Medium Pack</p>
+          <ul class="product-features">
+            <li>Medium family size</li>
+            <li>Higher margin</li>
+            <li>Ready for resale</li>
+            <li>Best value pack</li>
+          </ul>
+          <button class="product-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:0.3s">
+        <img src="./Image/product.png" alt="1 KG Pack" class="product-card-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22240%22><rect fill=%22%23111%22 width=%22400%22 height=%22240%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2232%22>1 KG Pack</text></svg>'"/>
+        <div class="product-badge" style="background:#111;border:1px solid var(--yellow);color:var(--yellow);">Premium</div>
+        <div class="product-card-body">
+          <div class="product-size">1 KG</div>
+          <p class="product-name">Jeera Papad – Large Pack</p>
+          <ul class="product-features">
+            <li>Bulk family pack</li>
+            <li>Maximum profit margin</li>
+            <li>Ready for resale</li>
+            <li>Restaurant grade quality</li>
+          </ul>
+          <button class="product-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== BEFORE / AFTER ===== -->
+<section class="before-after">
+  <div class="section-inner">
+    <div class="ba-header">
+      <p class="section-label">Farq dekho</p>
+      <h2 class="section-title" style="color:var(--black)">Pehle aur Baad – Fark hai ji!</h2>
+    </div>
+
+    <div class="ba-grid">
+      <div class="ba-content reveal-left">
+        <span class="ba-phase before">Pehle – Bina Jeera Papad</span>
+        <h3>Aapke shop me kya ho raha tha?</h3>
+        <p>Customer aata tha, papad dhundhta tha, nahi milta tha to doosre shop chala jaata tha. Repeat customer nahi banta tha.</p>
+        <ul class="ba-points">
+          <li><span class="check">✗</span> Customer loss ho raha tha baar baar</li>
+          <li><span class="check">✗</span> Ek high-demand product miss ho raha tha</li>
+          <li><span class="check">✗</span> Competitor ke pass ja raha tha customer</li>
+          <li><span class="check">✗</span> Daily income me gap tha</li>
+        </ul>
+      </div>
+      <div class="ba-visual reveal-right">
+        <img src="./Image/product.png" alt="Shop without Jeera Papad" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22380%22><rect fill=%22%23f5f5f5%22 width=%22600%22 height=%22380%22/><text x=%2250%%22 y=%2245%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23999%22 font-size=%2228%22>Pehle Ki Situation</text><text x=%2250%%22 y=%2260%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23bbb%22 font-size=%2218%22>Customer chala jaata tha...</text></svg>'"/>
+        <div class="ba-label">😟 Pehle Ki Situation</div>
+      </div>
+    </div>
+
+    <div class="ba-divider">
+      <div class="ba-arrow">↓</div>
+    </div>
+
+    <div class="ba-grid reverse">
+      <div class="ba-visual reveal-left">
+        <img src="./Image/product.png" alt="Shop with Jeera Papad" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22380%22><rect fill=%22%23E51C1C%22 width=%22600%22 height=%22380%22/><text x=%2250%%22 y=%2245%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2228%22>Baad Ki Situation</text><text x=%2250%%22 y=%2260%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2218%22>Customer khush, repeat aata hai!</text></svg>'"/>
+        <div class="ba-label" style="background:rgba(255,214,0,0.9);color:black;">😊 Baad Ki Situation</div>
+      </div>
+      <div class="ba-content reveal-right">
+        <span class="ba-phase after">Baad – Jeera Papad Add Karne ke Baad</span>
+        <h3>Ab aapka shop kya karega?</h3>
+        <p>Ek high-demand product add kiya aur customer roz aane laga. Repeat orders shuru, income regular, shop ki growth tezi se.</p>
+        <ul class="ba-points">
+          <li><span class="check" style="background:var(--yellow);color:black;">✓</span> Customer roz repeat aata hai</li>
+          <li><span class="check" style="background:var(--yellow);color:black;">✓</span> Daily income increase ho gayi</li>
+          <li><span class="check" style="background:var(--yellow);color:black;">✓</span> Competitor se ek step aage</li>
+          <li><span class="check" style="background:var(--yellow);color:black;">✓</span> Consistent profit margin mil raha hai</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== BULK ORDER ===== -->
+<section class="bulk-order">
+  <div class="section-inner">
+    <div class="bulk-inner">
+      <div class="bulk-content reveal-left">
+        <p class="section-label" style="text-align:left">Order Process</p>
+        <h2>Order kaise karein?</h2>
+        <p>Seedha manufacturer se order karein – minimum order 5 KG se start hota hai. Jitna bada order, utna better rate aapko milega.</p>
+        <div class="order-tiers">
+          <div class="tier" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge">5 KG</div>
+            <div class="tier-info">
+              <h4>Minimum Order</h4>
+              <p>Shuru karne ke liye best – try karein aur dekho response</p>
+            </div>
+          </div>
+          <div class="tier highlight" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge">10 KG+</div>
+            <div class="tier-info">
+              <h4>Best Profit Margin ⭐</h4>
+              <p>Bade order par special rate milega – maximum benefit</p>
+            </div>
+          </div>
+          <div class="tier" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge">Custom</div>
+            <div class="tier-info">
+              <h4>Aapki Requirement ke Hisaab se</h4>
+              <p>Quantity customize kar sakte hain – wholesale aur distributor ke liye</p>
+            </div>
+          </div>
+        </div>
+        <p style="font-size:1rem;color:#e00;font-weight:700;">⚠ Limited retailers ko hi supply di ja rahi hai (area-wise) – abhi contact karein</p>
+      </div>
+      <div class="bulk-visual reveal-right">
+        <div class="bulk-img-frame">
+          <img src="./Image/product.png" alt="Bulk Order Jeera Papad" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22400%22><rect fill=%22%23111%22 width=%22500%22 height=%22400%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2224%22>Bulk Order</text></svg>'"/>
+        </div>
+        <div class="bulk-stat stat1">
+          <h3>10 KG+</h3>
+          <p>Best Rate</p>
+        </div>
+        <div class="bulk-stat stat2">
+          <h3>All India</h3>
+          <p>Delivery Available</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== TRUST ===== -->
+<section class="trust">
+  <div class="section-inner">
+    <p class="section-label" style="color:rgba(255,255,255,0.4)">Hum kaun hain</p>
+    <h2 class="section-title" style="color:var(--white)">Direct Manufacturer – Quality aur Supply Guaranteed</h2>
+    <div class="trust-grid">
+      <div class="trust-card reveal">
+        <img src="./Image/product.png" alt="Direct Manufacturer" class="trust-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22160%22><rect fill=%22%23E51C1C%22 width=%22300%22 height=%22160%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Manufacturer</text></svg>'"/>
+        <span class="trust-icon">🏭</span>
+        <h3>Direct Manufacturer</h3>
+        <p>Hum seedhe manufacturer hain – koi bichaulia nahi, isliye best rate guaranteed hai aapko</p>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:0.15s">
+        <img src="./Image/product.png" alt="Hygienic Production" class="trust-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22160%22><rect fill=%22%23FFD600%22 width=%22300%22 height=%22160%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23000%22 font-size=%2218%22>Hygienic</text></svg>'"/>
+        <span class="trust-icon">🧼</span>
+        <h3>Hygienic Process</h3>
+        <p>Hygienic manufacturing process – clean facility me production hoti hai, koi compromise nahi quality par</p>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:0.3s">
+        <img src="./Image/product.png" alt="Quality Checked" class="trust-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22160%22><rect fill=%22%23111%22 width=%22300%22 height=%22160%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2218%22>Quality Checked</text></svg>'"/>
+        <span class="trust-icon">✅</span>
+        <h3>Quality Checked</h3>
+        <p>Har batch quality check ke baad hi pack kiya jaata hai – consistent taste aur quality guaranteed</p>
+      </div>
+      <div class="trust-card reveal" style="transition-delay:0.45s">
+        <img src="./Image/product.png" alt="Strong Packing" class="trust-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22160%22><rect fill=%22%23E51C1C%22 width=%22300%22 height=%22160%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Strong Packing</text></svg>'"/>
+        <span class="trust-icon">📦</span>
+        <h3>Strong Packing</h3>
+        <p>Dum-dar packaging – transport me damage nahi hoga, product fresh aur safe pahunchega aapke paas</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== PROFIT TRIGGER ===== -->
+<section class="profit">
+  <div class="section-inner">
+    <div class="profit-inner">
+      <div class="profit-content reveal-left">
+        <p class="section-label" style="color:rgba(0,0,0,0.4)">Profit ki baat</p>
+        <h2>Aisa product jo fast bikta hai aur customer repeat aata hai</h2>
+        <p>Low risk + regular income wala product add karo apne shop mein – ek baar stock lagaya aur baar baar profit aata rahega. Jeera Papad ek aise product hai jis par customers kabhi nahi rukthe.</p>
+        <div class="profit-stats">
+          <div class="profit-stat" onclick="">
+            <h3>Fast</h3>
+            <p>Bikne wala product</p>
+          </div>
+          <div class="profit-stat" onclick="">
+            <h3>Repeat</h3>
+            <p>Customer wapas aata hai</p>
+          </div>
+          <div class="profit-stat" onclick="">
+            <h3>Low</h3>
+            <p>Risk product hai</p>
+          </div>
+          <div class="profit-stat" onclick="">
+            <h3>Regular</h3>
+            <p>Income milti hai</p>
+          </div>
+        </div>
+        <a href="#order-section" class="hero-cta" style="display:inline-flex;text-decoration:none">Abhi Order Karein →</a>
+      </div>
+      <div class="profit-visual reveal-right">
+        <div class="profit-img-wrap">
+          <img src="./Image/product.png" alt="Jeera Papad Profit" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22500%22 height=%22450%22><rect fill=%22%23E51C1C%22 width=%22500%22 height=%22450%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2224%22>Profit Product</text></svg>'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== REVIEWS ===== -->
+<section class="reviews">
+  <div class="section-inner">
+    <p class="section-label">Customer Reviews</p>
+    <h2 class="section-title">Hamare Retailers kya kehte hain?</h2>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <img src="./Image/product.png" alt="Happy Retailer" class="review-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22><rect fill=%22%23FFD600%22 width=%22400%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23000%22 font-size=%2218%22>Happy Retailer</text></svg>'"/>
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="review-text">"Bahut achha product hai. Meri shop mein pehle hafte mein hi poora stock bikk gaya. Ab regularly order karta hoon aur margin bhi bahut accha mil raha hai seedha factory se."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">RK</div>
+          <div class="reviewer-info">
+            <h4>Ramesh Kumar</h4>
+            <p>Kirana Shop Owner, Jaipur</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:0.15s">
+        <img src="./Image/product.png" alt="Happy Retailer 2" class="review-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22><rect fill=%22%23E51C1C%22 width=%22400%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2218%22>Happy Retailer</text></svg>'"/>
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="review-text">"Quality ekdum first class hai. Customers ne taste ki bahut tarif ki. Ab mera shop mein Jeera Papad ka permanent corner ban gaya hai. Repeat customers roz aate hain."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">SP</div>
+          <div class="reviewer-info">
+            <h4>Sunita Patil</h4>
+            <p>General Store, Pune</p>
+          </div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:0.3s">
+        <img src="./Image/product.png" alt="Happy Retailer 3" class="review-img" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22180%22><rect fill=%22%23000%22 width=%22400%22 height=%22180%22/><text x=%2250%%22 y=%2250%%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23FFD600%22 font-size=%2218%22>Happy Retailer</text></svg>'"/>
+        <div class="stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="review-text">"Direct factory se lena bahut faydemand raha. Delivery time par aayi, packing strong thi, quality excellent. Ab main aur bhi products ke baare mein baat karne wala hoon inse."</p>
+        <div class="reviewer">
+          <div class="reviewer-avatar">MV</div>
+          <div class="reviewer-info">
+            <h4>Mahesh Verma</h4>
+            <p>Wholesale Distributor, Delhi</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== FAQ ===== -->
+<section class="faq">
+  <div class="section-inner">
+    <p class="section-label">FAQ</p>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Minimum order kitna hai?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Minimum order 5 KG se start hota hai. Best margin ke liye 10 KG ya usse zyada recommend karte hain. Jitna bada order, utna better rate aapko milega.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kya sample available hai?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Haan, sample available hai. WhatsApp par contact karke details le sakte hain. Sample lene ke baad hi order karna comfortable lagega aapko.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Retail pack me kaun kaun se sizes milte hain?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">250g, 500g aur 1 KG packs available hain. Ye packs ready for resale hain – aap directly apne shop mein bech sakte hain bina kisi extra kaam ke.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Margin kitna milega?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Margin aapke order quantity par depend karta hai. Bulk order par better profit margin diya jaata hai. WhatsApp par contact karke exact margin calculation jaante hain.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Delivery kaise hogi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">All India delivery available hai. Transport / courier ke through dispatch kiya jaata hai. Free delivery milegi aapko har order par – koi extra charge nahi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Payment kaise karna hoga?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">COD (Cash on Delivery) available hai. Advance payment ya partial advance bhi accept karte hain order ke hisaab se. Details WhatsApp / call par share ki jayegi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Quality kaise ensure karte hain?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Hygienic process mein manufacturing hoti hai. Har batch quality check ke baad pack kiya jaata hai. Consistent taste aur quality har time guaranteed hai.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kya regular supply milegi?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Haan, hum long-term retailers ke saath regular supply maintain karte hain. Ek baar partnership shuru ho gayi to consistent supply ensured hai aapke liye.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Custom order possible hai?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Haan, aapki requirement ke hisaab se quantity customize kar sakte hain. Distributors aur wholesale buyers ke liye special arrangements bhi hain.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== ORDER FORM ===== -->
+<section class="order-section" id="order-section">
+  <div class="section-inner">
+    <div class="order-inner">
+      <div class="order-info">
+        <p class="section-label" style="color:rgba(255,255,255,0.4)">Abhi order karein</p>
+        <h2>Aaj hi apne shop mein ek high demand product add karein</h2>
+        <p>Limited retailers ko hi supply di ja rahi hai (area-wise) – abhi contact karein aur apne area ka slot secure karein.</p>
+        <ul class="order-perks">
+          <li class="order-perk">
+            <span class="perk-icon">🚚</span>
+            <span>FREE Delivery – Har order par, koi extra charge nahi</span>
+          </li>
+          <li class="order-perk">
+            <span class="perk-icon">💵</span>
+            <span>COD Available – Pehle product lein, phir pay karein</span>
+          </li>
+          <li class="order-perk">
+            <span class="perk-icon">🎁</span>
+            <span>FREE Diet Chart – Har order ke saath gift</span>
+          </li>
+          <li class="order-perk">
+            <span class="perk-icon">🏭</span>
+            <span>Direct Manufacturer – Best rate guaranteed</span>
+          </li>
+          <li class="order-perk">
+            <span class="perk-icon">📦</span>
+            <span>Strong Packing – Product safe aur fresh pahunchega</span>
+          </li>
+          <li class="order-perk">
+            <span class="perk-icon">⭐</span>
+            <span>Quality Checked – Har batch inspected before dispatch</span>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="order-form" id="mainForm">
+          <h3 class="form-title">Price List &amp; Sample Request</h3>
+          <p class="form-sub">Abhi form bharen – 24 ghante mein reply milegi</p>
+          <div id="formContent">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Aapka Naam *</label>
+                <input type="text" placeholder="Full name likhein" id="fname" required/>
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp *</label>
+                <input type="tel" placeholder="10-digit number" id="fphone" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Shop / Business Name</label>
+              <input type="text" placeholder="Aapke shop ka naam" id="fshop"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>City / State *</label>
+                <input type="text" placeholder="Aapka city aur state" id="fcity" required/>
+              </div>
+              <div class="form-group">
+                <label>Order Quantity</label>
+                <select id="fqty">
+                  <option value="">Select karein</option>
+                  <option value="sample">Sample chahiye</option>
+                  <option value="5kg">5 KG (Minimum Order)</option>
+                  <option value="10kg">10 KG (Best Rate)</option>
+                  <option value="20kg">20 KG+</option>
+                  <option value="custom">Custom Quantity</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Pack Size</label>
+              <select id="fpack">
+                <option value="">Select karein</option>
+                <option value="250g">250g Packs</option>
+                <option value="500g">500g Packs</option>
+                <option value="1kg">1 KG Packs</option>
+                <option value="mixed">Mixed Sizes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea rows="3" placeholder="Koi aur information chahiye? Likhein..." id="fmsg"></textarea>
+            </div>
+            <button class="form-submit" onclick="submitForm()">
+              Price List &amp; Sample Request Bhejein →
+            </button>
+            <p style="text-align:center;font-size:0.85rem;color:#888;margin-top:12px;">🔒 Aapki information safe hai – spam nahi karenge</p>
+          </div>
+          <div class="form-loading" id="formLoading">
+            <div class="spinner"></div>
+            <p style="font-size:1rem;color:#555;">Aapka request process ho raha hai...</p>
+            <p style="font-size:0.9rem;color:#888;margin-top:6px;">Thoda wait karein...</p>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <h3>Request Successful!</h3>
+            <p>Aapka request humein mil gaya. 24 ghante mein humari team WhatsApp ya call par contact karegi price list aur sample details ke saath.</p>
+            <div style="margin-top:20px;padding:16px;background:#f0f9ff;border-radius:8px;border-left:4px solid #2e7d32;">
+              <p style="font-size:1rem;font-weight:700;color:#2e7d32;margin-bottom:6px;">Jaldi response chahiye?</p>
+              <p style="font-size:0.9rem;color:#555;">WhatsApp ya Call karein seedhe →</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-separator"></div>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="section-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Jeera <span>Papad</span></div>
+        <p>Hum ek direct manufacturer hain jo high-quality jeera papad banate hain. Humara focus hai retailers ko consistent quality, achha margin aur regular supply provide karna.</p>
+        <div class="footer-trust-badges">
+          <span class="ftb">✔ Direct Manufacturer</span>
+          <span class="ftb">✔ Hygienic Production</span>
+          <span class="ftb">✔ Quality Checked</span>
+          <span class="ftb">✔ Bulk Supply Available</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#products">Product Details</a></li>
+          <li><a href="#order-section">Bulk Order</a></li>
+          <li><a href="#order-section">Contact Us</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#">Retailers Welcome</a></li>
+          <li><a href="#">Distributors</a></li>
+          <li><a href="#">Wholesale Supply</a></li>
+          <li><a href="#">Long-term Partnership</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <p>📞 Call: [Your Phone Number]</p>
+        <p>💬 WhatsApp: [Your WhatsApp Number]</p>
+        <p>📍 Location: [Your City / Factory Location]</p>
+        <p>🕐 Mon-Sat: 9 AM – 7 PM</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-cta-bar">
+    <p>Apne area mein high demand product add karein – aaj hi contact karein</p>
+    <div class="footer-btns">
+      <a href="https://wa.me/yourwhatsappnumber" class="f-btn wa">💬 WhatsApp Now</a>
+      <a href="tel:yourphonenumber" class="f-btn call">📞 Call Now</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2024 Jeera Papad – Direct Manufacturer. All Rights Reserved.</p>
+    <p>Retailers / Distributors ke liye inquiry welcome hai</p>
+  </div>
+</footer>
+
+<!-- ===== DISCLAIMER ===== -->
+<div class="disclaimer">
+  <p>Disclaimer: Is website par di gayi sabhi jankari sirf retailers aur distributors ke liye hai. Product images, margins aur pricing indicative hain aur actual order ke waqt discuss ki jayegi. Company ke paas prices aur availability change karne ka adhikaar surakshit hai. COD aur free delivery ki offer specific conditions par lagu hoti hai – order confirm karte samay details confirm karein. Kisi bhi order se pehle full terms aur conditions jaanne ke liye humse contact karein.</p>
+</div>
+
+<!-- ===== STICKY BUTTONS ===== -->
+<div class="sticky-cta">
+  <a href="https://wa.me/yourwhatsappnumber" class="sticky-btn wa-sticky">💬 WhatsApp</a>
+  <a href="tel:yourphonenumber" class="sticky-btn call-sticky">📞 Call Now</a>
+</div>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const fphone = document.getElementById('fphone').value.trim();
+  const fcity = document.getElementById('fcity').value.trim();
+  if (!fname || !fphone || !fcity) {
+    alert('Please naam, phone number aur city zaroor bharen.');
+    return;
+  }
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formLoading').style.display = 'block';
+  setTimeout(function() {
+    document.getElementById('formLoading').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 2200);
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth'}); }
+  });
+});
+</script>
+</body>
+</html>

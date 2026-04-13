@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JeeraPapad Co. – Premium Manufacturer | Direct Factory Rates</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;700;900&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --red: #D42B2B;
+  --red-light: #F04040;
+  --red-pale: #FFF0F0;
+  --yellow: #F5A800;
+  --yellow-light: #FFF8E6;
+  --yellow-dark: #C48500;
+  --white: #FFFFFF;
+  --off-white: #FAFAF8;
+  --gray-100: #F5F5F3;
+  --gray-200: #EBEBEA;
+  --gray-300: #D6D6D4;
+  --gray-500: #8A8A88;
+  --gray-700: #4A4A48;
+  --black: #1A1A18;
+  --nav-h: 72px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'DM Sans', 'Noto Sans Devanagari', sans-serif;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--red); border-radius: 10px; }
+
+/* ─── ANNOUNCEMENT BAR ─── */
+.announcement {
+  background: var(--black);
+  color: var(--white);
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 0.82rem;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  position: relative;
+  overflow: hidden;
+}
+.announcement-ticker {
+  display: flex;
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+  gap: 80px;
+}
+.announcement-ticker span { flex-shrink: 0; }
+.announcement-ticker span em {
+  color: var(--yellow);
+  font-style: normal;
+  font-weight: 700;
+}
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+/* ─── NAVBAR ─── */
+nav {
+  height: var(--nav-h);
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  transition: box-shadow 0.3s;
+}
+nav.scrolled { box-shadow: 0 4px 30px rgba(0,0,0,0.08); }
+.nav-logo {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  text-decoration: none;
+}
+.nav-logo-main {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--black);
+}
+.nav-logo-sub {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--red);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-left: 4px;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  text-decoration: none;
+  color: var(--gray-700);
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--red);
+  transition: width 0.3s;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: var(--red);
+  color: var(--white) !important;
+  padding: 10px 22px;
+  border-radius: 6px;
+  font-weight: 600 !important;
+  transition: background 0.2s, transform 0.2s !important;
+}
+.nav-cta::after { display: none !important; }
+.nav-cta:hover { background: var(--red-light) !important; transform: translateY(-1px) !important; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: calc(100vh - var(--nav-h));
+  background: var(--off-white);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-bg-text {
+  position: absolute;
+  font-family: 'Playfair Display', serif;
+  font-size: 22vw;
+  font-weight: 900;
+  color: var(--gray-200);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+  letter-spacing: -10px;
+}
+.hero-left {
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+.hero-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--yellow-light);
+  border: 1.5px solid var(--yellow);
+  color: var(--yellow-dark);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+  animation: fadein 0.8s ease both;
+}
+.hero-pill::before { content: '✦'; font-size: 0.7rem; }
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 4.2rem;
+  font-weight: 900;
+  line-height: 1.05;
+  color: var(--black);
+  margin-bottom: 12px;
+  animation: slidein 0.8s ease 0.1s both;
+}
+.hero h1 .accent { color: var(--red); font-style: italic; }
+.hero h1 .small { font-size: 2.8rem; font-weight: 400; display: block; color: var(--gray-700); }
+.hero-desc {
+  font-size: 1.1rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 36px;
+  max-width: 440px;
+  animation: slidein 0.8s ease 0.2s both;
+}
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  animation: slidein 0.8s ease 0.3s both;
+}
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+  padding: 16px 36px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+}
+.btn-primary:hover { background: var(--red-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,43,43,0.3); }
+.btn-primary:hover::after { transform: translateX(100%); }
+.btn-primary:active { transform: scale(0.97); }
+.btn-outline {
+  background: transparent;
+  color: var(--black);
+  padding: 16px 32px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border: 1.5px solid var(--gray-300);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-outline:hover { border-color: var(--black); background: var(--black); color: var(--white); }
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  animation: fadein 0.8s ease 0.5s both;
+}
+.hero-stat {}
+.hero-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1;
+}
+.hero-stat-num span { color: var(--red); }
+.hero-stat-label { font-size: 0.82rem; color: var(--gray-500); margin-top: 2px; }
+.stat-divider { width: 1px; background: var(--gray-200); }
+
+.hero-right {
+  position: relative;
+  height: 100%;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  z-index: 2;
+}
+.hero-img-card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 32px;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.1), 0 8px 30px rgba(0,0,0,0.06);
+  position: relative;
+  animation: float 5s ease-in-out infinite;
+  max-width: 480px;
+  width: 100%;
+}
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+.hero-img-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  border-radius: 12px;
+  background: var(--off-white);
+}
+.hero-card-badge {
+  position: absolute;
+  top: -18px;
+  right: 24px;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(245,168,0,0.4);
+}
+.hero-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  margin-top: 20px;
+  border-top: 1px solid var(--gray-100);
+}
+.hero-card-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+.hero-card-tag {
+  background: var(--red-pale);
+  color: var(--red);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+.floating-chip {
+  position: absolute;
+  background: var(--white);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: chipFloat 4s ease-in-out infinite;
+}
+.chip1 { top: 20%; left: -20px; animation-delay: 0.5s; }
+.chip2 { bottom: 25%; right: -20px; animation-delay: 1.2s; }
+.chip3 { top: 60%; left: -30px; animation-delay: 0.8s; }
+@keyframes chipFloat {
+  0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)}
+}
+.chip-dot { width: 8px; height: 8px; border-radius: 50%; background: #22c55e; }
+.chip-dot.yellow { background: var(--yellow); }
+
+/* ─── TRUST BAR ─── */
+.trust-bar {
+  background: var(--white);
+  border-top: 1px solid var(--gray-200);
+  border-bottom: 1px solid var(--gray-200);
+  padding: 20px 0;
+}
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--gray-700);
+}
+.trust-icon-wrap {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--yellow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.trust-divider { width: 1px; height: 32px; background: var(--gray-200); }
+
+/* ─── SECTION SHARED ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 60px; }
+.section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+.section-tag::before { content: '—'; opacity: 0.5; }
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 16px;
+}
+.section-title em { font-style: italic; color: var(--red); }
+.section-sub { font-size: 1.05rem; color: var(--gray-500); line-height: 1.7; max-width: 560px; }
+
+/* ─── WHY SECTION ─── */
+.why-section {
+  background: var(--white);
+  padding: 100px 0;
+}
+.why-header { text-align: center; margin-bottom: 70px; }
+.why-header .section-sub { margin: 0 auto; }
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.why-card {
+  background: var(--off-white);
+  border-radius: 16px;
+  padding: 36px 30px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  cursor: default;
+  border: 1.5px solid transparent;
+}
+.why-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--red-pale), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+.why-card:hover { transform: translateY(-8px); border-color: var(--red); background: var(--white); box-shadow: 0 20px 60px rgba(212,43,43,0.1); }
+.why-card:hover::before { opacity: 1; }
+.why-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--gray-200);
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  transition: color 0.4s;
+  user-select: none;
+}
+.why-card:hover .why-num { color: var(--red-pale); }
+.why-icon-wrap {
+  width: 52px;
+  height: 52px;
+  border-radius: 12px;
+  background: var(--yellow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  transition: background 0.3s, transform 0.3s;
+  position: relative;
+  z-index: 1;
+}
+.why-card:hover .why-icon-wrap { background: var(--yellow); transform: scale(1.1) rotate(-5deg); }
+.why-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; position: relative; z-index: 1; }
+.why-card p { font-size: 0.93rem; color: var(--gray-500); line-height: 1.6; position: relative; z-index: 1; }
+
+/* ─── PRODUCT SECTION ─── */
+.products-section {
+  background: var(--gray-100);
+  padding: 100px 0;
+}
+.products-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.product-card {
+  background: var(--white);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1.5px solid var(--gray-200);
+  transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+  cursor: pointer;
+  position: relative;
+}
+.product-card:hover { transform: translateY(-12px); box-shadow: 0 30px 80px rgba(0,0,0,0.12); border-color: var(--yellow); }
+.product-card.featured { border-color: var(--red); box-shadow: 0 0 0 3px var(--red-pale); }
+.product-img-wrap {
+  background: var(--off-white);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+.product-card:hover .product-img-wrap { background: var(--yellow-light); }
+.product-img-wrap img {
+  height: 180px;
+  object-fit: contain;
+  transition: transform 0.4s;
+}
+.product-card:hover .product-img-wrap img { transform: scale(1.08) rotate(-2deg); }
+.product-ribbon {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 5px 16px 5px 12px;
+  clip-path: polygon(0 0, 100% 0, 90% 100%, 0 100%);
+}
+.product-ribbon.yellow { background: var(--yellow); color: var(--black); }
+.product-body { padding: 26px; }
+.product-size {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: var(--black);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.product-name { font-size: 0.85rem; color: var(--gray-500); margin-bottom: 18px; font-weight: 500; }
+.product-features {
+  list-style: none;
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.product-features li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.87rem;
+  color: var(--gray-700);
+}
+.feat-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--yellow-light);
+  border: 1.5px solid var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--yellow-dark);
+  flex-shrink: 0;
+}
+.product-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 18px;
+  border-top: 1px solid var(--gray-100);
+}
+.price-label { font-size: 0.78rem; color: var(--gray-500); }
+.price-cta {
+  background: var(--black);
+  color: var(--white);
+  padding: 9px 20px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.product-card.featured .price-cta { background: var(--red); }
+.price-cta:hover { opacity: 0.85; transform: translateX(2px); }
+
+/* ─── OFFER CARDS ─── */
+.offers-section {
+  background: var(--white);
+  padding: 80px 0;
+}
+.offers-header { text-align: center; margin-bottom: 50px; }
+.offers-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.offer-card {
+  border-radius: 16px;
+  padding: 32px 24px;
+  text-align: center;
+  border: 1.5px solid var(--gray-200);
+  transition: all 0.3s;
+  background: var(--white);
+  cursor: default;
+  position: relative;
+  overflow: hidden;
+}
+.offer-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--red), var(--yellow));
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.offer-card:hover { border-color: transparent; box-shadow: 0 16px 50px rgba(0,0,0,0.1); transform: translateY(-6px); }
+.offer-card:hover::after { transform: scaleX(1); }
+.offer-icon-big {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.offer-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--black);
+}
+.offer-card p { font-size: 0.87rem; color: var(--gray-500); line-height: 1.6; }
+.offer-card-badge {
+  display: inline-block;
+  background: var(--red-pale);
+  color: var(--red);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  margin-bottom: 14px;
+}
+
+/* ─── BEFORE / AFTER ─── */
+.transformation {
+  background: var(--off-white);
+  padding: 100px 0;
+  overflow: hidden;
+}
+.transformation-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 30px 100px rgba(0,0,0,0.12);
+}
+.trans-panel {
+  padding: 60px 50px;
+  position: relative;
+  overflow: hidden;
+}
+.trans-panel.before-panel { background: var(--white); }
+.trans-panel.after-panel { background: var(--black); }
+.trans-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  padding: 6px 16px;
+  border-radius: 50px;
+  margin-bottom: 28px;
+}
+.trans-label.before { background: var(--gray-100); color: var(--gray-500); }
+.trans-label.after { background: var(--yellow); color: var(--black); }
+.trans-panel h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+.trans-panel.before-panel h3 { color: var(--black); }
+.trans-panel.after-panel h3 { color: var(--white); }
+.trans-panel p { font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+.trans-panel.before-panel p { color: var(--gray-500); }
+.trans-panel.after-panel p { color: rgba(255,255,255,0.6); }
+.trans-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.trans-list li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+}
+.trans-panel.before-panel .trans-list li { color: var(--gray-700); }
+.trans-panel.after-panel .trans-list li { color: rgba(255,255,255,0.8); }
+.trans-check {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.trans-check.x { background: var(--gray-100); color: var(--gray-500); }
+.trans-check.v { background: var(--yellow); color: var(--black); }
+.trans-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  position: relative;
+  z-index: 10;
+  flex-shrink: 0;
+}
+.trans-arrow {
+  width: 60px;
+  height: 60px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  font-size: 1.4rem;
+  box-shadow: 0 0 0 6px var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse-arrow 2s ease-in-out infinite;
+  z-index: 20;
+}
+@keyframes pulse-arrow {
+  0%,100%{box-shadow:0 0 0 6px rgba(212,43,43,0.2)} 50%{box-shadow:0 0 0 16px rgba(212,43,43,0.1)}
+}
+
+/* ─── HOW TO ORDER ─── */
+.how-section {
+  background: var(--white);
+  padding: 100px 0;
+}
+.how-header { text-align: center; margin-bottom: 70px; }
+.how-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  position: relative;
+}
+.how-steps::before {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--yellow), var(--red));
+  z-index: 0;
+}
+.how-step {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 0 20px;
+}
+.step-num {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 900;
+  margin: 0 auto 20px;
+  transition: all 0.3s;
+  cursor: default;
+}
+.step-num:hover { transform: scale(1.15); }
+.step-num.s1 { background: var(--yellow); color: var(--black); }
+.step-num.s2 { background: var(--red-pale); color: var(--red); border: 2px solid var(--red); }
+.step-num.s3 { background: var(--yellow-light); color: var(--yellow-dark); border: 2px solid var(--yellow); }
+.step-num.s4 { background: var(--red); color: var(--white); }
+.how-step h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.how-step p { font-size: 0.87rem; color: var(--gray-500); line-height: 1.6; }
+
+/* ─── BULK PRICING ─── */
+.pricing-section {
+  background: var(--black);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-section::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  right: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,168,0,0.08), transparent 70%);
+}
+.pricing-section::after {
+  content: '';
+  position: absolute;
+  bottom: -200px;
+  left: -200px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,43,43,0.1), transparent 70%);
+}
+.pricing-inner {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+.pricing-content .section-tag { color: var(--yellow); }
+.pricing-content .section-title { color: var(--white); }
+.pricing-content .section-sub { color: rgba(255,255,255,0.5); max-width: 400px; margin-bottom: 40px; }
+.tier-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.tier-card {
+  background: rgba(255,255,255,0.05);
+  border: 1.5px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.tier-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); transform: translateX(8px); }
+.tier-card.best { background: rgba(245,168,0,0.08); border-color: var(--yellow); }
+.tier-card.best:hover { background: rgba(245,168,0,0.12); }
+.tier-badge-new {
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 900;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: center;
+}
+.tier-card.best .tier-badge-new { background: var(--yellow); color: var(--black); }
+.tier-info-new { flex: 1; }
+.tier-info-new h4 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 3px; }
+.tier-info-new p { font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+.tier-tag {
+  background: var(--red);
+  color: var(--white);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+.pricing-visual {
+  position: relative;
+}
+.pricing-card-big {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+}
+.pricing-card-big::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 26px;
+  background: linear-gradient(135deg, var(--yellow), var(--red));
+  z-index: -1;
+}
+.pcb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--gray-100);
+}
+.pcb-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+.pcb-logo {
+  background: var(--red-pale);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--red);
+}
+.pcb-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 28px; }
+.pcb-perks li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--gray-700);
+}
+.perk-icon-sm {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: var(--yellow-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.pcb-cta {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.pcb-cta:hover { background: var(--red-light); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,43,43,0.4); }
+.pcb-note { text-align: center; font-size: 0.8rem; color: var(--gray-500); margin-top: 12px; }
+.pricing-stat-float {
+  position: absolute;
+  background: var(--yellow);
+  color: var(--black);
+  border-radius: 12px;
+  padding: 14px 20px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(245,168,0,0.4);
+}
+.psf1 { top: -20px; left: -24px; }
+.psf2 { bottom: -20px; right: -24px; }
+.psf-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  line-height: 1;
+}
+.psf-label { font-size: 0.72rem; font-weight: 600; }
+
+/* ─── TRUST / QUALITY ─── */
+.quality-section {
+  background: var(--white);
+  padding: 100px 0;
+}
+.quality-header { text-align: center; margin-bottom: 60px; }
+.quality-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.quality-card {
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: var(--gray-100);
+  text-align: center;
+  transition: all 0.3s;
+  cursor: default;
+  border: 1.5px solid transparent;
+}
+.quality-card:hover { background: var(--white); border-color: var(--yellow); box-shadow: 0 12px 40px rgba(0,0,0,0.08); transform: translateY(-6px); }
+.quality-icon {
+  font-size: 2.4rem;
+  margin-bottom: 16px;
+  display: block;
+  transition: transform 0.3s;
+}
+.quality-card:hover .quality-icon { transform: scale(1.2); }
+.quality-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.quality-card p { font-size: 0.85rem; color: var(--gray-500); line-height: 1.6; }
+.quality-badge {
+  display: inline-block;
+  background: var(--yellow-light);
+  color: var(--yellow-dark);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-top: 10px;
+}
+
+/* ─── REVIEWS ─── */
+.reviews-section {
+  background: var(--off-white);
+  padding: 100px 0;
+}
+.reviews-header { text-align: center; margin-bottom: 60px; }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.review-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 32px;
+  border: 1.5px solid var(--gray-200);
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  cursor: default;
+}
+.review-card:hover { transform: translateY(-8px); box-shadow: 0 20px 60px rgba(0,0,0,0.1); border-color: var(--yellow); }
+.review-quote {
+  font-family: 'Playfair Display', serif;
+  font-size: 5rem;
+  color: var(--yellow);
+  line-height: 0.8;
+  margin-bottom: 16px;
+  opacity: 0.4;
+}
+.review-stars { display: flex; gap: 3px; margin-bottom: 14px; }
+.star-icon {
+  color: var(--yellow);
+  font-size: 0.9rem;
+}
+.review-text {
+  font-size: 0.95rem;
+  color: var(--gray-700);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  font-style: italic;
+}
+.reviewer-row { display: flex; align-items: center; gap: 12px; }
+.reviewer-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--black);
+  color: var(--yellow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+.reviewer-name { font-size: 0.95rem; font-weight: 700; }
+.reviewer-place { font-size: 0.8rem; color: var(--gray-500); }
+.verified-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--red-pale);
+  color: var(--red);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  margin-left: auto;
+}
+
+/* ─── FAQ ─── */
+.faq-section {
+  background: var(--white);
+  padding: 100px 0;
+}
+.faq-header { text-align: center; margin-bottom: 60px; }
+.faq-container { max-width: 760px; margin: 0 auto; display: flex; flex-direction: column; gap: 12px; }
+.faq-item {
+  background: var(--off-white);
+  border-radius: 12px;
+  border: 1.5px solid var(--gray-200);
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.faq-item:hover { border-color: var(--gray-300); }
+.faq-item.open { border-color: var(--red); background: var(--white); }
+.faq-q {
+  width: 100%;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 26px;
+  cursor: pointer;
+  text-align: left;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--black);
+  gap: 16px;
+}
+.faq-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--gray-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: all 0.3s;
+  color: var(--gray-500);
+}
+.faq-item.open .faq-toggle { background: var(--red); color: var(--white); transform: rotate(45deg); }
+.faq-a {
+  display: none;
+  padding: 0 26px 22px;
+  font-size: 0.92rem;
+  color: var(--gray-500);
+  line-height: 1.7;
+}
+.faq-item.open .faq-a { display: block; animation: fadein 0.3s ease; }
+
+/* ─── ORDER FORM ─── */
+.order-section {
+  background: linear-gradient(135deg, var(--black) 0%, #1a1a18 100%);
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+.order-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(245,168,0,0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(212,43,43,0.08) 0%, transparent 50%);
+}
+.order-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.order-info .section-tag { color: var(--yellow); }
+.order-info .section-title { color: var(--white); }
+.order-info .section-sub { color: rgba(255,255,255,0.5); margin-bottom: 40px; }
+.order-perks-list { list-style: none; display: flex; flex-direction: column; gap: 14px; margin-bottom: 40px; }
+.order-perk {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 14px 18px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.07);
+  transition: all 0.3s;
+  cursor: default;
+}
+.order-perk:hover { background: rgba(255,255,255,0.07); transform: translateX(6px); }
+.perk-icon-new {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(245,168,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+.order-urgency {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(212,43,43,0.1);
+  border: 1px solid rgba(212,43,43,0.3);
+  border-radius: 10px;
+  padding: 14px 18px;
+  color: var(--red-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.order-urgency::before { content: '⚡'; font-size: 1rem; }
+.order-form {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 40px 120px rgba(0,0,0,0.3);
+}
+.form-header { margin-bottom: 30px; }
+.form-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+.form-header p { font-size: 0.87rem; color: var(--gray-500); }
+.form-top-bar {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--red), var(--yellow));
+  margin-bottom: 28px;
+  border-radius: 4px;
+}
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--gray-700);
+  margin-bottom: 7px;
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 10px;
+  font-size: 0.93rem;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--black);
+  background: var(--off-white);
+  transition: all 0.2s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--red);
+  background: var(--white);
+  box-shadow: 0 0 0 4px rgba(212,43,43,0.08);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-submit {
+  width: 100%;
+  background: var(--red);
+  color: var(--white);
+  padding: 17px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.form-submit:hover { background: var(--red-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(212,43,43,0.4); }
+.form-privacy { text-align: center; font-size: 0.78rem; color: var(--gray-500); margin-top: 12px; }
+.form-loading { display: none; text-align: center; padding: 40px 20px; }
+.spinner {
+  width: 44px;
+  height: 44px;
+  border: 3px solid var(--gray-200);
+  border-top-color: var(--red);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.form-success { display: none; text-align: center; padding: 40px 20px; }
+.success-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #dcfce7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin: 0 auto 20px;
+  animation: pop-in 0.5s cubic-bezier(0.175,0.885,0.32,1.275);
+}
+.form-success h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: #16a34a; margin-bottom: 8px; }
+.form-success p { font-size: 0.95rem; color: var(--gray-500); line-height: 1.6; }
+.success-whatsapp {
+  margin-top: 20px;
+  background: #25D366;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s;
+}
+.success-whatsapp:hover { background: #1aab50; transform: translateY(-2px); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--black);
+  color: var(--white);
+  padding: 70px 0 0;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1.2fr;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+.footer-brand-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  margin-bottom: 16px;
+}
+.footer-brand-logo span { color: var(--yellow); }
+.footer-brand p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+.footer-trust-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.ftb {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.5);
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+.footer-col h4 {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--yellow);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a {
+  color: rgba(255,255,255,0.45);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s, transform 0.2s;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.footer-col ul li a:hover { color: var(--white); transform: translateX(4px); }
+.footer-contact p {
+  color: rgba(255,255,255,0.45);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+.footer-contact p:hover { color: rgba(255,255,255,0.8); }
+.footer-divider { height: 1px; background: rgba(255,255,255,0.07); }
+.footer-bottom {
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.footer-bottom p { color: rgba(255,255,255,0.25); font-size: 0.82rem; }
+.footer-bottom-links { display: flex; gap: 20px; }
+.footer-bottom-links a {
+  color: rgba(255,255,255,0.25);
+  text-decoration: none;
+  font-size: 0.82rem;
+  transition: color 0.2s;
+}
+.footer-bottom-links a:hover { color: rgba(255,255,255,0.6); }
+.footer-cta-strip {
+  background: var(--red);
+  padding: 24px 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 0;
+}
+.footer-cta-strip p { color: var(--white); font-size: 1.05rem; font-weight: 600; }
+.footer-btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+.f-btn {
+  padding: 11px 26px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+}
+.f-btn-wa { background: #25D366; color: white; }
+.f-btn-wa:hover { background: #1aab50; transform: translateY(-2px); }
+.f-btn-call { background: var(--yellow); color: var(--black); }
+.f-btn-call:hover { background: var(--yellow-dark); transform: translateY(-2px); }
+
+/* ─── STICKY ─── */
+.sticky-wrap {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 888;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-end;
+}
+.sticky-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 22px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s;
+  font-family: 'DM Sans', sans-serif;
+  animation: slide-right 0.6s cubic-bezier(0.175,0.885,0.32,1.275) backwards;
+}
+.sticky-btn:nth-child(1) { animation-delay: 0.3s; }
+.sticky-btn:nth-child(2) { animation-delay: 0.5s; }
+@keyframes slide-right {
+  0%{transform:translateX(80px);opacity:0}
+  100%{transform:translateX(0);opacity:1}
+}
+.sticky-btn:hover { transform: translateY(-3px); }
+.sticky-wa { background: #25D366; color: white; }
+.sticky-call { background: var(--yellow); color: var(--black); }
+
+/* ─── DISCLAIMER ─── */
+.disclaimer {
+  background: #111;
+  padding: 20px 60px;
+  text-align: center;
+}
+.disclaimer p { color: rgba(255,255,255,0.2); font-size: 0.78rem; line-height: 1.6; max-width: 900px; margin: 0 auto; }
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadein { from{opacity:0} to{opacity:1} }
+@keyframes slidein { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+@keyframes pop-in {
+  0%{transform:scale(0);opacity:0}
+  100%{transform:scale(1);opacity:1}
+}
+.reveal { opacity: 0; transform: translateY(36px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 1024px) {
+  nav { padding: 0 30px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; min-height: auto; }
+  .hero-left { padding: 60px 30px; }
+  .hero-right { min-height: 400px; }
+  .hero h1 { font-size: 3rem; }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .products-grid { grid-template-columns: repeat(2, 1fr); }
+  .offers-grid { grid-template-columns: repeat(2, 1fr); }
+  .transformation-inner { grid-template-columns: 1fr; }
+  .trans-divider { display: none; }
+  .how-steps { grid-template-columns: repeat(2, 1fr); }
+  .how-steps::before { display: none; }
+  .pricing-inner { grid-template-columns: 1fr; gap: 50px; }
+  .quality-grid { grid-template-columns: repeat(2, 1fr); }
+  .reviews-grid { grid-template-columns: 1fr 1fr; }
+  .order-inner { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .container { padding: 0 30px; }
+  .footer-cta-strip { padding: 24px 30px; }
+}
+@media (max-width: 640px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero h1 .small { font-size: 1.8rem; }
+  .section-title { font-size: 2.1rem; }
+  .why-grid, .offers-grid, .quality-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: 1fr; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .how-steps { grid-template-columns: 1fr 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .stat-divider { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+  .form-row { grid-template-columns: 1fr; }
+  .order-form { padding: 28px 20px; }
+  .footer-cta-strip { flex-direction: column; text-align: center; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .container { padding: 0 20px; }
+  .chip1, .chip2, .chip3 { display: none; }
+  .trans-panel { padding: 40px 30px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT BAR -->
+<div class="announcement">
+  <div class="announcement-ticker">
+    <span>🚀 <em>FREE DELIVERY</em> on All Orders &nbsp;·&nbsp;</span>
+    <span>💵 <em>COD Available</em> – Pay on Delivery &nbsp;·&nbsp;</span>
+    <span>🎁 <em>FREE Diet Chart</em> with Every Order &nbsp;·&nbsp;</span>
+    <span>🏭 <em>Direct Manufacturer</em> – No Middleman &nbsp;·&nbsp;</span>
+    <span>📦 Minimum Order <em>5 KG</em> Only &nbsp;·&nbsp;</span>
+    <span>✅ <em>Hygienic Production</em> – Quality Checked &nbsp;·&nbsp;</span>
+    <span>🚀 <em>FREE DELIVERY</em> on All Orders &nbsp;·&nbsp;</span>
+    <span>💵 <em>COD Available</em> – Pay on Delivery &nbsp;·&nbsp;</span>
+    <span>🎁 <em>FREE Diet Chart</em> with Every Order &nbsp;·&nbsp;</span>
+    <span>🏭 <em>Direct Manufacturer</em> – No Middleman &nbsp;·&nbsp;</span>
+    <span>📦 Minimum Order <em>5 KG</em> Only &nbsp;·&nbsp;</span>
+    <span>✅ <em>Hygienic Production</em> – Quality Checked &nbsp;·&nbsp;</span>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <span class="nav-logo-main">JeeraPapad</span><span class="nav-logo-sub">Co.</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#products">Products</a></li>
+    <li><a href="#why">Benefits</a></li>
+    <li><a href="#pricing">Bulk Pricing</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#order-section" class="nav-cta">Order Now →</a></li>
+  </ul>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero">
+  <div class="hero-bg-text">PAPAD</div>
+  <div class="hero-left">
+    <div class="hero-pill">✦ Retailers ke liye Best Deal</div>
+    <h1>
+      Premium Jeera
+      <span class="accent">Papad</span>
+      <span class="small">Direct Factory Rate par</span>
+    </h1>
+    <p class="hero-desc">Fast selling product + achha margin + regular demand. Seedha manufacturer se – bina kisi middleman ke. All India delivery available.</p>
+    <div class="hero-actions">
+      <a href="#order-section" class="btn-primary">Price List Request karein →</a>
+      <a href="#products" class="btn-outline">Products Dekhein</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">5<span>KG</span></div>
+        <div class="hero-stat-label">Min. Order</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">All<span>🇮🇳</span></div>
+        <div class="hero-stat-label">India Delivery</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">COD<span>✓</span></div>
+        <div class="hero-stat-label">Available</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="floating-chip chip1">
+      <div class="chip-dot"></div>
+      <span>Live Orders Coming In</span>
+    </div>
+    <div class="floating-chip chip2">
+      <div class="chip-dot yellow"></div>
+      <span>COD Available ✓</span>
+    </div>
+    <div class="floating-chip chip3">
+      <div class="chip-dot"></div>
+      <span>FREE Delivery</span>
+    </div>
+    <div class="hero-img-card">
+      <div class="hero-card-badge">🔥 Best Seller</div>
+      <img src="./Image/product.png" alt="Premium Jeera Papad" onerror="this.style.cssText='width:100%;height:320px;background:linear-gradient(135deg,#FFF8E6,#FFF0F0);border-radius:12px;display:flex;align-items:center;justify-content:center;';this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22320%22%3E%3Crect fill=%22%23FFF8E6%22 width=%22400%22 height=%22320%22 rx=%2212%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F5A800%22 font-size=%2248%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2265%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2222%22 font-weight=%22bold%22%3EJeera Papad%3C/text%3E%3C/svg%3E'"/>
+      <div class="hero-card-footer">
+        <div class="hero-card-title">Jeera Papad</div>
+        <div class="hero-card-tag">Direct Factory Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-item">
+      <div class="trust-icon-wrap">🚚</div>
+      <span>FREE Delivery</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">💵</div>
+      <span>COD Available</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">🏭</div>
+      <span>Direct Manufacturer</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">✅</div>
+      <span>Quality Checked</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">📦</div>
+      <span>Strong Packing</span>
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-item">
+      <div class="trust-icon-wrap">🎁</div>
+      <span>FREE Diet Chart</span>
+    </div>
+  </div>
+</div>
+
+<!-- ─── WHY SECTION ─── -->
+<section class="why-section" id="why">
+  <div class="container">
+    <div class="why-header">
+      <div class="section-tag">Kyun Choose Karein</div>
+      <h2 class="section-title">Aapke Shop ke liye<br/><em>Perfect Product</em></h2>
+      <p class="section-sub">Jeera Papad ek aise product hai jo ek baar add karne ke baad customers khud se khareed ke le jaate hain – aapko zyada mehnat ki zaroorat hi nahi.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-num">01</div>
+        <div class="why-icon-wrap">🛒</div>
+        <h3>Daily Use Item</h3>
+        <p>Roz bikne wala product hai – har ghar mein daily demand rehti hai. Kabhi stock idle nahi rahta aapke shelf par.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <div class="why-num">02</div>
+        <div class="why-icon-wrap">📈</div>
+        <h3>High Demand Everywhere</h3>
+        <p>Sheher ho ya gaon – Jeera Papad ki demand har jagah hai. Aapke area mein bhi top-selling product ban sakta hai.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <div class="why-num">03</div>
+        <div class="why-icon-wrap">💰</div>
+        <h3>Achha Profit Margin</h3>
+        <p>Direct factory rate par lein, market price par bechein – consistently achha margin milega aapko har sale par.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.3s">
+        <div class="why-num">04</div>
+        <div class="why-icon-wrap">⚡</div>
+        <h3>Easy to Sell</h3>
+        <p>Customer already familiar hai – koi extra marketing nahi chahiye. Bas shelf par rakhein, khud bikta hai yeh product.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.4s">
+        <div class="why-num">05</div>
+        <div class="why-icon-wrap">🔄</div>
+        <h3>Repeat Orders Guaranteed</h3>
+        <p>Ek baar customer ko pasand aa gaya to bar bar aayega. Aapke shop ka loyal customer base banata hai yeh product.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.5s">
+        <div class="why-num">06</div>
+        <div class="why-icon-wrap">🛡️</div>
+        <h3>Low Risk Product</h3>
+        <p>Fast-moving item hai – stock kabhi pile nahi hoga. Invest karein aur quickly return paayen apne paisa ka.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PRODUCTS ─── -->
+<section class="products-section" id="products">
+  <div class="container">
+    <div class="products-header">
+      <div>
+        <div class="section-tag">Product Range</div>
+        <h2 class="section-title">Retail Packs for<br/><em>Easy Resale</em></h2>
+      </div>
+      <a href="#order-section" class="btn-primary" style="text-decoration:none">Sab Order Karein →</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card reveal">
+        <div class="product-img-wrap">
+          <div class="product-ribbon">Fast Seller</div>
+          <img src="./Image/product.png" alt="250g Pack" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23FFF0F0%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23D42B2B%22 font-size=%2220%22 font-weight=%22bold%22%3E250g%3C/text%3E%3C/svg%3E'"/>
+        </div>
+        <div class="product-body">
+          <div class="product-size">250g</div>
+          <p class="product-name">Jeera Papad – Small Pack</p>
+          <ul class="product-features">
+            <li><span class="feat-dot">✓</span> Single family use pack</li>
+            <li><span class="feat-dot">✓</span> Affordable entry price</li>
+            <li><span class="feat-dot">✓</span> Ready for direct resale</li>
+            <li><span class="feat-dot">✓</span> Maximum customer reach</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="price-label">Best for new customers</div>
+            </div>
+            <button class="price-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card featured reveal" style="transition-delay:0.15s">
+        <div class="product-img-wrap">
+          <div class="product-ribbon yellow">⭐ Best Value</div>
+          <img src="./Image/product.png" alt="500g Pack" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23FFF8E6%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23F5A800%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23C48500%22 font-size=%2220%22 font-weight=%22bold%22%3E500g%3C/text%3E%3C/svg%3E'"/>
+        </div>
+        <div class="product-body">
+          <div class="product-size">500g</div>
+          <p class="product-name">Jeera Papad – Medium Pack</p>
+          <ul class="product-features">
+            <li><span class="feat-dot">✓</span> Medium family size</li>
+            <li><span class="feat-dot">✓</span> Higher profit margin</li>
+            <li><span class="feat-dot">✓</span> Most popular size</li>
+            <li><span class="feat-dot">✓</span> Ready for direct resale</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="price-label">Most popular among retailers</div>
+            </div>
+            <button class="price-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card reveal" style="transition-delay:0.3s">
+        <div class="product-img-wrap">
+          <div class="product-ribbon">Premium</div>
+          <img src="./Image/product.png" alt="1 KG Pack" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22200%22 height=%22180%22%3E%3Crect fill=%22%23F5F5F3%22 width=%22200%22 height=%22180%22/%3E%3Ctext x=%2250%25%22 y=%2245%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%231A1A18%22 font-size=%2236%22%3E🌿%3C/text%3E%3Ctext x=%2250%25%22 y=%2270%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%231A1A18%22 font-size=%2220%22 font-weight=%22bold%22%3E1 KG%3C/text%3E%3C/svg%3E'"/>
+        </div>
+        <div class="product-body">
+          <div class="product-size">1 KG</div>
+          <p class="product-name">Jeera Papad – Large Pack</p>
+          <ul class="product-features">
+            <li><span class="feat-dot">✓</span> Bulk family pack</li>
+            <li><span class="feat-dot">✓</span> Maximum profit margin</li>
+            <li><span class="feat-dot">✓</span> Restaurant grade quality</li>
+            <li><span class="feat-dot">✓</span> Ready for direct resale</li>
+          </ul>
+          <div class="product-price-row">
+            <div>
+              <div class="price-label">Best margin per unit</div>
+            </div>
+            <button class="price-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Order Now →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OFFERS ─── -->
+<section class="offers-section">
+  <div class="container">
+    <div class="offers-header">
+      <div class="section-tag">Exclusive Offers</div>
+      <h2 class="section-title">Aapke Saath <em>Special Benefits</em></h2>
+    </div>
+    <div class="offers-grid">
+      <div class="offer-card reveal">
+        <span class="offer-card-badge">Free</span>
+        <div class="offer-icon-big">🚚</div>
+        <h3>FREE Delivery</h3>
+        <p>Har order par free delivery – koi extra charge nahi. All India delivery available hai.</p>
+      </div>
+      <div class="offer-card reveal" style="transition-delay:0.1s">
+        <span class="offer-card-badge">Convenient</span>
+        <div class="offer-icon-big">💵</div>
+        <h3>COD Available</h3>
+        <p>Cash on Delivery – pehle product receive karein, phir payment karein. Zero risk.</p>
+      </div>
+      <div class="offer-card reveal" style="transition-delay:0.2s">
+        <span class="offer-card-badge">Gift</span>
+        <div class="offer-icon-big">🎁</div>
+        <h3>FREE Diet Chart</h3>
+        <p>Har order ke saath FREE diet chart milega. Customer ko extra value dein apne shop se.</p>
+      </div>
+      <div class="offer-card reveal" style="transition-delay:0.3s">
+        <span class="offer-card-badge">Exclusive</span>
+        <div class="offer-icon-big">🏭</div>
+        <h3>Direct Factory Rate</h3>
+        <p>Seedha manufacturer se – koi middleman nahi, isliye best rate guaranteed hai aapko.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── TRANSFORMATION ─── -->
+<section class="transformation" id="transformation">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:60px;">
+      <div class="section-tag">Before & After</div>
+      <h2 class="section-title">Jeera Papad Add Karne se<br/><em>Kya Fark Padta Hai?</em></h2>
+    </div>
+    <div class="transformation-inner">
+      <div class="trans-panel before-panel reveal-left">
+        <div class="trans-label before">😟 Pehle – Bina Jeera Papad</div>
+        <h3>Aapke Shop mein Kya Ho Raha Tha?</h3>
+        <p>Customer aata tha, papad dhundhta tha, nahi milta tha to doosre shop chala jaata tha. Repeat customer nahi banta tha aur daily income mein gap tha.</p>
+        <ul class="trans-list">
+          <li><span class="trans-check x">✗</span> Customer loss ho raha tha baar baar</li>
+          <li><span class="trans-check x">✗</span> High-demand product miss ho raha tha</li>
+          <li><span class="trans-check x">✗</span> Competitor ke paas ja raha tha traffic</li>
+          <li><span class="trans-check x">✗</span> Daily income mein gap tha</li>
+          <li><span class="trans-check x">✗</span> Repeat customers nahi bante the</li>
+        </ul>
+      </div>
+      <div class="trans-divider">
+        <div class="trans-arrow">→</div>
+      </div>
+      <div class="trans-panel after-panel reveal-right">
+        <div class="trans-label after">😊 Baad – Jeera Papad Add Karne ke Baad</div>
+        <h3>Ab Aapka Shop Kya Karega?</h3>
+        <p>Ek high-demand product add kiya aur customer roz aane laga. Repeat orders shuru, income regular, shop ki growth tezi se hogi.</p>
+        <ul class="trans-list">
+          <li><span class="trans-check v">✓</span> Customer roz repeat aata hai</li>
+          <li><span class="trans-check v">✓</span> Daily income consistently increase</li>
+          <li><span class="trans-check v">✓</span> Competitor se ek step aage</li>
+          <li><span class="trans-check v">✓</span> Consistent profit margin guaranteed</li>
+          <li><span class="trans-check v">✓</span> Loyal customer base ban gaya</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── HOW TO ORDER ─── -->
+<section class="how-section">
+  <div class="container">
+    <div class="how-header">
+      <div class="section-tag">Simple Process</div>
+      <h2 class="section-title">Order Karna <em>Bilkul Aasaan</em> Hai</h2>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-num s1">1</div>
+        <h4>Form Bharein</h4>
+        <p>Neeche diye form mein apni details aur requirement bharen – sirf 2 minute lagenge.</p>
+      </div>
+      <div class="how-step reveal" style="transition-delay:0.15s">
+        <div class="step-num s2">2</div>
+        <h4>Call/WhatsApp</h4>
+        <p>24 ghante mein humari team aapse contact karegi – price list aur details share ki jayegi.</p>
+      </div>
+      <div class="how-step reveal" style="transition-delay:0.3s">
+        <div class="step-num s3">3</div>
+        <h4>Order Confirm</h4>
+        <p>Quantity aur pack size confirm karein. COD ya advance payment – aapki choice.</p>
+      </div>
+      <div class="how-step reveal" style="transition-delay:0.45s">
+        <div class="step-num s4">4</div>
+        <h4>Delivery Milegi</h4>
+        <p>Aapke door tak free delivery. Product receive karein aur selling shuru karein!</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── BULK PRICING ─── -->
+<section class="pricing-section" id="pricing">
+  <div class="container">
+    <div class="pricing-inner">
+      <div class="pricing-content reveal-left">
+        <div class="section-tag">Bulk Pricing</div>
+        <h2 class="section-title">Jitna Bada Order,<br/><em>Utna Better Rate</em></h2>
+        <p class="section-sub">Hum direct manufacturer hain – koi middleman nahi. Isliye aapko market mein best rate de sakte hain consistently.</p>
+        <div class="tier-cards">
+          <div class="tier-card" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge-new">5 KG</div>
+            <div class="tier-info-new">
+              <h4>Minimum Order – Start Here</h4>
+              <p>Pehli baar try karne ke liye perfect. Dekho customer response.</p>
+            </div>
+          </div>
+          <div class="tier-card best" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge-new">10 KG+</div>
+            <div class="tier-info-new">
+              <h4>Best Margin – Recommended</h4>
+              <p>Jyadatar retailers is size par order karte hain – maximum benefit.</p>
+            </div>
+            <div class="tier-tag">⭐ Best</div>
+          </div>
+          <div class="tier-card" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">
+            <div class="tier-badge-new">Custom</div>
+            <div class="tier-info-new">
+              <h4>Wholesale / Distributor</h4>
+              <p>Aapki exact requirement ke hisaab se arrangement hogi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pricing-visual reveal-right">
+        <div class="pricing-stat-float psf1">
+          <div class="psf-num">10+</div>
+          <div class="psf-label">KG Best Rate</div>
+        </div>
+        <div class="pricing-card-big">
+          <div class="pcb-header">
+            <div class="pcb-title">Retailer Benefits</div>
+            <div class="pcb-logo">JeeraPapad Co.</div>
+          </div>
+          <ul class="pcb-perks">
+            <li><span class="perk-icon-sm">🚚</span> FREE Delivery har order par</li>
+            <li><span class="perk-icon-sm">💵</span> COD Available – zero risk</li>
+            <li><span class="perk-icon-sm">🎁</span> FREE Diet Chart with every order</li>
+            <li><span class="perk-icon-sm">🏭</span> Direct manufacturer se – no middleman</li>
+            <li><span class="perk-icon-sm">✅</span> Quality checked har batch</li>
+            <li><span class="perk-icon-sm">📦</span> Strong packing – damage free</li>
+            <li><span class="perk-icon-sm">🔄</span> Regular supply – long-term partner</li>
+          </ul>
+          <button class="pcb-cta" onclick="document.getElementById('order-section').scrollIntoView({behavior:'smooth'})">Price List Request Karein →</button>
+          <p class="pcb-note">⚠ Limited area-wise supply – abhi contact karein</p>
+        </div>
+        <div class="pricing-stat-float psf2">
+          <div class="psf-num">All 🇮🇳</div>
+          <div class="psf-label">India Delivery</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── QUALITY / TRUST ─── -->
+<section class="quality-section">
+  <div class="container">
+    <div class="quality-header">
+      <div class="section-tag">Why Trust Us</div>
+      <h2 class="section-title">Direct Manufacturer –<br/><em>Quality Guaranteed</em></h2>
+    </div>
+    <div class="quality-grid">
+      <div class="quality-card reveal">
+        <span class="quality-icon">🏭</span>
+        <h3>Direct Manufacturer</h3>
+        <p>Hum seedhe manufacturer hain – koi bichaulia nahi. Isliye best factory rate guaranteed hai aapko har time.</p>
+        <div class="quality-badge">No Middleman</div>
+      </div>
+      <div class="quality-card reveal" style="transition-delay:0.1s">
+        <span class="quality-icon">🧼</span>
+        <h3>Hygienic Process</h3>
+        <p>Clean aur hygienic facility mein manufacturing hoti hai. Koi compromise nahi quality par – kabhi bhi.</p>
+        <div class="quality-badge">Certified Clean</div>
+      </div>
+      <div class="quality-card reveal" style="transition-delay:0.2s">
+        <span class="quality-icon">✅</span>
+        <h3>Quality Checked</h3>
+        <p>Har batch quality check ke baad hi pack kiya jaata hai – consistent taste guaranteed. Customer satisfied rahega.</p>
+        <div class="quality-badge">Batch Tested</div>
+      </div>
+      <div class="quality-card reveal" style="transition-delay:0.3s">
+        <span class="quality-icon">📦</span>
+        <h3>Strong Packing</h3>
+        <p>Dum-dar packaging – transport mein damage nahi hoga. Product fresh aur safe pahunchega aapke door tak.</p>
+        <div class="quality-badge">Damage-Free</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── REVIEWS ─── -->
+<section class="reviews-section" id="reviews">
+  <div class="container">
+    <div class="reviews-header">
+      <div class="section-tag">Social Proof</div>
+      <h2 class="section-title">Hamare <em>Retailers</em> Kya Kehte Hain?</h2>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span>
+        </div>
+        <p class="review-text">Bahut achha product hai. Meri shop mein pehle hafte mein hi poora stock bikk gaya. Ab regularly order karta hoon aur margin bhi bahut accha mil raha hai seedha factory se.</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">RK</div>
+          <div>
+            <div class="reviewer-name">Ramesh Kumar</div>
+            <div class="reviewer-place">Kirana Shop Owner, Jaipur</div>
+          </div>
+          <div class="verified-tag">✓ Verified</div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:0.15s">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span>
+        </div>
+        <p class="review-text">Quality ekdum first class hai. Customers ne taste ki bahut tarif ki. Ab meri shop mein Jeera Papad ka permanent corner ban gaya hai. Repeat customers roz aate hain.</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">SP</div>
+          <div>
+            <div class="reviewer-name">Sunita Patil</div>
+            <div class="reviewer-place">General Store, Pune</div>
+          </div>
+          <div class="verified-tag">✓ Verified</div>
+        </div>
+      </div>
+      <div class="review-card reveal" style="transition-delay:0.3s">
+        <div class="review-quote">"</div>
+        <div class="review-stars">
+          <span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span><span class="star-icon">★</span>
+        </div>
+        <p class="review-text">Direct factory se lena bahut faydemand raha. Delivery time par aayi, packing strong thi, quality excellent. Ab aur bhi products ke baare mein baat karne wala hoon inse.</p>
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">MV</div>
+          <div>
+            <div class="reviewer-name">Mahesh Verma</div>
+            <div class="reviewer-place">Wholesale Distributor, Delhi</div>
+          </div>
+          <div class="verified-tag">✓ Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FAQ ─── -->
+<section class="faq-section" id="faq">
+  <div class="container">
+    <div class="faq-header">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Aapke <em>Sawaalon</em> ke Jawab</h2>
+    </div>
+    <div class="faq-container">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Minimum order kitna hai? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Minimum order 5 KG se start hota hai. Best margin ke liye 10 KG ya usse zyada recommend karte hain. Jitna bada order, utna better rate aapko milega.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Kya sample available hai? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Haan, sample available hai. WhatsApp par contact karke details le sakte hain. Sample lene ke baad hi full order karna comfortable lagega.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Retail pack mein kaun kaun se sizes milte hain? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">250g, 500g aur 1 KG packs available hain. Ye packs ready for resale hain – aap directly apne shop mein bech sakte hain bina kisi extra kaam ke.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Margin kitna milega? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Margin aapke order quantity par depend karta hai. Bulk order par better profit margin diya jaata hai. WhatsApp par contact karke exact margin calculation jaante hain.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Delivery kaise aur kitne din mein hogi? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">All India delivery available hai. Transport / courier ke through dispatch kiya jaata hai. Free delivery milegi aapko har order par – koi extra charge nahi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Payment kaise karna hoga? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">COD (Cash on Delivery) available hai. Advance payment ya partial advance bhi accept karte hain order ke hisaab se. Details WhatsApp / call par share ki jayegi.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Quality kaise ensure karte hain? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Hygienic process mein manufacturing hoti hai. Har batch quality check ke baad pack kiya jaata hai. Consistent taste aur quality har time guaranteed hai.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">Kya regular supply milegi? <span class="faq-toggle">+</span></button>
+        <div class="faq-a">Haan, hum long-term retailers ke saath regular supply maintain karte hain. Ek baar partnership shuru ho gayi to consistent supply ensured hai.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── ORDER FORM ─── -->
+<section class="order-section" id="order-section">
+  <div class="order-bg"></div>
+  <div class="container">
+    <div class="order-inner">
+      <div class="order-info">
+        <div class="section-tag">Abhi Order Karein</div>
+        <h2 class="section-title">Aaj Hi Ek<br/><em>High Demand Product</em><br/>Add Karein</h2>
+        <p class="section-sub">Limited retailers ko hi supply di ja rahi hai (area-wise) – abhi contact karein aur apne area ka slot secure karein.</p>
+        <ul class="order-perks-list">
+          <li class="order-perk"><span class="perk-icon-new">🚚</span> FREE Delivery – har order par, zero extra charge</li>
+          <li class="order-perk"><span class="perk-icon-new">💵</span> COD Available – pehle product, phir payment</li>
+          <li class="order-perk"><span class="perk-icon-new">🎁</span> FREE Diet Chart – har order ke saath gift</li>
+          <li class="order-perk"><span class="perk-icon-new">🏭</span> Direct Manufacturer – best rate guaranteed</li>
+          <li class="order-perk"><span class="perk-icon-new">📦</span> Strong Packing – product safe pahunchega</li>
+          <li class="order-perk"><span class="perk-icon-new">⭐</span> Quality Checked – inspected before dispatch</li>
+        </ul>
+        <div class="order-urgency">Limited area-wise slots remaining – jaldi karein!</div>
+      </div>
+      <div>
+        <div class="order-form" id="mainForm">
+          <div class="form-top-bar"></div>
+          <div class="form-header">
+            <h3>Price List & Sample Request</h3>
+            <p>Form bharein – 24 ghante mein reply milegi</p>
+          </div>
+          <div id="formContent">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Aapka Naam *</label>
+                <input type="text" placeholder="Full name" id="fname" required/>
+              </div>
+              <div class="form-group">
+                <label>Phone / WhatsApp *</label>
+                <input type="tel" placeholder="10-digit number" id="fphone" required/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Shop / Business Name</label>
+              <input type="text" placeholder="Aapke shop ka naam" id="fshop"/>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>City / State *</label>
+                <input type="text" placeholder="City, State" id="fcity" required/>
+              </div>
+              <div class="form-group">
+                <label>Order Quantity</label>
+                <select id="fqty">
+                  <option value="">Select karein</option>
+                  <option value="sample">Sample chahiye</option>
+                  <option value="5kg">5 KG (Minimum)</option>
+                  <option value="10kg">10 KG (Best Rate)</option>
+                  <option value="20kg">20 KG+</option>
+                  <option value="custom">Custom Quantity</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Pack Size Preference</label>
+              <select id="fpack">
+                <option value="">Select karein</option>
+                <option value="250g">250g Packs</option>
+                <option value="500g">500g Packs</option>
+                <option value="1kg">1 KG Packs</option>
+                <option value="mixed">Mixed Sizes</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message (Optional)</label>
+              <textarea rows="3" placeholder="Koi aur jankari chahiye? Likhein..." id="fmsg"></textarea>
+            </div>
+            <button class="form-submit" onclick="submitForm()">
+              <span>Price List & Sample Request Bhejein</span> <span>→</span>
+            </button>
+            <p class="form-privacy">🔒 Aapki information safe hai – spam nahi karenge</p>
+          </div>
+          <div class="form-loading" id="formLoading">
+            <div class="spinner"></div>
+            <p style="font-size:0.95rem;color:#666;">Aapka request process ho raha hai...</p>
+          </div>
+          <div class="form-success" id="formSuccess">
+            <div class="success-icon">✓</div>
+            <h3>Request Successful!</h3>
+            <p>Aapka request humein mil gaya. 24 ghante mein humari team WhatsApp ya call par price list aur sample details ke saath contact karegi.</p>
+            <a href="https://wa.me/yourwhatsappnumber" class="success-whatsapp">💬 WhatsApp par Baat Karein</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER CTA STRIP ─── -->
+<div class="footer-cta-strip">
+  <p>Apne area mein high demand product add karein – aaj hi contact karein</p>
+  <div class="footer-btn-row">
+    <a href="https://wa.me/yourwhatsappnumber" class="f-btn f-btn-wa">💬 WhatsApp Now</a>
+    <a href="tel:yourphonenumber" class="f-btn f-btn-call">📞 Call Now</a>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">Jeera<span>Papad</span> Co.</div>
+        <p>Hum ek direct manufacturer hain jo high-quality jeera papad banate hain. Humara focus hai retailers ko consistent quality, achha margin aur regular supply provide karna – bina kisi middleman ke.</p>
+        <div class="footer-trust-row">
+          <span class="ftb">✔ Direct Manufacturer</span>
+          <span class="ftb">✔ Hygienic Production</span>
+          <span class="ftb">✔ Quality Checked</span>
+          <span class="ftb">✔ All India Delivery</span>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#pricing">Bulk Pricing</a></li>
+          <li><a href="#order-section">Order Now</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Business</h4>
+        <ul>
+          <li><a href="#">Retailers Welcome</a></li>
+          <li><a href="#">Distributors</a></li>
+          <li><a href="#">Wholesale Supply</a></li>
+          <li><a href="#">Long-term Partnership</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact Us</h4>
+        <p>📞 Call: [Your Phone Number]</p>
+        <p>💬 WhatsApp: [Your WhatsApp]</p>
+        <p>📍 [Your City / Factory Location]</p>
+        <p>🕐 Mon–Sat: 9 AM – 7 PM</p>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <p>© 2024 JeeraPapad Co. – Direct Manufacturer. All Rights Reserved.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── DISCLAIMER ─── -->
+<div class="disclaimer">
+  <p>Disclaimer: Is website par di gayi sabhi jankari sirf retailers aur distributors ke liye hai. Product images, margins aur pricing indicative hain aur actual order ke waqt discuss ki jayegi. COD aur free delivery ki offer specific conditions par lagu hoti hai – order confirm karte samay details confirm karein.</p>
+</div>
+
+<!-- ─── STICKY BUTTONS ─── -->
+<div class="sticky-wrap">
+  <a href="https://wa.me/yourwhatsappnumber" class="sticky-btn sticky-wa">💬 WhatsApp</a>
+  <a href="tel:yourphonenumber" class="sticky-btn sticky-call">📞 Call Now</a>
+</div>
+
+<script>
+// Navbar scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// FAQ toggle
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// Form submit
+function submitForm() {
+  const fname = document.getElementById('fname').value.trim();
+  const fphone = document.getElementById('fphone').value.trim();
+  const fcity = document.getElementById('fcity').value.trim();
+  if (!fname || !fphone || !fcity) {
+    alert('Please naam, phone number aur city zaroor bharen.');
+    return;
+  }
+  document.getElementById('formContent').style.display = 'none';
+  document.getElementById('formLoading').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('formLoading').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+  }, 2200);
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
