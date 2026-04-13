@@ -32,7 +32,38 @@
 
     html {
       scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Khand', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      background: var(--deep-red);
+      color: #fff;
+      text-align: center;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      padding: 6px 16px;
+      font-weight: 500;
+    }
+
+    /* ─── HEADER BANNER (image strip with khet animation) ─── */
+    @keyframes slideFromLeft {
+      from { transform: translateX(-160px) rotate(-4deg); opacity: 0; }
+      to   { transform: translateX(0)       rotate(0deg);  opacity: 1; }
+    }
+    @keyframes slideFromRight {
+      from { transform: translateX(160px)  rotate(4deg);  opacity: 0; }
       to   { transform: translateX(0)      rotate(0deg);  opacity: 1; }
+    }
+    @keyframes riseUp {
+      from { transform: translateY(30px); opacity: 0; }
+      to   { transform: translateY(0);    opacity: 1; }
     }
 
     .header-banner {
@@ -237,6 +268,32 @@
       font-style: italic;
       margin-bottom: 28px;
       max-width: 420px;
+    }
+
+    .price-tag {
+      display: inline-flex;
+      flex-direction: column;
+      margin-bottom: 32px;
+    }
+
+    .price-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+
+    .price-tax {
+      font-size: 0.75rem;
+      color: #888;
     }
 
     .hero-actions {
@@ -1651,7 +1708,7 @@
  
 
   <!-- TOP BAR -->
-  <div class="topbar">🚚 Free Delivery Available &nbsp;|&nbsp; ⚠️ CAUTION: Beware of Fraud! We do not accept
+  <div class="topbar">🚚 Orders above ₹500 get Free Delivery &nbsp;|&nbsp; ⚠️ CAUTION: Beware of Fraud! We do not accept
     unsolicited payments &nbsp;|&nbsp; 📦 Estimated delivery 3-5 working days</div>
      <!-- HEADER BANNER -->
   <div class="header-banner" role="banner">
@@ -1992,8 +2049,8 @@
         <div class="trust-stat-label">Years on Amazon</div>
       </div>
       <div>
-        <div class="trust-stat-num">Fresh</div>
-        <div class="trust-stat-label">Packed with Care</div>
+        <div class="trust-stat-num">₹130</div>
+        <div class="trust-stat-label">For 500 gm Pack</div>
       </div>
     </div>
   </div>
@@ -2117,7 +2174,7 @@
           <input class="pincode-input" type="text" placeholder="Enter Pincode" maxlength="6">
           <button class="btn-check">Check</button>
         </div>
-        <button class="btn-primary" style="width:100%">Buy Now</button>
+        <button class="btn-primary" style="width:100%">Buy Now — ₹130</button>
       </div>
     </div>
   </div>
