@@ -32,24 +32,30 @@
 
     html {
       scroll-behavior: smooth;
+      to   { transform: translateX(0)      rotate(0deg);  opacity: 1; }
     }
 
-    body {
-      font-family: 'Khand', sans-serif;
-      background: var(--cream);
-      color: var(--charcoal);
-      overflow-x: hidden;
+    .header-banner {
+      width: 100%;
+      height: 180px;
+      display: flex;
+      overflow: hidden;
     }
 
-    /* ─── TOPBAR ─── */
-    .topbar {
-      background: var(--deep-red);
-      color: #fff;
-      text-align: center;
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      padding: 6px 16px;
-      font-weight: 500;
+    .banner-img-left,
+    .banner-img-right {
+      width: 50%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    .banner-img-left {
+      animation: slideFromLeft 0.85s cubic-bezier(0.22,1,0.36,1) both;
+    }
+
+    .banner-img-right {
+      animation: slideFromRight 0.85s cubic-bezier(0.22,1,0.36,1) both;
     }
 
     /* ─── HEADER / NAV ─── */
@@ -233,32 +239,6 @@
       max-width: 420px;
     }
 
-    .price-tag {
-      display: inline-flex;
-      flex-direction: column;
-      margin-bottom: 32px;
-    }
-
-    .price-label {
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: #888;
-    }
-
-    .price-amount {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.6rem;
-      font-weight: 900;
-      color: var(--charcoal);
-      line-height: 1;
-    }
-
-    .price-tax {
-      font-size: 0.75rem;
-      color: #888;
-    }
-
     .hero-actions {
       display: flex;
       gap: 14px;
@@ -336,6 +316,67 @@
       font-size: 0.78rem;
       letter-spacing: 0.04em;
       font-weight: 600;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      margin-bottom: 24px;
+    }
+
+    .hero-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .hero-highlight-item .hh-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--saffron);
+      flex-shrink: 0;
+    }
+
+    .hero-relatable {
+      font-family: 'Lora', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--brown);
+      background: var(--sand);
+      border-left: 4px solid var(--saffron);
+      padding: 10px 16px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .hero-trust-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .hero-trust-item::before {
+      content: '✔';
+      font-size: 0.7rem;
+      color: var(--green);
     }
 
     .badge {
@@ -1607,9 +1648,16 @@
 
 <body>
 
+ 
+
   <!-- TOP BAR -->
-  <div class="topbar">🚚 Orders above ₹500 get Free Delivery &nbsp;|&nbsp; ⚠️ CAUTION: Beware of Fraud! We do not accept
+  <div class="topbar">🚚 Free Delivery Available &nbsp;|&nbsp; ⚠️ CAUTION: Beware of Fraud! We do not accept
     unsolicited payments &nbsp;|&nbsp; 📦 Estimated delivery 3-5 working days</div>
+     <!-- HEADER BANNER -->
+  <div class="header-banner" role="banner">
+    <img src="./Image/2.png" class="banner-img-left"  alt="Papad Product View 1" />
+    <img src="./Image/1.png" class="banner-img-right" alt="Papad Product View 2" />
+  </div>
 
   <!-- HEADER -->
   <header>
@@ -1630,6 +1678,8 @@
     <button class="btn-cart">🛒 Add to Cart</button>
   </header>
 
+
+
   <!-- HERO -->
   <section class="hero" style="padding:0">
     <div class="hero-bg-pattern"></div>
@@ -1637,24 +1687,44 @@
       <div class="hero-eyebrow">
         <div class="dot"></div> Traditional Rajasthani Recipe · In Stock
       </div>
-      <h1 class="hero-title">Bikaneri<br><em>Katran</em><br>Papad</h1>
-      <p class="hero-subtitle">Crafted with the spirit of Bikaner — thin, crunchy, and packed with authentic chatpata
-        flavour.</p>
-      <div class="price-tag">
-        <span class="price-label">Price</span>
-        <span class="price-amount">₹130<sup style="font-size:1.2rem">.00</sup></span>
-        <span class="price-tax">500 gm · Inclusive of all taxes</span>
+
+      <!-- 🔥 Main Headline -->
+      <h1 class="hero-title" style="font-size:clamp(1.9rem,3.5vw,3.2rem);line-height:1.15">
+        Har bite me mile<br><em>Spicy Crunch</em><br>aur Ghar Jaisa Swaad
+      </h1>
+
+      <!-- 💬 Subheadline -->
+      <p class="hero-subtitle">Jo life ke har moment ko bana de aur bhi tasty —<br>
+        simple khana ho ya special dinner, har meal ka perfect partner.</p>
+
+      <!-- 🌶️ Key Highlights -->
+      <div class="hero-highlights">
+        <div class="hero-highlight-item"><div class="hh-dot"></div>Crispy &amp; Spicy Taste</div>
+        <div class="hero-highlight-item"><div class="hh-dot"></div>Real Jeera Flavor</div>
+        <div class="hero-highlight-item"><div class="hh-dot"></div>Har meal ke saath perfect</div>
+        <div class="hero-highlight-item"><div class="hh-dot"></div>Family favourite snack</div>
       </div>
+
+      <!-- 🍽️ Relatable Line -->
+      <div class="hero-relatable">
+        "Dal-chawal ho ya dinner party — papad ho to taste double ho jata hai" 🤤
+      </div>
+
+      <!--  CTA Buttons -->
       <div class="hero-actions">
-        <a class="btn-primary btn-link" href="#order-form">Buy Now</a>
-        <a class="btn-secondary btn-link" href="#order-form">Quick Order</a>
+        <a class="btn-primary btn-link" href="#order-form">🛒 Abhi Order Karein</a>
+        <a class="btn-secondary btn-link" href="#order-form">Try Karein — Taste Mehsoos Karein</a>
       </div>
-      <div class="trust-badges">
-        <div class="badge"><span class="badge-icon">✅</span> 91% Positive Ratings</div>
-        <div class="badge"><span class="badge-icon">📦</span> 100K+ Orders</div>
-        <div class="badge"><span class="badge-icon">🏆</span> 11+ Years on Amazon</div>
+
+      <!-- 🟢 Trust Line -->
+      <div class="hero-trust-line">
+        <div class="hero-trust-item">Freshly Made</div>
+        <div class="hero-trust-item">Hygienic Packing</div>
+        <div class="hero-trust-item">Quality Taste Guaranteed</div>
       </div>
-      <div class="hero-quick-strip">
+
+      <!-- Quick chips -->
+      <div class="hero-quick-strip" style="margin-top:14px">
         <div class="quick-chip">No Added Colours</div>
         <div class="quick-chip">Ready to Serve</div>
         <div class="quick-chip">PAN India Delivery</div>
@@ -1675,19 +1745,19 @@
   <!-- MARQUEE BAND -->
   <div class="story-band">
     <div class="story-band-inner">
-      <span>Authentic Bikaner Recipe</span><span class="sep">✦</span>
-      <span>Thin &amp; Crispy Texture</span><span class="sep">✦</span>
-      <span>No Artificial Colours</span><span class="sep">✦</span>
-      <span>Perfect with Dal-Chawal</span><span class="sep">✦</span>
-      <span>Rajasthan's Finest Papad</span><span class="sep">✦</span>
-      <span>Chatpata Masala Flavour</span><span class="sep">✦</span>
+      <span>Har Bite Me Spicy Crunch</span><span class="sep">✦</span>
+      <span>Ghar Jaisa Swaad</span><span class="sep">✦</span>
+      <span>Real Jeera Flavor</span><span class="sep">✦</span>
+      <span>Dal-Chawal Ka Perfect Partner</span><span class="sep">✦</span>
+      <span>Family Favourite Snack</span><span class="sep">✦</span>
+      <span>Taste Ka Difference Mehsoos Karein</span><span class="sep">✦</span>
       <!-- duplicate for seamless loop -->
-      <span>Authentic Bikaner Recipe</span><span class="sep">✦</span>
-      <span>Thin &amp; Crispy Texture</span><span class="sep">✦</span>
-      <span>No Artificial Colours</span><span class="sep">✦</span>
-      <span>Perfect with Dal-Chawal</span><span class="sep">✦</span>
-      <span>Rajasthan's Finest Papad</span><span class="sep">✦</span>
-      <span>Chatpata Masala Flavour</span><span class="sep">✦</span>
+      <span>Har Bite Me Spicy Crunch</span><span class="sep">✦</span>
+      <span>Ghar Jaisa Swaad</span><span class="sep">✦</span>
+      <span>Real Jeera Flavor</span><span class="sep">✦</span>
+      <span>Dal-Chawal Ka Perfect Partner</span><span class="sep">✦</span>
+      <span>Family Favourite Snack</span><span class="sep">✦</span>
+      <span>Taste Ka Difference Mehsoos Karein</span><span class="sep">✦</span>
     </div>
   </div>
 
@@ -1922,8 +1992,8 @@
         <div class="trust-stat-label">Years on Amazon</div>
       </div>
       <div>
-        <div class="trust-stat-num">₹130</div>
-        <div class="trust-stat-label">For 500 gm Pack</div>
+        <div class="trust-stat-num">Fresh</div>
+        <div class="trust-stat-label">Packed with Care</div>
       </div>
     </div>
   </div>
@@ -2047,7 +2117,7 @@
           <input class="pincode-input" type="text" placeholder="Enter Pincode" maxlength="6">
           <button class="btn-check">Check</button>
         </div>
-        <button class="btn-primary" style="width:100%">Buy Now — ₹130</button>
+        <button class="btn-primary" style="width:100%">Buy Now</button>
       </div>
     </div>
   </div>
