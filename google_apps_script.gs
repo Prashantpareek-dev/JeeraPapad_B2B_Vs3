@@ -1,87 +1,2508 @@
-/**
- * Simple Google Apps Script to accept POSTed JSON and append to a sheet.
- * Usage:
- * 1. Create a new Apps Script project bound to your Google Sheet or use standalone.
- * 2. Replace SPREADSHEET_ID with your sheet id or deploy the script as 'Execute as: Me' and 'Who has access: Anyone, even anonymous' (or restrict as needed).
- * 3. Deploy as Web App and use the web app URL in the client-side `GAS_WEBAPP_URL`.
- */
+<!DOCTYPE html>
+<html lang="en">
 
-const SPREADSHEET_ID = 'REPLACE_WITH_YOUR_SPREADSHEET_ID';
-const SHEET_NAME = 'Sheet1';
-
-function doPost(e) {
-  try {
-    const body = e.postData && e.postData.contents ? JSON.parse(e.postData.contents) : {};
-    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-    const sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
-
-    const ts = new Date();
-    const packages = (body.packages || []).join(', ');
-
-    const row = [ts, body.name || '', body.phone || '', body.address || '', body.pincode || '', packages];
-    sheet.appendRow(row);
-
-    // Return JSON with CORS headers
-    const output = ContentService.createTextOutput(JSON.stringify({ result: 'success' }));
-    output.setMimeType(ContentService.MimeType.JSON);
-    return output;
-  } catch (err) {
-    const output = ContentService.createTextOutput(JSON.stringify({ result: 'error', message: err.message }));
-    output.setMimeType(ContentService.MimeType.JSON);
-    return output;
-  }
-}
-
-/**
- * Support JSONP via GET to avoid CORS from browser clients.
- * Call the web app with query params and a `callback` param:
- *   https://script.google.com/.../exec?callback=gsCallback&name=...&phone=...&address=...&pincode=...&packages=...
- */
-function doGet(e) {
-  try {
-    const params = e.parameter || {};
-    const callback = params.callback;
-    const packagesRaw = params.packages || '';
-    const packagesArr = packagesRaw ? packagesRaw.split('|').map(decodeURIComponent) : [];
-
-    const ss = SpreadsheetApp.openById(SPREADSHEET_ID);
-    const sheet = ss.getSheetByName(SHEET_NAME) || ss.getSheets()[0];
-    const ts = new Date();
-
-    const row = [
-      ts, 
-      params.name || '', 
-      params.phone || '', 
-      params.address || '', 
-      params.pincode || '', 
-      packagesArr.join(', '),
-      params.total || '0'
-    ];
-    sheet.appendRow(row);
-
-    const payload = { result: 'success' };
-    const json = JSON.stringify(payload);
-
-    if (callback) {
-      return ContentService
-        .createTextOutput(callback + '(' + json + ')')
-        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Authentic Khichda Papad - Traditional Indian flavors with premium quality ingredients">
+  <meta name="theme-color" content="#E8881A">
+  <title>Khichda Papad - Swad Aur Tradition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="dns-prefetch" href="https://script.google.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Khand:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --saffron: #E8881A;
+      --deep-red: #C0392B;
+      --gold: #D4A017;
+      --cream: #FDF6E3;
+      --brown: #5C3317;
+      --charcoal: #1A1A1A;
+      --off-white: #FAF3E0;
+      --sand: #F0D9B5;
+      --muted-red: #8B1A1A;
+      --green: #2E7D32;
     }
 
-    return ContentService
-      .createTextOutput(json)
-      .setMimeType(ContentService.MimeType.JSON);
-  } catch (err) {
-    const payload = { result: 'error', message: err.message };
-    const json = JSON.stringify(payload);
-    const callback = (e.parameter || {}).callback;
-    if (callback) {
-      return ContentService
-        .createTextOutput(callback + '(' + json + ')')
-        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-    return ContentService
-      .createTextOutput(json)
-      .setMimeType(ContentService.MimeType.JSON);
-  }
-}
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 112%;
+    }
+
+    body {
+      font-family: 'Khand', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── TOPBAR ── */
+    .topbar {
+      background: var(--deep-red);
+      color: #fff;
+      text-align: center;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      padding: 7px 16px;
+      font-weight: 500;
+    }
+
+    /* ─────────────────────────────────────────
+       HEADER BANNER  — FULL-BLEED TWO-PANEL
+    ───────────────────────────────────────── */
+    @keyframes slideFromLeft {
+      from {
+        transform: translateX(-120px) scale(1.06);
+        opacity: 0;
+      }
+
+      to {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideFromRight {
+      from {
+        transform: translateX(120px) scale(1.06);
+        opacity: 0;
+      }
+
+      to {
+        transform: none;
+        opacity: 1;
+      }
+    }
+
+    .header-banner {
+      width: 100%;
+      height: 270px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      position: relative;
+    }
+
+
+
+    .banner-panel {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-panel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.6s ease;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .banner-panel:hover img {
+      transform: scale(1.04) translateZ(0);
+    }
+
+    .banner-panel--left img {
+      animation: slideFromLeft 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .banner-panel--right img {
+      animation: slideFromRight 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+
+    .banner-panel::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 55%, rgba(0, 0, 0, 0.35) 100%);
+      pointer-events: none;
+    }
+
+    /* ── NAV HEADER ── */
+    header {
+      background: var(--off-white);
+      border-bottom: 3px solid var(--saffron);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      padding: 13px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--deep-red);
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 0 3px var(--saffron);
+    }
+
+    .logo-circle span {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 900;
+    }
+
+    .brand-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.65rem;
+      font-weight: 900;
+      color: var(--deep-red);
+      line-height: 1;
+    }
+
+    .brand-tagline {
+      font-size: 0.78rem;
+      color: var(--brown);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.98rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+
+    nav a:hover {
+      color: var(--saffron);
+      border-color: var(--saffron);
+    }
+
+    .btn-cart {
+      background: var(--deep-red);
+      color: #fff;
+      border: none;
+      padding: 10px 22px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .2s, transform .1s;
+    }
+
+    .btn-cart:hover {
+      background: var(--saffron);
+      transform: translateY(-1px);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 90vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg-pattern {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle at 80% 20%, rgba(232, 136, 26, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 20% 80%, rgba(192, 57, 43, 0.10) 0%, transparent 45%);
+    }
+
+    .hero-bg-pattern::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(135deg, #3D1008 0%, #6B1E0A 60%, #993A1A 100%);
+      clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 2;
+      padding: 70px 50px 60px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sand);
+      border-left: 4px solid var(--saffron);
+      padding: 7px 16px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--brown);
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+
+    .hero-eyebrow .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--saffron);
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.2rem, 3.9vw, 3.7rem);
+      font-weight: 900;
+      line-height: 1.12;
+      color: var(--muted-red);
+      margin-bottom: 11px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--saffron);
+    }
+
+    .hero-subtitle {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      color: var(--brown);
+      font-style: italic;
+      margin-bottom: 22px;
+      max-width: 420px;
+    }
+
+    .hero-highlights {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .hero-highlight-item {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--charcoal);
+    }
+
+    .hero-highlight-item .hh-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--saffron);
+      flex-shrink: 0;
+    }
+
+    .hero-relatable {
+      font-family: 'Lora', serif;
+      font-size: 1.04rem;
+      font-style: italic;
+      color: var(--brown);
+      background: var(--sand);
+      border-left: 4px solid var(--saffron);
+      padding: 11px 18px;
+      border-radius: 0 4px 4px 0;
+      margin-bottom: 26px;
+      line-height: 1.6;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .btn-link {
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--deep-red);
+      color: #fff;
+      border: none;
+      padding: 15px 38px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      box-shadow: 4px 4px 0 var(--saffron);
+      transition: transform .15s, box-shadow .15s;
+    }
+
+    .btn-primary:hover {
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--saffron);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--deep-red);
+      border: 2px solid var(--deep-red);
+      padding: 13px 34px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background .2s, color .2s;
+    }
+
+    .btn-secondary:hover {
+      background: var(--deep-red);
+      color: #fff;
+    }
+
+    .hero-trust-line {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.83rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+
+    .hero-trust-item::before {
+      content: '✔';
+      font-size: 0.78rem;
+      color: var(--green);
+    }
+
+    .hero-quick-strip {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .quick-chip {
+      background: #fff;
+      border: 1px dashed #d9b174;
+      color: var(--brown);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      letter-spacing: 0.04em;
+      font-weight: 600;
+    }
+
+    /* ─── HERO RIGHT — AUTO-SWIPER ─── */
+    .hero-right {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 60px 50px 60px 30px;
+    }
+
+    .product-image-wrap {
+      position: relative;
+    }
+
+    /* Auto-swiper carousel */
+    .hero-swiper {
+      width: 420px;
+      height: 80vh;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 24px 24px 70px rgba(0, 0, 0, 0.55), -6px -6px 24px rgba(255, 200, 80, 0.18);
+      position: relative;
+      background: #f9e8c4;
+    }
+
+    .hero-swiper-track {
+      display: flex;
+      width: 400%;
+      /* 4 slides */
+      height: 100%;
+      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero-swiper-slide {
+      width: 25%;
+      /* each slide = 100% / 4 */
+      height: 100%;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .hero-swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      padding: 16px;
+    }
+
+    .product-glow {
+      position: absolute;
+      inset: -24px;
+      background: radial-gradient(circle, rgba(232, 136, 26, 0.35), transparent 65%);
+      pointer-events: none;
+    }
+
+    .floating-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--brown);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      line-height: 1.3;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      animation: spinBadge 10s linear infinite;
+    }
+
+    @keyframes spinBadge {
+      from {
+        transform: rotate(0deg);
+      }
+
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .weight-tag {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--deep-red);
+      color: #fff;
+      padding: 7px 22px;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 100px;
+      box-shadow: 0 4px 14px rgba(192, 57, 43, 0.5);
+      white-space: nowrap;
+    }
+
+    /* ─── MARQUEE ─── */
+    .story-band {
+      background: var(--deep-red);
+      color: #fff;
+      padding: 22px 60px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .story-band-inner {
+      display: flex;
+      gap: 60px;
+      align-items: center;
+      animation: marquee 18s linear infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes marquee {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    .story-band span {
+      font-size: 0.9rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .story-band .sep {
+      color: var(--saffron);
+      font-size: 1.2rem;
+    }
+
+    /* ── SECTIONS COMMON ── */
+    section {
+      padding: 80px 80px;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 500px;
+    }
+
+    .section-label {
+      font-size: 0.82rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.1rem, 3.2vw, 2.9rem);
+      font-weight: 900;
+      color: var(--muted-red);
+      margin-bottom: 14px;
+      line-height: 1.2;
+    }
+
+    .section-body {
+      font-family: 'Lora', serif;
+      font-size: 1.06rem;
+      color: #555;
+      line-height: 1.75;
+      max-width: 600px;
+    }
+
+    /* HERITAGE */
+    .heritage {
+      background: var(--off-white);
+    }
+
+    .heritage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: stretch;
+    }
+
+    .heritage-visual {
+      position: relative;
+      border-radius: 6px;
+      overflow: hidden;
+      box-shadow: 14px 14px 0 var(--sand);
+ 
+    }
+
+    .heritage-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    @media (max-width:450px) {
+      .heritage-grid img{
+        /* object-position: top;
+         */
+         height: fit-content;
+         object-fit: contain;
+      }
+      
+    }
+
+    .heritage-visual:hover img {
+      transform: scale(1.04);
+    }
+
+    .heritage-corner {
+      position: absolute;
+      bottom: 18px;
+      right: 18px;
+      background: var(--saffron);
+      padding: 8px 16px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      border-radius: 2px;
+    }
+
+    .heritage-content {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      justify-content: center;
+    }
+
+    .heritage-quote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.42rem;
+      font-style: italic;
+      color: var(--brown);
+      border-left: 5px solid var(--saffron);
+      padding-left: 18px;
+      line-height: 1.6;
+    }
+
+    /* INGREDIENTS */
+    .ingredients {
+      background: var(--cream);
+    }
+
+    .ingredients-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .ingredient-card {
+      background: var(--off-white);
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      overflow: hidden;
+      text-align: center;
+      position: relative;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .ingredient-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--saffron);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    .ingredient-card:hover::after {
+      transform: scaleX(1);
+    }
+
+    .ingredient-img-wrap {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      background: #f9edda;
+    }
+
+    .ingredient-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .35s;
+    }
+
+    .ingredient-card:hover .ingredient-img-wrap img {
+      transform: scale(1.08);
+    }
+
+    .ingredient-body {
+      padding: 18px 14px 22px;
+    }
+
+    .ingredient-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--muted-red);
+      margin-bottom: 6px;
+    }
+
+    .ingredient-desc {
+      font-size: 0.9rem;
+      color: #777;
+      line-height: 1.5;
+    }
+
+    /* FEATURES */
+    .features {
+      background: linear-gradient(160deg, #2A0C05 0%, #5C1A0A 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .features::before {
+      content: '';
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(232, 136, 26, 0.08);
+      pointer-events: none;
+    }
+
+    .features .section-heading {
+      color: var(--gold);
+    }
+
+    .features .section-body {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+      margin-top: 48px;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 34px 28px;
+      border-radius: 4px;
+      transition: background .2s, transform .2s;
+    }
+
+    .feature-card:hover {
+      background: rgba(232, 136, 26, 0.12);
+      transform: translateY(-4px);
+    }
+
+    .feature-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: rgba(232, 136, 26, 0.67);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .feature-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 9px;
+    }
+
+    .feature-desc {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.65);
+      line-height: 1.65;
+    }
+
+    /* HOW TO SERVE */
+    .serve {
+      background: var(--off-white);
+    }
+
+    .serve-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .step {
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--cream);
+      border: 1px solid var(--sand);
+      position: relative;
+    }
+
+    .step-img-wrap {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      background: #f3e2c4;
+    }
+
+    .step-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .4s;
+    }
+
+    .step:hover .step-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    .step-body {
+      padding: 24px 22px 28px;
+      position: relative;
+    }
+
+    .step-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.2rem;
+      font-weight: 900;
+      color: var(--sand);
+      line-height: 1;
+      position: absolute;
+      top: 12px;
+      right: 18px;
+    }
+
+    .step-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--muted-red);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .step-desc {
+      font-size: 0.93rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    /* TASTE MOMENTS */
+    .taste-moments {
+      background: var(--cream);
+    }
+
+    .taste-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .taste-card {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--sand);
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+      transition: transform .22s, box-shadow .22s;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .taste-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    .taste-card-top {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      overflow: hidden;
+    }
+
+    .taste-card-top img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .4s;
+    }
+
+    .taste-card:hover .taste-card-top img {
+      transform: scale(1.08);
+    }
+
+    .taste-card-overlay-text {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.22);
+      letter-spacing: -1px;
+      user-select: none;
+      line-height: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .taste-card-top::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.38) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .taste-card-body {
+      padding: 20px 16px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .taste-tag {
+      display: inline-block;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      background: rgba(232, 136, 26, 0.10);
+      border-radius: 999px;
+      padding: 4px 11px;
+      width: fit-content;
+    }
+
+    .taste-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--muted-red);
+      line-height: 1.3;
+    }
+
+    .taste-desc {
+      font-family: 'Lora', serif;
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .taste-tips {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--sand);
+    }
+
+    .taste-tips li {
+      font-size: 0.88rem;
+      color: #555;
+      font-weight: 600;
+    }
+
+    /* TRUST STATS */
+    .trust {
+      background: var(--deep-red);
+      color: #fff;
+      padding: 70px 80px;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .trust-stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .trust-stat-label {
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+
+    /* QUALITY TRUST */
+    .quality-trust {
+      background: linear-gradient(160deg, #1c0a03 0%, #3d1208 60%, #6b2010 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quality-trust::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 90%, rgba(232, 136, 26, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 90% 10%, rgba(212, 160, 23, 0.10) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .quality-trust .section-heading {
+      color: var(--gold);
+    }
+
+    .quality-trust .section-body {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .quality-trust-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 44px;
+    }
+
+    .quality-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 10px;
+      padding: 30px 18px 26px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 13px;
+      transition: background .22s, transform .22s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .quality-card:hover {
+      background: rgba(232, 136, 26, 0.13);
+      transform: translateY(-5px);
+    }
+
+    .quality-card-icon {
+      width: 182px;
+      height: 182px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+      border: 3px solid rgba(255, 255, 255, 0.15);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .quality-card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .quality-card-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+
+    .quality-card-badge--blue {
+      color: #7eb4ff;
+      background: rgba(41, 97, 201, 0.18);
+    }
+
+    .quality-card-badge--green {
+      color: #80d480;
+      background: rgba(46, 125, 50, 0.18);
+    }
+
+    .quality-card-badge--gold {
+      color: var(--gold);
+      background: rgba(212, 160, 23, 0.18);
+    }
+
+    .quality-card-badge--red {
+      color: #f39191;
+      background: rgba(192, 57, 43, 0.18);
+    }
+
+    .quality-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .quality-card-watermark {
+      position: absolute;
+      bottom: -8px;
+      right: -6px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: rgba(255, 255, 255, 0.04);
+      user-select: none;
+      line-height: 1;
+    }
+
+    .quality-assurance-bar {
+      margin-top: 40px;
+      padding: 18px 22px;
+      border: 1px solid rgba(212, 160, 23, 0.35);
+      border-radius: 6px;
+      background: rgba(212, 160, 23, 0.07);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+
+    .quality-assurance-bar span {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.65);
+      letter-spacing: 0.05em;
+    }
+
+    .quality-assurance-bar strong {
+      color: var(--gold);
+    }
+
+    .quality-divider {
+      width: 1px;
+      height: 16px;
+      background: rgba(212, 160, 23, 0.3);
+    }
+
+    /* FAQ */
+    .faq {
+      background: var(--cream);
+    }
+
+    .faq-list {
+      margin-top: 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .faq-q {
+      padding: 20px 0;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    .faq-q:hover {
+      color: var(--deep-red);
+    }
+
+    .faq-toggle {
+      font-size: 1.4rem;
+      color: var(--saffron);
+      transition: transform .3s;
+    }
+
+    .faq-a {
+      font-family: 'Lora', serif;
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      padding: 0 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease;
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 300px;
+    }
+
+    .faq-item.open .faq-toggle {
+      transform: rotate(45deg);
+    }
+
+    /* ORDER FORM */
+    .order-form-section {
+      background: var(--cream);
+      border-top: 4px solid var(--saffron);
+    }
+
+    .order-form-wrap {
+      max-width: 980px;
+      margin: 0 auto;
+      background: #fff;
+      border: 1px solid var(--sand);
+      box-shadow: 10px 10px 0 rgba(232, 136, 26, 0.16);
+      border-radius: 6px;
+      padding: 36px 32px;
+    }
+
+    .order-form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .order-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .order-field-full {
+      grid-column: 1 / -1;
+    }
+
+    .order-label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .order-steps {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .order-step {
+      border: 1px solid var(--sand);
+      background: var(--off-white);
+      border-radius: 4px;
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #5d4a33;
+      font-size: 0.93rem;
+      font-weight: 600;
+    }
+
+    .order-step span {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .order-input,
+    .order-textarea {
+      border: 2px solid var(--sand);
+      background: #fff;
+      padding: 12px 14px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1.02rem;
+      color: var(--charcoal);
+      border-radius: 4px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .order-input:focus,
+    .order-textarea:focus {
+      border-color: var(--saffron);
+      box-shadow: 0 0 0 3px rgba(232, 136, 26, 0.18);
+    }
+
+    .order-textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .package-choices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .package-choice {
+      border: 1px solid var(--sand);
+      border-radius: 4px;
+      background: var(--off-white);
+      padding: 11px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .package-choice-left {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1rem;
+      color: var(--charcoal);
+      font-weight: 600;
+      flex-wrap: wrap;
+    }
+
+    .package-live-price {
+      display: none;
+      margin-left: 28px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--deep-red);
+      background: rgba(232, 136, 26, 0.15);
+      border: 1px solid rgba(232, 136, 26, 0.3);
+      border-radius: 999px;
+      padding: 3px 10px;
+    }
+
+    .package-qty {
+      width: 90px;
+      border: 1px solid #d8c29b;
+      background: #fff;
+      border-radius: 4px;
+      padding: 8px 8px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.97rem;
+    }
+
+    .package-qty:disabled {
+      background: #f2ebdf;
+      opacity: 0.75;
+      cursor: not-allowed;
+    }
+
+    .form-actions {
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 0.9rem;
+      color: #6b614f;
+      line-height: 1.5;
+    }
+
+    .order-total {
+      background: linear-gradient(135deg, #ffb84d 0%, #ff8c42 100%);
+      padding: 16px 24px;
+      border-radius: 8px;
+      margin: 16px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255, 140, 66, 0.3);
+    }
+
+    .order-total-label {
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .order-total-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
+    .form-message {
+      margin-top: 14px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      padding: 11px 12px;
+      border-radius: 4px;
+      display: none;
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: var(--off-white);
+      padding: 80px 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      flex-wrap: wrap;
+      border-top: 4px solid var(--saffron);
+    }
+
+    .cta-text {
+      max-width: 500px;
+    }
+
+    .pincode-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .pincode-input {
+      border: 2px solid var(--sand);
+      background: #fff;
+      padding: 11px 16px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      outline: none;
+      border-radius: 2px;
+      width: 160px;
+      transition: border-color .2s;
+    }
+
+    .pincode-input:focus {
+      border-color: var(--saffron);
+    }
+
+    .btn-check {
+      background: var(--saffron);
+      color: #fff;
+      border: none;
+      padding: 11px 18px;
+      font-family: 'Khand', sans-serif;
+      font-size: 0.98rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 56px 80px 28px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 50px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .brand-name {
+      color: var(--gold);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.93rem;
+      line-height: 1.7;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.55);
+    }
+
+    .footer-col h4 {
+      font-size: 0.8rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--saffron);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .footer-col ul a {
+      text-decoration: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.93rem;
+      transition: color .2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--gold);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.86rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    .social-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      color: rgba(255, 255, 255, 0.6);
+      display: grid;
+      place-items: center;
+      font-size: 0.93rem;
+      text-decoration: none;
+      transition: background .2s, color .2s;
+    }
+
+    .social-btn:hover {
+      background: var(--saffron);
+      color: #fff;
+    }
+
+    /* FADE-UP */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+      will-change: auto;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1050px) {
+
+      .taste-grid,
+      .quality-trust-grid,
+      .ingredients-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 900px) {
+      header {
+        padding: 12px 22px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      .header-banner {
+        height: 190px;
+      }
+
+      .hero {
+        display: flex;
+        flex-direction: column-reverse;
+        /* show right (image) first on mobile */
+        min-height: auto;
+      }
+
+      .hero-bg-pattern::after {
+        display: none;
+      }
+
+      .hero-right {
+        background: linear-gradient(135deg, #3D1008, #993A1A);
+      }
+
+      .hero-left {
+        padding: 50px 24px 36px;
+      }
+
+      section {
+        padding: 52px 24px;
+      }
+
+      .heritage-grid,
+      .features-grid,
+      .serve-steps {
+        grid-template-columns: 1fr;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-strip {
+        padding: 52px 24px;
+      }
+
+      .trust {
+        padding: 52px 24px;
+      }
+
+      .order-form-wrap {
+        padding: 22px 16px;
+      }
+
+      .order-form-grid,
+      .package-choices {
+        grid-template-columns: 1fr;
+      }
+
+      .order-steps {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 44px 22px 22px;
+      }
+
+      .hero-swiper {
+        width: 280px;
+        height: 360px;
+      }
+    }
+
+    @media (max-width: 540px) {
+
+      .taste-grid,
+      .quality-trust-grid,
+      .ingredients-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quality-divider {
+        display: none;
+      }
+
+      .hero-swiper {
+        width: 240px;
+        height: 300px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">🚚 ₹500 se upar orders par Free Delivery &nbsp;|&nbsp; ⚠️ Savdhaan: Fraud se bachiye &nbsp;|&nbsp;
+    📦 Delivery 3-5 working days</div>
+
+  <!-- HEADER BANNER -->
+  <div class="header-banner" role="banner">
+    <div class="banner-panel banner-panel--left">
+      <img src="./Image/2.avif" alt="Khichda Papad product view 1" decoding="async">
+    </div>
+    <div class="banner-panel banner-panel--right">
+      <img src="./Image/1.avif" alt="Khichda Papad product view 2" decoding="async">
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header>
+    <div class="logo-wrap">
+      <div class="logo-circle"><span>BP</span></div>
+      <div>
+        <div class="brand-name">Khichda Papad</div>
+        <div class="brand-tagline">Tradition Ka Taste</div>
+      </div>
+    </div>
+    <nav>
+      <a href="#">Mithai</a>
+      <a href="#">Namkeen</a>
+      <a href="#">Ready to Eat</a>
+      <a href="#">Ghee</a>
+      <a href="#">Drinks</a>
+    </nav>
+    <a class="btn-cart" href="#order-form">🛒 Order Now</a>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" style="padding:0">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-left">
+      <div class="hero-eyebrow">
+        <div class="dot"></div> Paramparik Rajasthani Recipe · Stock Mein
+      </div>
+      <h1 class="hero-title">Har bite me mile<br><em>Spicy Crunch</em><br>aur Ghar Jaisa Swaad</h1>
+      <p class="hero-subtitle">Jo life ke har moment ko bana de aur bhi tasty — simple khana ho ya special dinner, har
+        meal ka perfect partner.</p>
+      <div class="hero-highlights">
+        <div class="hero-highlight-item">
+          <div class="hh-dot"></div>Crispy &amp; Spicy Swad
+        </div>
+        <div class="hero-highlight-item">
+          <div class="hh-dot"></div>Real Jeera Flavor
+        </div>
+        <div class="hero-highlight-item">
+          <div class="hh-dot"></div>Har meal ke saath perfect
+        </div>
+        <div class="hero-highlight-item">
+          <div class="hh-dot"></div>Family ka favourite snack
+        </div>
+      </div>
+      <div class="hero-relatable">"Dal-chawal ho ya dinner party — papad ho to taste double ho jata hai" 🤤</div>
+      <div class="hero-actions">
+        <a class="btn-primary btn-link" href="#order-form">🛒 Abhi Order Karein</a>
+        <a class="btn-secondary btn-link" href="#order-form">Try Karein</a>
+      </div>
+      <div class="hero-trust-line">
+        <div class="hero-trust-item">Taaza Bana Hua</div>
+        <div class="hero-trust-item">Hygienic Packing</div>
+        <div class="hero-trust-item">Quality Guaranteed</div>
+      </div>
+      <div class="hero-quick-strip">
+        <div class="quick-chip">No Added Colours</div>
+        <div class="quick-chip">Serve Karne ke Liye Ready</div>
+        <div class="quick-chip">PAN India Delivery</div>
+      </div>
+    </div>
+
+    <!-- HERO RIGHT — AUTO-SWIPER (4 images, no icons/dots) -->
+    <div class="hero-right">
+      <div class="product-image-wrap">
+        <div class="product-glow"></div>
+        <div class="hero-swiper" id="heroSwiper">
+          <div class="hero-swiper-track" id="heroTrack">
+            <div class="hero-swiper-slide">
+              <img src="./Image/10.avif" alt="Khichda Papad Pack 1" loading="lazy" decoding="async">
+            </div>
+            <div class="hero-swiper-slide">
+              <img src="./Image/5.avif" alt="Khichda Papad Pack 2" loading="lazy" decoding="async">
+            </div>
+            <div class="hero-swiper-slide">
+              <img src="./Image/200gm.avif" alt="Khichda Papad Pack 3" loading="lazy" decoding="async">
+            </div>
+            <div class="hero-swiper-slide">
+              <img src="./Image/500gm.avif" alt="Khichda Papad Pack 4" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+        <div class="floating-badge">Top<br>Choice</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="story-band">
+    <div class="story-band-inner">
+      <span>Har Bite Me Spicy Crunch</span><span class="sep">✦</span>
+      <span>Ghar Jaisa Swaad</span><span class="sep">✦</span>
+      <span>Real Jeera Flavor</span><span class="sep">✦</span>
+      <span>Dal-Chawal Ka Perfect Partner</span><span class="sep">✦</span>
+      <span>Family Favourite Snack</span><span class="sep">✦</span>
+      <span>Taste Ka Difference Mehsoos Karein</span><span class="sep">✦</span>
+      <span>Har Bite Me Spicy Crunch</span><span class="sep">✦</span>
+      <span>Ghar Jaisa Swaad</span><span class="sep">✦</span>
+      <span>Real Jeera Flavor</span><span class="sep">✦</span>
+      <span>Dal-Chawal Ka Perfect Partner</span><span class="sep">✦</span>
+      <span>Family Favourite Snack</span><span class="sep">✦</span>
+      <span>Taste Ka Difference Mehsoos Karein</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- HERITAGE -->
+  <section class="heritage">
+    <div class="heritage-grid">
+      <div class="heritage-visual fade-up">
+        <img src="./Image/Trust.avif" alt="Traditional Bikaneri papad presentation" loading="lazy" decoding="async">
+        <div class="heritage-corner">Since Generations</div>
+      </div>
+      <div class="heritage-content fade-up">
+        <div class="section-label">Hamari Kahani</div>
+        <h2 class="section-heading">Royal Bikaner ko Ek Swadbhari Tribute</h2>
+        <blockquote class="heritage-quote">"Har crunchy bite aapko turant Bikaner ki rich aur historic legacy yaad dila
+          deti hai."</blockquote>
+        <p class="section-body">Khichda Papad Bikaneri Katran Papad, Bikaner Rajasthan ki rich food parampara ko salute
+          karta hai. Is snack ka familiar swad bachpan ke woh moments yaad dilata hai jab maa Dal-Chawal ke saath papad
+          serve karti thi.</p>
+        <!-- <p class="section-body" style="margin-top:12px">Bikaner mein papad banane ki kala peedhiyon se nikhar kar aayi
+          hai. Best ingredients aur dadi-nani ke purane kitchen secrets se inspired, Khichda Papad traditional tareeke
+          se banta hai.</p> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section class="ingredients">
+    <div style="text-align:center">
+      <div class="section-label">Isme Kya Hai</div>
+      <h2 class="section-heading" style="margin:0 auto 6px">Shuddh Natural Ingredients</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center">Soch samajhkar chune gaye ingredients — har ek
+        purity ki kahani batata hai.</p>
+    </div>
+    <div class="ingredients-grid">
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-img-wrap"><img src="./Image/Ind1.avif" alt="Urad Dal" loading="lazy" decoding="async"></div>
+        <div class="ingredient-body">
+          <div class="ingredient-name">Urad Dal</div>
+          <div class="ingredient-desc">Urad dal ka asli base, jo har traditional papad ko uska signature crisp deta hai.
+          </div>
+        </div>
+      </div>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-img-wrap"><img src="./Image/Ind2.avif" alt="Moong Dal" loading="lazy" decoding="async"></div>
+        <div class="ingredient-body">
+          <div class="ingredient-name">Moong Dal</div>
+          <div class="ingredient-desc">Moong dal se milti hai light, digestible texture aur authentic Bikaneri swad.
+          </div>
+        </div>
+      </div>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-img-wrap"><img src="./Image/Ind3.avif" alt="Rice Flour" loading="lazy" decoding="async"></div>
+        <div class="ingredient-body">
+          <div class="ingredient-name">Rice Flour</div>
+          <div class="ingredient-desc">Ye deta hai crispy aur airy bite jo har piece ko aur bhi addictive banata hai.
+          </div>
+        </div>
+      </div>
+      <div class="ingredient-card fade-up">
+        <div class="ingredient-img-wrap"><img src="./Image/Ind4.avif" alt="Blend of Spices" loading="lazy" decoding="async"></div>
+        <div class="ingredient-body">
+          <div class="ingredient-name">Blend of Spices</div>
+          <div class="ingredient-desc">Secret masala blend jo har meal mein perfect chatpata kick add karta hai.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="section-label" style="color:var(--saffron)">Khichda Papad Kyu Chune</div>
+    <h2 class="section-heading">100,000+ Families ka Bharosa</h2>
+    <p class="section-body">Dadi ke kitchen se lekar aaj ke modern dining table tak — wahi authentic crunch, har
+      occasion ke liye perfect.</p>
+    <div class="features-grid">
+      <div class="feature-card fade-up">
+        <div class="feature-number">01</div>
+        <div class="feature-title">Thin &amp; Shredded Cut</div>
+        <div class="feature-desc">'Katran' ka matlab hai patle, shredded pieces. Round papad se alag, ye anytime
+          snacking ke liye perfect hai.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">02</div>
+        <div class="feature-title">Re-Crispable</div>
+        <div class="feature-desc">Agar soft ho jaye to dry pan mein halka reheat karein, aur papad fir se crispy ho
+          jayega.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">03</div>
+        <div class="feature-title">Har Meal Ke Saath Perfect</div>
+        <div class="feature-desc">Dal-Chawal ke saath, standalone snack ke taur par, ya onion-tomato-chaat masala ke mix
+          mein — har tareeke se tasty.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">04</div>
+        <div class="feature-title">91% Positive Ratings</div>
+        <div class="feature-desc">India bhar ke 100,000+ happy customers ka trust aur strong ratings iska saboot hai.
+        </div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">05</div>
+        <div class="feature-title">11+ Saal Ka Trust</div>
+        <div class="feature-desc">Ek legacy brand jo saalon se quality, hygiene aur swad par consistent raha hai.</div>
+      </div>
+      <div class="feature-card fade-up">
+        <div class="feature-number">06</div>
+        <div class="feature-title">PAN India Delivery</div>
+        <div class="feature-desc">Delivered safely to your doorstep anywhere in India. Check your pincode for estimated
+          delivery timelines.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW TO SERVE -->
+  <section class="serve">
+    <div class="section-label">Serve Karne Ke Ideas</div>
+    <h2 class="section-heading">Enjoy Karne Ke Endless Ways</h2>
+    <div class="serve-steps">
+      <div class="step fade-up">
+        <div class="step-img-wrap"><img src="./Image/Combo1.avif" alt="Dal Chawal with Papad" loading="lazy" decoding="async"></div>
+        <div class="step-body">
+          <div class="step-num">1</div>
+          <div class="step-title">Classic Dal-Chawal Combo</div>
+          <div class="step-desc">Garam Dal-Chawal ke saath serve karke wohi comfort aur bachpan wali feeling paaiye.
+          </div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-img-wrap"><img src="./Image/Combo2.avif" alt="Chatpata Street Mix" loading="lazy" decoding="async"></div>
+        <div class="step-body">
+          <div class="step-num">2</div>
+          <div class="step-title">Chatpata Street Mix</div>
+          <div class="step-desc">Tomato, onion, namak, chaat masala, roasted peanuts aur chilli flakes ke saath mix
+            karke street-style taste lijiye.</div>
+        </div>
+      </div>
+      <div class="step fade-up">
+        <div class="step-img-wrap"><img src="./Image/Combo3.avif" alt="Tea Time Snack" loading="lazy" decoding="async"></div>
+        <div class="step-body">
+          <div class="step-num">3</div>
+          <div class="step-title">Tea-Time Snack</div>
+          <div class="step-desc">Shaam ki chai ke saath crispy, light aur flavourful companion jo baar-baar khane ka
+            mann kare.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TASTE MOMENTS -->
+  <section class="taste-moments">
+    <div style="text-align:center;margin-bottom:48px">
+      <div class="section-label">Life Mein Papad Ka Magic</div>
+      <h2 class="section-heading" style="margin:0 auto 10px">Kaise Papad Har Moment Ko Better Banata Hai</h2>
+      <p class="section-body" style="margin:0 auto;text-align:center">Yeh 4 real-life moments dikhate hain ki ek bowl
+        Bikaneri Katran Papad kaise normal pal ko special bana deta hai.</p>
+    </div>
+    <div class="taste-grid">
+      <div class="taste-card fade-up">
+        <div class="taste-card-top">
+          <img src="./Image/use1.avif" alt="Flavour journey" loading="lazy" decoding="async">
+          <div class="taste-card-overlay-text">Elevate</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Flavour Journey</div>
+          <h3 class="taste-title">Apna Palate Upgrade Karein</h3>
+          <ul class="taste-tips">
+            <li>🟢 Mint chutney for a refreshing kick</li>
+            <li>🟤 Tamarind chutney for tangy depth</li>
+            <li>🟡 Aam ka murabba for sweet contrast</li>
+          </ul>
+        </div>
+      </div>
+      <div class="taste-card fade-up">
+        <div class="taste-card-top">
+          <img src="./Image/use2.avif" alt="Anytime snack" loading="lazy" decoding="async">
+          <div class="taste-card-overlay-text">Snack</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Any Time Snack</div>
+          <h3 class="taste-title">Perfect Snack Sidekick</h3>
+          <ul class="taste-tips">
+            <li>🧅 Diced onion + green chilli mix</li>
+            <li>🥜 Roasted peanuts for extra crunch</li>
+            <li>🌶️ Chaat masala + lemon squeeze</li>
+          </ul>
+        </div>
+      </div>
+      <div class="taste-card fade-up">
+        <div class="taste-card-top">
+          <img src="./Image/use3.avif" alt="Guest serving" loading="lazy" decoding="async">
+          <div class="taste-card-overlay-text">Host</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Guest Serving</div>
+          <h3 class="taste-title">Guests Ko Instant Impress Karein</h3>
+          <ul class="taste-tips">
+            <li>🫙 Serve in a clay or brass bowl</li>
+            <li>🍋 Pair with pickle and yoghurt dip</li>
+            <li>✨ Perfect starter before any meal</li>
+          </ul>
+        </div>
+      </div>
+      <div class="taste-card fade-up">
+        <div class="taste-card-top">
+          <img src="./Image/use4.avif" alt="Movie night" loading="lazy" decoding="async">
+          <div class="taste-card-overlay-text">Relax</div>
+        </div>
+        <div class="taste-card-body">
+          <div class="taste-tag">Movie Night</div>
+          <h3 class="taste-title">Popcorn Chhodo, Go Desi</h3>
+          <ul class="taste-tips">
+            <li>🍿 Zero prep, just open and munch</li>
+            <li>🥤 Pairs great with nimbu paani</li>
+            <li>🎭 Binge-watch approved snack</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STATS -->
+  <div class="trust">
+    <div class="trust-grid">
+      <div>
+        <div class="trust-stat-num">91%</div>
+        <div class="trust-stat-label">Positive Ratings</div>
+      </div>
+      <div>
+        <div class="trust-stat-num">100K+</div>
+        <div class="trust-stat-label">Recent Orders</div>
+      </div>
+      <div>
+        <div class="trust-stat-num">11+</div>
+        <div class="trust-stat-label">Amazon Par Saal</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUALITY TRUST -->
+  <section class="quality-trust">
+    <div class="section-label" style="color:var(--saffron)">Certified Quality</div>
+    <h2 class="section-heading">Har Bite Par Poora Bharosa</h2>
+    <p class="section-body">Khichda Papad ka har pack strict quality standards aur purity commitment ke saath aata hai —
+      bina shortcut, bina compromise.</p>
+    <div class="quality-trust-grid">
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon"><img src="./Image/Trust1.avif" alt="FSSAI" loading="lazy" decoding="async"></div>
+        <div class="quality-card-badge quality-card-badge--blue">Govt. Certified</div>
+        <div class="quality-card-title">FSSAI Licensed</div>
+        <div class="quality-card-watermark">FSSAI</div>
+      </div>
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon"><img src="./Image/Trust2.avif" alt="GMP" loading="lazy" decoding="async"></div>
+        <div class="quality-card-badge quality-card-badge--green">Manufacturing</div>
+        <div class="quality-card-title">GMP Compliant</div>
+        <div class="quality-card-watermark">GMP</div>
+      </div>
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon"><img src="./Image/Trust3.avif" alt="No Preservatives" loading="lazy" decoding="async"></div>
+        <div class="quality-card-badge quality-card-badge--gold">100% Natural</div>
+        <div class="quality-card-title">No Preservatives</div>
+        <div class="quality-card-watermark">Pure</div>
+      </div>
+      <div class="quality-card fade-up">
+        <div class="quality-card-icon"><img src="./Image/Trust4.avif" alt="Shelf Life"></div>
+        <div class="quality-card-badge quality-card-badge--red">Shelf Life</div>
+        <div class="quality-card-title">6-Month Freshness</div>
+        <div class="quality-card-watermark">6M</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="section-label">Aksar Puche Jaane Wale Sawal</div>
+    <h2 class="section-heading">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Bikaneri Katran Papad mein 'Katran' ka kya matlab hai?<span
+            class="faq-toggle">+</span></div>
+        <div class="faq-a">'Katran' ka matlab hai papad ke patle, chhote aur shredded pieces. Round papad se alag, yeh
+          snack format mein perfect rehta hai.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Agar papad soft ho jaye to kya use dubara crisp kiya ja sakta
+          hai?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Haan, dry pan ya skillet par medium heat mein 1-2 minute reheat karke papad ko dubara crispy
+          banaya ja sakta hai.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Khichda Papad ko thoda hatke style mein kaise serve karein?<span
+            class="faq-toggle">+</span></div>
+        <div class="faq-a">Tomato, onion, thoda namak, chaat masala, peanuts aur chilli flakes ke saath mix karke aap ek
+          instant chatpata bowl bana sakte hain.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Bikaneri Katran Papad ko fresh rakhne ke liye kaise store
+          karein?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Papad ko cool aur dry jagah par rakhein. Packet khulne ke baad airtight container mein store
+          karein.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Kya yeh product PAN India delivery mein available hai?<span
+            class="faq-toggle">+</span></div>
+        <div class="faq-a">Haan, yeh product PAN India deliver hota hai. Standard delivery time 3-5 working days hai.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER FORM -->
+
+  <section class="order-form-section" id="order-form">
+    <div class="order-form-wrap fade-up">
+      <div class="section-label">Apna Order Place Karein</div>
+      <h2 class="section-heading" style="margin-bottom:8px">Quick Order Form</h2>
+      <p class="section-body" style="max-width:100%">Apni details bhariye aur ek ya multiple package size quantity ke
+        saath select kijiye.</p>
+      <div class="order-steps">
+        <div class="order-step"><span>1</span> Apni details bhariye</div>
+        <div class="order-step"><span>2</span> Pack size chuniye</div>
+        <div class="order-step"><span>3</span> Order submit kijiye</div>
+      </div>
+      <form id="papadOrderForm" class="order-form-grid">
+        <div class="order-field">
+          <label class="order-label" for="customerName">Poora Naam</label>
+          <input class="order-input" id="customerName" name="name" type="text" placeholder="Apna poora naam likhiye"
+            required>
+        </div>
+        <div class="order-field">
+          <label class="order-label" for="customerPhone">Mobile Number</label>
+          <input class="order-input" id="customerPhone" name="phone" type="tel" inputmode="numeric" pattern="[0-9]{10}"
+            maxlength="10" placeholder="10-digit mobile number" required>
+        </div>
+        <div class="order-field order-field-full">
+          <label class="order-label" for="customerAddress">Pata (Address)</label>
+          <textarea class="order-textarea" id="customerAddress" name="address"
+            placeholder="House no, street, area, city" required></textarea>
+        </div>
+        <div class="order-field">
+          <label class="order-label" for="customerPincode">Pincode</label>
+          <input class="order-input" id="customerPincode" name="pincode" type="text" inputmode="numeric"
+            pattern="[0-9]{6}" maxlength="6" placeholder="6-digit pincode" required>
+        </div>
+        <div class="order-field order-field-full">
+          <div class="order-label">Package Size (Multiple Choice)</div>
+          <div class="package-choices">
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="200 gm" data-price="60">
+                200 gm Pack<span class="package-live-price"></span>
+              </span>
+              <input type="number" class="package-qty" name="qty_200" min="1" value="1" disabled>
+            </label>
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="500 gm" data-price="130">
+                500 gm Pack<span class="package-live-price"></span>
+              </span>
+              <input type="number" class="package-qty" name="qty_500" min="1" value="1" disabled>
+            </label>
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="1 kg" data-price="250">
+                1 kg Pack<span class="package-live-price"></span>
+              </span>
+              <input type="number" class="package-qty" name="qty_1kg" min="1" value="1" disabled>
+            </label>
+            <label class="package-choice">
+              <span class="package-choice-left">
+                <input type="checkbox" class="package-check" name="packageSize" value="2 kg" data-price="480">
+                2 kg Bulk Pack<span class="package-live-price"></span>
+              </span>
+              <input type="number" class="package-qty" name="qty_2kg" min="1" value="1" disabled>
+            </label>
+          </div>
+        </div>
+        <div class="order-field order-field-full">
+          <div class="order-total" id="orderTotal" style="display:none;">
+            <div class="order-total-label">Total Amount</div>
+            <div class="order-total-amount">₹<span id="totalAmount">0</span></div>
+          </div>
+        </div>
+        <div class="order-field order-field-full form-actions">
+          <p class="form-note">Submit karte hi aap order confirmation aur delivery details ke liye contact ki permission
+            dete hain.</p>
+          <button type="submit" class="btn-primary" id="submitOrderBtn">Order Submit Karein</button>
+        </div>
+      </form>
+      <div id="formMessage" class="form-message"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand-name">Khichda Papad</div>
+        <p>Authentic Indian flavours ki legacy, jo pyaar aur parampara ke saath peedhiyon se ban rahi hai.</p>
+        <div class="social-row" style="margin-top:16px">
+          <a class="social-btn" href="#">f</a>
+          <a class="social-btn" href="#">in</a>
+          <a class="social-btn" href="#">yt</a>
+          <a class="social-btn" href="#">📌</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#">Hamare Bare Mein</a></li>
+          <li><a href="#">Hamari Process</a></li>
+          <li><a href="#">CSR Activities</a></li>
+          <li><a href="#">Recipes</a></li>
+          <li><a href="#">Store Locator</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hamari Policies</h4>
+        <ul>
+          <li><a href="#">Cancellation &amp; Refund</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Terms &amp; Conditions</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact Karein</h4>
+        <ul>
+          <li><a href="#">support@haldirams.com</a></li>
+          <li><a href="#">+91 712-2779451</a></li>
+          <li><a href="#">Mon–Sat: 10AM – 6PM</a></li>
+          <li><a href="#">Bulk Orders</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Khichda Papad India Pvt Ltd. Sabhi adhikar surakshit.</span>
+      <span>VISA · Mastercard · American Express · Net Banking</span>
+    </div>
+  </footer>
+
+  <script>
+    /* ── FAQ ── */
+    function toggleFaq(el) {
+      const item = el.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    /* ── FADE-UP ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    /* ── AUTO-SWIPER (hero section, 4 images, no icons) ── */
+    (function () {
+      const track = document.getElementById('heroTrack');
+      const totalSlides = 4;
+      let current = 0;
+      let autoTimer = null;
+
+      function goTo(index) {
+        current = ((index % totalSlides) + totalSlides) % totalSlides;
+        track.style.transform = 'translateX(-' + (current * 25) + '%)';
+      }
+
+      function startAuto() {
+        autoTimer = setInterval(function () {
+          goTo(current + 1);
+        }, 3000);
+      }
+
+      startAuto();
+    })();
+
+    /* ── PACKAGE CHOICES ── */
+    const packageChecks = document.querySelectorAll('.package-check');
+    function updatePackagePriceDisplay(check) {
+      const row = check.closest('.package-choice');
+      const qtyInput = row.querySelector('.package-qty');
+      const priceTag = row.querySelector('.package-live-price');
+      const qty = Math.max(1, parseInt(qtyInput.value || '1', 10));
+      const unitPrice = parseInt(check.dataset.price || '0', 10);
+      if (check.checked) { priceTag.style.display = 'inline-flex'; priceTag.textContent = '₹' + (unitPrice * qty); }
+      else { priceTag.style.display = 'none'; priceTag.textContent = ''; }
+    }
+    packageChecks.forEach((check) => {
+      const qtyInput = check.closest('.package-choice').querySelector('.package-qty');
+      check.addEventListener('change', () => {
+        qtyInput.disabled = !check.checked;
+        if (!check.checked) qtyInput.value = 1;
+        updatePackagePriceDisplay(check);
+        calculateTotal(); // Update total amount
+      });
+      qtyInput.addEventListener('input', () => {
+        if (!qtyInput.value || Number(qtyInput.value) < 1) qtyInput.value = 1;
+        updatePackagePriceDisplay(check);
+        calculateTotal(); // Update total amount
+      });
+      updatePackagePriceDisplay(check);
+    });
+
+    function keepDigitsOnly(input) { input.value = input.value.replace(/\D/g, ''); }
+    document.getElementById('customerPhone').addEventListener('input', e => keepDigitsOnly(e.target));
+    document.getElementById('customerPincode').addEventListener('input', e => keepDigitsOnly(e.target));
+
+    /* ── ORDER FORM ── */
+    const orderForm = document.getElementById('papadOrderForm');
+    const formMessage = document.getElementById('formMessage');
+    const submitBtn = orderForm.querySelector('button[type="submit"]');
+    const orderTotalDiv = document.getElementById('orderTotal');
+    const totalAmountSpan = document.getElementById('totalAmount');
+
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwAjYCu9ksvtIuxvWXk7zY1k9XC51l_EkToIS7n1Pfp6w6EK-DtSBTT0xWv8AWmj-2m/exec';
+
+    function calculateTotal() {
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      let total = 0;
+      selectedChecks.forEach(check => {
+        const price = parseInt(check.getAttribute('data-price')) || 0;
+        const row = check.closest('.package-choice');
+        const qty = parseInt(row.querySelector('.package-qty').value) || 1;
+        total += price * qty;
+      });
+      if (total > 0) {
+        totalAmountSpan.textContent = total;
+        orderTotalDiv.style.display = 'block';
+      } else {
+        orderTotalDiv.style.display = 'none';
+      }
+      return total;
+    }
+
+    async function submitOrder(orderData) {
+      const params = new URLSearchParams({
+        name: orderData.name,
+        phone: orderData.phone,
+        address: orderData.address,
+        pincode: orderData.pincode,
+        packages: orderData.packages.join('|'),
+        total: orderData.total
+      });
+        submitBtn.style.display = 'none';
+      await fetch(`${API_URL}?${params.toString()}`, { method: 'GET', redirect: 'follow' });
+      return { result: 'success' };
+    }
+
+    function getOrderData() {
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      const packages = Array.from(selectedChecks).map(ch => {
+        const row = ch.closest('.package-choice');
+        const qty = row.querySelector('.package-qty').value || '1';
+        return `${ch.value} x${qty}`;
+      });
+      return {
+        name: document.getElementById('customerName').value.trim(),
+        phone: document.getElementById('customerPhone').value.trim(),
+        address: document.getElementById('customerAddress').value.trim(),
+        pincode: document.getElementById('customerPincode').value.trim(),
+        packages,
+        total: calculateTotal()
+      };
+    }
+
+    orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+        submitBtn.style.display = 'none';
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      if (selectedChecks.length === 0) {
+        showError('Please select at least one package.');
+        return;
+      }
+      submitBtn.disabled = true;
+      showLoading('Submitting your order...');
+      try {
+        const orderData = getOrderData();
+        await submitOrder(orderData);
+        showSuccess('Order submitted successfully! Redirecting...');
+      
+        setTimeout(() => { window.location.href = 'thankyou.html'; }, 1000);
+      } catch (err) {
+        console.error(err);
+        showError('Submission failed. Please try again.');
+        submitBtn.disabled = false;
+      }
+    });
+
+    // UI Helpers
+    function showLoading(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#e8f0ff;color:#0b3a66;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    function showSuccess(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#d1e7dd;color:#0f5132;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    function showError(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#f8e8eb;color:#842029;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    // Smooth scroll to order form when user clicks 'send' or any link targeting the order form
+    function scrollToOrderFormHandler(ev) {
+      ev.preventDefault();
+      const target = document.getElementById('order-form');
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // focus first input after scroll settles
+      setTimeout(() => {
+        const first = document.getElementById('customerName');
+        if (first) first.focus({ preventScroll: true });
+      }, 500);
+    }
+
+    document.querySelectorAll('a[href="#order-form"], [data-scroll-to="order-form"], .scroll-to-order').forEach(el => {
+      el.addEventListener('click', scrollToOrderFormHandler);
+    });
+  </script>
+</body>
+
+</html>
