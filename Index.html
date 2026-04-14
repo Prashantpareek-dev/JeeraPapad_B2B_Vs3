@@ -4,7 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Authentic Khichda Papad - Traditional Indian flavors with premium quality ingredients">
+  <meta name="theme-color" content="#E8881A">
   <title>Khichda Papad - Swad Aur Tradition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://script.google.com">
+  <link rel="dns-prefetch" href="https://script.google.com">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Khand:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
@@ -40,6 +46,14 @@
       background: var(--cream);
       color: var(--charcoal);
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
     }
 
     /* ── TOPBAR ── */
@@ -89,7 +103,7 @@
       position: relative;
     }
 
-  
+
 
     .banner-panel {
       position: relative;
@@ -103,10 +117,12 @@
       object-position: center;
       display: block;
       transition: transform 0.6s ease;
+      transform: translateZ(0);
+      backface-visibility: hidden;
     }
 
     .banner-panel:hover img {
-      transform: scale(1.04);
+      transform: scale(1.04) translateZ(0);
     }
 
     .banner-panel--left img {
@@ -586,6 +602,8 @@
     /* ── SECTIONS COMMON ── */
     section {
       padding: 80px 80px;
+      content-visibility: auto;
+      contain-intrinsic-size: auto 500px;
     }
 
     .section-label {
@@ -631,7 +649,7 @@
       border-radius: 6px;
       overflow: hidden;
       box-shadow: 14px 14px 0 var(--sand);
-      height: 460px;
+ 
     }
 
     .heritage-visual img {
@@ -641,6 +659,16 @@
       object-position: center;
       display: block;
       transition: transform 0.5s ease;
+    }
+
+    @media (max-width:450px) {
+      .heritage-grid img{
+        /* object-position: top;
+         */
+         height: fit-content;
+         object-fit: contain;
+      }
+      
     }
 
     .heritage-visual:hover img {
@@ -812,13 +840,13 @@
       font-family: 'Playfair Display', serif;
       font-size: 3.2rem;
       font-weight: 900;
-      color: rgba(232, 136, 26, 0.18);
+      color: rgba(232, 136, 26, 0.67);
       line-height: 1;
       margin-bottom: 10px;
     }
 
     .feature-title {
-      font-size: 1.1rem;
+      font-size: 1.5rem;
       font-weight: 700;
       color: var(--gold);
       letter-spacing: 0.06em;
@@ -827,7 +855,7 @@
     }
 
     .feature-desc {
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: rgba(255, 255, 255, 0.65);
       line-height: 1.65;
     }
@@ -1108,8 +1136,8 @@
     }
 
     .quality-card-icon {
-      width: 82px;
-      height: 82px;
+      width: 182px;
+      height: 182px;
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
@@ -1432,6 +1460,29 @@
       line-height: 1.5;
     }
 
+    .order-total {
+      background: linear-gradient(135deg, #ffb84d 0%, #ff8c42 100%);
+      padding: 16px 24px;
+      border-radius: 8px;
+      margin: 16px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(255, 140, 66, 0.3);
+    }
+
+    .order-total-label {
+      font-size: 0.9rem;
+      color: #fff;
+      margin-bottom: 4px;
+      font-weight: 500;
+    }
+
+    .order-total-amount {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    }
+
     .form-message {
       margin-top: 14px;
       font-size: 0.98rem;
@@ -1586,11 +1637,13 @@
       opacity: 0;
       transform: translateY(28px);
       transition: opacity .6s ease, transform .6s ease;
+      will-change: opacity, transform;
     }
 
     .fade-up.visible {
       opacity: 1;
       transform: translateY(0);
+      will-change: auto;
     }
 
     /* RESPONSIVE */
@@ -1618,7 +1671,8 @@
 
       .hero {
         display: flex;
-        flex-direction: column-reverse; /* show right (image) first on mobile */
+        flex-direction: column-reverse;
+        /* show right (image) first on mobile */
         min-height: auto;
       }
 
@@ -1712,17 +1766,17 @@
   <!-- HEADER BANNER -->
   <div class="header-banner" role="banner">
     <div class="banner-panel banner-panel--left">
-      <img src="./Image/2.png" alt="Khichda Papad product view 1">
+      <img src="./Image/2.avif" alt="Khichda Papad product view 1" decoding="async">
     </div>
     <div class="banner-panel banner-panel--right">
-      <img src="./Image/1.png" alt="Khichda Papad product view 2">
+      <img src="./Image/1.avif" alt="Khichda Papad product view 2" decoding="async">
     </div>
   </div>
 
   <!-- NAV -->
   <header>
     <div class="logo-wrap">
-      <div class="logo-circle"><span>Hd</span></div>
+      <div class="logo-circle"><span>BP</span></div>
       <div>
         <div class="brand-name">Khichda Papad</div>
         <div class="brand-tagline">Tradition Ka Taste</div>
@@ -1735,7 +1789,7 @@
       <a href="#">Ghee</a>
       <a href="#">Drinks</a>
     </nav>
-    <button class="btn-cart">🛒 Cart Mein Add Karein</button>
+    <a class="btn-cart" href="#order-form">🛒 Order Now</a>
   </header>
 
   <!-- HERO -->
@@ -1786,16 +1840,16 @@
         <div class="hero-swiper" id="heroSwiper">
           <div class="hero-swiper-track" id="heroTrack">
             <div class="hero-swiper-slide">
-              <img src="./Image/10.avif" alt="Khichda Papad Pack 1">
+              <img src="./Image/10.avif" alt="Khichda Papad Pack 1" loading="lazy" decoding="async">
             </div>
             <div class="hero-swiper-slide">
-              <img src="./Image/5.avif" alt="Khichda Papad Pack 2">
+              <img src="./Image/5.avif" alt="Khichda Papad Pack 2" loading="lazy" decoding="async">
             </div>
             <div class="hero-swiper-slide">
-              <img src="./Image/200gm.png" alt="Khichda Papad Pack 3">
+              <img src="./Image/200gm.avif" alt="Khichda Papad Pack 3" loading="lazy" decoding="async">
             </div>
             <div class="hero-swiper-slide">
-              <img src="./Image/500gm.png" alt="Khichda Papad Pack 4">
+              <img src="./Image/500gm.avif" alt="Khichda Papad Pack 4" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
@@ -1826,7 +1880,7 @@
   <section class="heritage">
     <div class="heritage-grid">
       <div class="heritage-visual fade-up">
-        <img src="./Image/trust.avif" alt="Traditional Bikaneri papad presentation">
+        <img src="./Image/Trust.avif" alt="Traditional Bikaneri papad presentation" loading="lazy" decoding="async">
         <div class="heritage-corner">Since Generations</div>
       </div>
       <div class="heritage-content fade-up">
@@ -1854,7 +1908,7 @@
     </div>
     <div class="ingredients-grid">
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind1.png" alt="Urad Dal"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind1.avif" alt="Urad Dal" loading="lazy" decoding="async"></div>
         <div class="ingredient-body">
           <div class="ingredient-name">Urad Dal</div>
           <div class="ingredient-desc">Urad dal ka asli base, jo har traditional papad ko uska signature crisp deta hai.
@@ -1862,7 +1916,7 @@
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind2.png" alt="Moong Dal"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind2.avif" alt="Moong Dal" loading="lazy" decoding="async"></div>
         <div class="ingredient-body">
           <div class="ingredient-name">Moong Dal</div>
           <div class="ingredient-desc">Moong dal se milti hai light, digestible texture aur authentic Bikaneri swad.
@@ -1870,7 +1924,7 @@
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind3.png" alt="Rice Flour"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind3.avif" alt="Rice Flour" loading="lazy" decoding="async"></div>
         <div class="ingredient-body">
           <div class="ingredient-name">Rice Flour</div>
           <div class="ingredient-desc">Ye deta hai crispy aur airy bite jo har piece ko aur bhi addictive banata hai.
@@ -1878,7 +1932,7 @@
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind4.png" alt="Blend of Spices"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind4.avif" alt="Blend of Spices" loading="lazy" decoding="async"></div>
         <div class="ingredient-body">
           <div class="ingredient-name">Blend of Spices</div>
           <div class="ingredient-desc">Secret masala blend jo har meal mein perfect chatpata kick add karta hai.</div>
@@ -1938,7 +1992,7 @@
     <h2 class="section-heading">Enjoy Karne Ke Endless Ways</h2>
     <div class="serve-steps">
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo1.png" alt="Dal Chawal with Papad"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo1.avif" alt="Dal Chawal with Papad" loading="lazy" decoding="async"></div>
         <div class="step-body">
           <div class="step-num">1</div>
           <div class="step-title">Classic Dal-Chawal Combo</div>
@@ -1947,7 +2001,7 @@
         </div>
       </div>
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo2.png" alt="Chatpata Street Mix"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo2.avif" alt="Chatpata Street Mix" loading="lazy" decoding="async"></div>
         <div class="step-body">
           <div class="step-num">2</div>
           <div class="step-title">Chatpata Street Mix</div>
@@ -1956,7 +2010,7 @@
         </div>
       </div>
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo3.png" alt="Tea Time Snack"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo3.avif" alt="Tea Time Snack" loading="lazy" decoding="async"></div>
         <div class="step-body">
           <div class="step-num">3</div>
           <div class="step-title">Tea-Time Snack</div>
@@ -1978,7 +2032,7 @@
     <div class="taste-grid">
       <div class="taste-card fade-up">
         <div class="taste-card-top">
-          <img src="./Image/use1.png" alt="Flavour journey">
+          <img src="./Image/use1.avif" alt="Flavour journey" loading="lazy" decoding="async">
           <div class="taste-card-overlay-text">Elevate</div>
         </div>
         <div class="taste-card-body">
@@ -1993,7 +2047,7 @@
       </div>
       <div class="taste-card fade-up">
         <div class="taste-card-top">
-          <img src="./Image/use2.png" alt="Anytime snack">
+          <img src="./Image/use2.avif" alt="Anytime snack" loading="lazy" decoding="async">
           <div class="taste-card-overlay-text">Snack</div>
         </div>
         <div class="taste-card-body">
@@ -2008,7 +2062,7 @@
       </div>
       <div class="taste-card fade-up">
         <div class="taste-card-top">
-          <img src="./Image/use3.png" alt="Guest serving">
+          <img src="./Image/use3.avif" alt="Guest serving" loading="lazy" decoding="async">
           <div class="taste-card-overlay-text">Host</div>
         </div>
         <div class="taste-card-body">
@@ -2023,7 +2077,7 @@
       </div>
       <div class="taste-card fade-up">
         <div class="taste-card-top">
-          <img src="./Image/use4.png" alt="Movie night">
+          <img src="./Image/use4.avif" alt="Movie night" loading="lazy" decoding="async">
           <div class="taste-card-overlay-text">Relax</div>
         </div>
         <div class="taste-card-body">
@@ -2065,40 +2119,29 @@
       bina shortcut, bina compromise.</p>
     <div class="quality-trust-grid">
       <div class="quality-card fade-up">
-        <div class="quality-card-icon"><img src="./Image/Trust1.png" alt="FSSAI"></div>
+        <div class="quality-card-icon"><img src="./Image/Trust1.avif" alt="FSSAI" loading="lazy" decoding="async"></div>
         <div class="quality-card-badge quality-card-badge--blue">Govt. Certified</div>
         <div class="quality-card-title">FSSAI Licensed</div>
         <div class="quality-card-watermark">FSSAI</div>
       </div>
       <div class="quality-card fade-up">
-        <div class="quality-card-icon"><img src="./Image/Trust2.png" alt="GMP"></div>
+        <div class="quality-card-icon"><img src="./Image/Trust2.avif" alt="GMP" loading="lazy" decoding="async"></div>
         <div class="quality-card-badge quality-card-badge--green">Manufacturing</div>
         <div class="quality-card-title">GMP Compliant</div>
         <div class="quality-card-watermark">GMP</div>
       </div>
       <div class="quality-card fade-up">
-        <div class="quality-card-icon"><img src="./Image/Trust3.png" alt="No Preservatives"></div>
+        <div class="quality-card-icon"><img src="./Image/Trust3.avif" alt="No Preservatives" loading="lazy" decoding="async"></div>
         <div class="quality-card-badge quality-card-badge--gold">100% Natural</div>
         <div class="quality-card-title">No Preservatives</div>
         <div class="quality-card-watermark">Pure</div>
       </div>
       <div class="quality-card fade-up">
-        <div class="quality-card-icon"><img src="./Image/Trust4.png" alt="Shelf Life"></div>
+        <div class="quality-card-icon"><img src="./Image/Trust4.avif" alt="Shelf Life"></div>
         <div class="quality-card-badge quality-card-badge--red">Shelf Life</div>
         <div class="quality-card-title">6-Month Freshness</div>
         <div class="quality-card-watermark">6M</div>
       </div>
-    </div>
-    <div class="quality-assurance-bar">
-      <span>🏛️ <strong>FSSAI Licensed</strong></span>
-      <div class="quality-divider"></div>
-      <span>🏭 <strong>GMP Certified Facility</strong></span>
-      <div class="quality-divider"></div>
-      <span>🌿 <strong>No Artificial Preservatives</strong></span>
-      <div class="quality-divider"></div>
-      <span>🎨 <strong>No Added Colours</strong></span>
-      <div class="quality-divider"></div>
-      <span>📅 <strong>6-Month Shelf Life</strong></span>
     </div>
   </section>
 
@@ -2141,6 +2184,7 @@
   </section>
 
   <!-- ORDER FORM -->
+
   <section class="order-form-section" id="order-form">
     <div class="order-form-wrap fade-up">
       <div class="section-label">Apna Order Place Karein</div>
@@ -2206,31 +2250,21 @@
             </label>
           </div>
         </div>
+        <div class="order-field order-field-full">
+          <div class="order-total" id="orderTotal" style="display:none;">
+            <div class="order-total-label">Total Amount</div>
+            <div class="order-total-amount">₹<span id="totalAmount">0</span></div>
+          </div>
+        </div>
         <div class="order-field order-field-full form-actions">
           <p class="form-note">Submit karte hi aap order confirmation aur delivery details ke liye contact ki permission
             dete hain.</p>
-          <button type="submit" class="btn-primary">Order Submit Karein</button>
+          <button type="submit" class="btn-primary" id="submitOrderBtn">Order Submit Karein</button>
         </div>
       </form>
       <div id="formMessage" class="form-message"></div>
     </div>
   </section>
-
-  <!-- CTA STRIP -->
-  <div class="cta-strip">
-    <div class="cta-text">
-      <div class="section-label">Order Today</div>
-      <h2 class="section-heading">Ready to Experience the Crunch?</h2>
-      <p class="section-body">Apna pincode check karein aur authentic Bikaneri Katran Papad ghar par mangaiye.</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:14px">
-      <div class="pincode-row">
-        <input class="pincode-input" type="text" placeholder="Enter Pincode" maxlength="6">
-        <button class="btn-check">Check</button>
-      </div>
-      <a class="btn-primary btn-link" href="#order-form" style="width:100%;justify-content:center">Abhi Order Karein</a>
-    </div>
-  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -2340,10 +2374,12 @@
         qtyInput.disabled = !check.checked;
         if (!check.checked) qtyInput.value = 1;
         updatePackagePriceDisplay(check);
+        calculateTotal(); // Update total amount
       });
       qtyInput.addEventListener('input', () => {
         if (!qtyInput.value || Number(qtyInput.value) < 1) qtyInput.value = 1;
         updatePackagePriceDisplay(check);
+        calculateTotal(); // Update total amount
       });
       updatePackagePriceDisplay(check);
     });
@@ -2355,21 +2391,116 @@
     /* ── ORDER FORM ── */
     const orderForm = document.getElementById('papadOrderForm');
     const formMessage = document.getElementById('formMessage');
-    orderForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      formMessage.style.display = 'none';
-      const selected = Array.from(document.querySelectorAll('.package-check:checked'));
-      if (selected.length === 0) {
-        formMessage.textContent = 'Kripya kam se kam ek package size select karein.';
-        formMessage.style.cssText = 'display:block;color:#842029;background:#f8e8eb;border:1px solid #efb7c0;border-radius:4px;padding:10px 12px;margin-top:14px;font-size:.9rem;font-weight:600';
+    const submitBtn = orderForm.querySelector('button[type="submit"]');
+    const orderTotalDiv = document.getElementById('orderTotal');
+    const totalAmountSpan = document.getElementById('totalAmount');
+
+    const API_URL = 'https://script.google.com/macros/s/AKfycbwAjYCu9ksvtIuxvWXk7zY1k9XC51l_EkToIS7n1Pfp6w6EK-DtSBTT0xWv8AWmj-2m/exec';
+
+    function calculateTotal() {
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      let total = 0;
+      selectedChecks.forEach(check => {
+        const price = parseInt(check.getAttribute('data-price')) || 0;
+        const row = check.closest('.package-choice');
+        const qty = parseInt(row.querySelector('.package-qty').value) || 1;
+        total += price * qty;
+      });
+      if (total > 0) {
+        totalAmountSpan.textContent = total;
+        orderTotalDiv.style.display = 'block';
+      } else {
+        orderTotalDiv.style.display = 'none';
+      }
+      return total;
+    }
+
+    async function submitOrder(orderData) {
+      const params = new URLSearchParams({
+        name: orderData.name,
+        phone: orderData.phone,
+        address: orderData.address,
+        pincode: orderData.pincode,
+        packages: orderData.packages.join('|'),
+        total: orderData.total
+      });
+        submitBtn.style.display = 'none';
+      await fetch(`${API_URL}?${params.toString()}`, { method: 'GET', redirect: 'follow' });
+      return { result: 'success' };
+    }
+
+    function getOrderData() {
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      const packages = Array.from(selectedChecks).map(ch => {
+        const row = ch.closest('.package-choice');
+        const qty = row.querySelector('.package-qty').value || '1';
+        return `${ch.value} x${qty}`;
+      });
+      return {
+        name: document.getElementById('customerName').value.trim(),
+        phone: document.getElementById('customerPhone').value.trim(),
+        address: document.getElementById('customerAddress').value.trim(),
+        pincode: document.getElementById('customerPincode').value.trim(),
+        packages,
+        total: calculateTotal()
+      };
+    }
+
+    orderForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+        submitBtn.style.display = 'none';
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      if (selectedChecks.length === 0) {
+        showError('Please select at least one package.');
         return;
       }
-      const summary = selected.map(item => item.value + ' × ' + item.closest('.package-choice').querySelector('.package-qty').value).join(', ');
-      formMessage.textContent = '✅ Order safalta se submit ho gaya! Selected: ' + summary;
-      formMessage.style.cssText = 'display:block;color:#165b2e;background:#eaf8ee;border:1px solid #9fd6ae;border-radius:4px;padding:10px 12px;margin-top:14px;font-size:.9rem;font-weight:600';
-      orderForm.reset();
-      document.querySelectorAll('.package-qty').forEach(q => { q.disabled = true; q.value = 1; });
-      packageChecks.forEach(check => updatePackagePriceDisplay(check));
+      submitBtn.disabled = true;
+      showLoading('Submitting your order...');
+      try {
+        const orderData = getOrderData();
+        await submitOrder(orderData);
+        showSuccess('Order submitted successfully! Redirecting...');
+      
+        setTimeout(() => { window.location.href = 'thankyou.html'; }, 1000);
+      } catch (err) {
+        console.error(err);
+        showError('Submission failed. Please try again.');
+        submitBtn.disabled = false;
+      }
+    });
+
+    // UI Helpers
+    function showLoading(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#e8f0ff;color:#0b3a66;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    function showSuccess(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#d1e7dd;color:#0f5132;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    function showError(msg) {
+      formMessage.textContent = msg;
+      formMessage.style.cssText = 'display:block;background:#f8e8eb;color:#842029;padding:10px;border-radius:4px;margin-top:10px;';
+    }
+
+    // Smooth scroll to order form when user clicks 'send' or any link targeting the order form
+    function scrollToOrderFormHandler(ev) {
+      ev.preventDefault();
+      const target = document.getElementById('order-form');
+      if (!target) return;
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // focus first input after scroll settles
+      setTimeout(() => {
+        const first = document.getElementById('customerName');
+        if (first) first.focus({ preventScroll: true });
+      }, 500);
+    }
+
+    document.querySelectorAll('a[href="#order-form"], [data-scroll-to="order-form"], .scroll-to-order').forEach(el => {
+      el.addEventListener('click', scrollToOrderFormHandler);
     });
   </script>
 </body>
