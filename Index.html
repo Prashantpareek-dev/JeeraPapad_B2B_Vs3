@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://script.google.com">
   <link rel="dns-prefetch" href="https://script.google.com">
-   <link rel="icon" href="./Image/icon.png" type="image/png">
+  <link rel="icon" href="./Image/icon.png" type="image/png">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Khand:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
@@ -100,7 +100,6 @@
       height: 270px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      overflow: hidden;
       position: relative;
     }
 
@@ -109,6 +108,7 @@
     .banner-panel {
       position: relative;
       overflow: hidden;
+      height: 100%;
     }
 
     .banner-panel img {
@@ -222,7 +222,7 @@
       border: none;
       padding: 10px 22px;
       font-family: 'Khand', sans-serif;
-      font-size: 0.98rem;
+      font-size: 1.1rem;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -586,6 +586,116 @@
       font-size: 1.2rem;
     }
 
+    /* ── POSTER CONTAINER ── */
+    .poster-container {
+      background: linear-gradient(135deg, #cf2709 0%, #cb4f07 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .poster-container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(232, 136, 26, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(192, 57, 43, 0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .poster-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1400px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-image-left,
+    .poster-image-right {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+
+
+    .poster-image-left img,
+    .poster-image-right img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .poster-image-left:hover img,
+    .poster-image-right:hover img {
+      transform: scale(1.05);
+    }
+
+
+    .poster-center-text {
+      text-align: center;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      border: 3px solid var(--saffron);
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .poster-center-text::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--saffron) 0%, var(--deep-red) 100%);
+    }
+
+    .poster-center-text::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--deep-red) 0%, var(--saffron) 100%);
+    }
+
+    .poster-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--muted-red);
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+      position: relative;
+      z-index: 1;
+    }
+
+    .poster-tagline .highlight {
+      color: var(--saffron);
+      font-style: italic;
+    }
+
     /* ── SECTIONS COMMON ── */
     section {
       padding: 80px 80px;
@@ -636,7 +746,7 @@
       border-radius: 6px;
       overflow: hidden;
       box-shadow: 14px 14px 0 var(--sand);
- 
+
     }
 
     .heritage-visual img {
@@ -649,11 +759,11 @@
     }
 
     @media (max-width:450px) {
-      .heritage-grid img{
-         height: fit-content;
-         object-fit: contain;
+      .heritage-grid img {
+        height: fit-content;
+        object-fit: contain;
       }
-      
+
     }
 
     .heritage-visual:hover img {
@@ -1221,30 +1331,111 @@
 
     /* FAQ */
     .faq {
-      background: var(--cream);
+      background: linear-gradient(160deg, var(--cream) 0%, var(--off-white) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .faq::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 136, 26, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq::after {
+      content: '';
+      position: absolute;
+      bottom: -80px;
+      right: -80px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(192, 57, 43, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .faq .section-heading {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+    }
+
+    .faq .section-label {
+      text-align: center;
+    }
+
+    .faq-container {
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .faq-list {
-      margin-top: 44px;
+      margin-top: 48px;
       display: flex;
       flex-direction: column;
-      gap: 1px;
+      gap: 16px;
     }
 
     .faq-item {
-      border-bottom: 1px solid var(--sand);
+      background: #fff;
+      border: 2px solid var(--sand);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 8px 24px rgba(232, 136, 26, 0.15);
+      border-color: var(--saffron);
+      transform: translateY(-2px);
+    }
+
+    .faq-item.open {
+      border-color: var(--saffron);
+      box-shadow: 0 8px 24px rgba(232, 136, 26, 0.2);
     }
 
     .faq-q {
-      padding: 20px 0;
-      font-size: 1.08rem;
+      padding: 24px 28px;
+      font-size: 1.1rem;
       font-weight: 700;
       color: var(--charcoal);
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
       user-select: none;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .faq-q::before {
+      content: '❓';
+      font-size: 1.3rem;
+      margin-right: 12px;
+      opacity: 0.7;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-item.open .faq-q::before {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .faq-item.open .faq-q {
+      background: linear-gradient(to right, rgba(232, 136, 26, 0.08), transparent);
+      color: var(--deep-red);
     }
 
     .faq-q:hover {
@@ -1252,28 +1443,88 @@
     }
 
     .faq-toggle {
-      font-size: 1.4rem;
-      color: var(--saffron);
-      transition: transform .3s;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--saffron);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 8px rgba(232, 136, 26, 0.3);
     }
 
-    .faq-a {
-      font-family: 'Lora', serif;
-      font-size: 1rem;
-      color: #666;
-      line-height: 1.7;
-      padding: 0 0 20px;
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height .4s ease;
-    }
-
-    .faq-item.open .faq-a {
-      max-height: 300px;
+    .faq-item:hover .faq-toggle {
+      transform: scale(1.1);
+      box-shadow: 0 4px 12px rgba(232, 136, 26, 0.4);
     }
 
     .faq-item.open .faq-toggle {
       transform: rotate(45deg);
+      background: var(--deep-red);
+      box-shadow: 0 4px 12px rgba(192, 57, 43, 0.4);
+    }
+
+    .faq-a {
+      font-family: 'Lora', serif;
+      font-size: 1.02rem;
+      color: #555;
+      line-height: 1.8;
+      padding: 0 28px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.4s ease;
+      background: var(--off-white);
+    }
+
+    .faq-item.open .faq-a {
+      max-height: 400px;
+      padding: 0 28px 24px 28px;
+      border-top: 1px solid rgba(232, 136, 26, 0.2);
+    }
+
+    .faq-a::before {
+      content: '💡';
+      margin-right: 8px;
+      font-size: 1.1rem;
+    }
+
+    .faq-stat {
+      margin-top: 48px;
+      padding: 28px;
+      background: linear-gradient(135deg, var(--saffron) 0%, var(--deep-red) 100%);
+      border-radius: 12px;
+      text-align: center;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(232, 136, 26, 0.3);
+    }
+
+    .faq-stat-text {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      opacity: 0.95;
+    }
+
+    .faq-stat-cta {
+      display: inline-block;
+      background: #fff;
+      color: var(--deep-red);
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .faq-stat-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
     }
 
     /* ORDER FORM */
@@ -1414,20 +1665,58 @@
       padding: 3px 10px;
     }
 
+    .package-qty-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0.5;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .package-qty-wrapper.active {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .qty-btn {
+      width: 32px;
+      height: 32px;
+      border: 2px solid var(--saffron);
+      background: #fff;
+      color: var(--saffron);
+      border-radius: 4px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .qty-btn:hover {
+      background: var(--saffron);
+      color: #fff;
+      transform: scale(1.05);
+    }
+
+    .qty-btn:active {
+      transform: scale(0.95);
+    }
+
     .package-qty {
-      width: 90px;
+      width: 50px;
       border: 1px solid #d8c29b;
       background: #fff;
       border-radius: 4px;
-      padding: 8px 8px;
+      padding: 6px;
       font-family: 'Khand', sans-serif;
-      font-size: 0.97rem;
-    }
-
-    .package-qty:disabled {
-      background: #f2ebdf;
-      opacity: 0.75;
-      cursor: not-allowed;
+      font-size: 1rem;
+      font-weight: 600;
+      text-align: center;
+      pointer-events: none;
     }
 
     .form-actions {
@@ -1465,7 +1754,7 @@
       font-size: 2rem;
       font-weight: 700;
       color: #fff;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .form-message {
@@ -1475,6 +1764,271 @@
       padding: 11px 12px;
       border-radius: 4px;
       display: none;
+    }
+
+    /* CONFIRMATION MODAL */
+    .confirmation-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .confirmation-modal.show {
+      display: flex;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    .confirmation-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(26, 26, 26, 0.85);
+      backdrop-filter: blur(4px);
+    }
+
+    .confirmation-content {
+      position: relative;
+      background: #fff;
+      border-radius: 12px;
+      max-width: 700px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: slideUp 0.4s ease;
+    }
+
+    @keyframes slideUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .confirmation-header {
+      padding: 32px 32px 24px;
+      border-bottom: 2px solid var(--sand);
+      background: linear-gradient(to bottom, var(--cream), #fff);
+    }
+
+    .confirmation-body {
+      padding: 24px 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .confirmation-section {
+      background: var(--off-white);
+      border: 1px solid var(--sand);
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    .confirmation-section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--muted-red);
+      margin-bottom: 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--saffron);
+    }
+
+    .confirmation-details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .confirmation-detail-item {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .confirmation-detail-full {
+      grid-column: 1 / -1;
+    }
+
+    .detail-label {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--brown);
+      opacity: 0.8;
+    }
+
+    .detail-value {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      word-break: break-word;
+    }
+
+    .confirmation-products {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .confirmation-product-item {
+      background: #fff;
+      border: 1px solid var(--sand);
+      border-left: 4px solid var(--saffron);
+      border-radius: 6px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .product-info {
+      flex: 1;
+    }
+
+    .product-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 4px;
+    }
+
+    .product-qty {
+      font-size: 0.9rem;
+      color: #666;
+      font-weight: 500;
+    }
+
+    .product-price {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--deep-red);
+      white-space: nowrap;
+    }
+
+    .confirmation-bill {
+      background: linear-gradient(135deg, #ffb84d 0%, #ff8c42 100%);
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+    }
+
+    .bill-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+    }
+
+    .bill-total {
+      padding-top: 16px;
+      margin-top: 8px;
+      border-top: 2px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .bill-label {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .bill-amount {
+      font-size: 2rem;
+      font-weight: 900;
+      color: #fff;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .bill-row-subtotal {
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 8px;
+    }
+
+    .bill-delivery {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .bill-delivery-struck {
+      text-decoration: line-through;
+      opacity: 0.7;
+      font-size: 1.1rem;
+    }
+
+    .bill-delivery-free {
+      background: #fff;
+      color: var(--green);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .confirmation-actions {
+      padding: 0 32px 32px;
+      display: flex;
+      gap: 12px;
+      justify-content: space-between;
+    }
+
+    .btn-secondary {
+      flex: 1;
+      background: var(--off-white);
+      color: var(--charcoal);
+      border: 2px solid var(--sand);
+      padding: 14px 24px;
+      font-family: 'Khand', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: all .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-secondary:hover {
+      background: var(--sand);
+      border-color: var(--brown);
+      transform: translateY(-1px);
+    }
+
+    .btn-confirm {
+      flex: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
     }
 
     /* CTA STRIP */
@@ -1639,6 +2193,15 @@
       .ingredients-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      /* Poster Container - Tablet */
+      .poster-wrapper {
+        gap: 30px;
+      }
+
+      .poster-tagline {
+        font-size: 1.8rem;
+      }
     }
 
     @media (max-width: 900px) {
@@ -1648,10 +2211,6 @@
 
       nav {
         display: none;
-      }
-
-      .header-banner {
-        height: 190px;
       }
 
       .hero {
@@ -1711,6 +2270,43 @@
         grid-template-columns: 1fr;
       }
 
+      /* Quantity Controls - Mobile */
+      .qty-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 1rem;
+      }
+
+      .package-qty {
+        width: 45px;
+        font-size: 0.95rem;
+      }
+
+      /* Poster Container - Mobile */
+
+
+      .poster-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .poster-center-text {
+        padding: 30px 20px;
+        order: 2;
+      }
+
+      .poster-image-left {
+        order: 1;
+      }
+
+      .poster-image-right {
+        order: 3;
+      }
+
+      .poster-tagline {
+        font-size: 1.6rem;
+      }
+
       footer {
         padding: 44px 22px 22px;
       }
@@ -1737,6 +2333,95 @@
         width: 240px;
         height: 300px;
       }
+
+      /* Poster Container - Small Mobile */
+      .poster-tagline {
+        font-size: 1.4rem;
+      }
+
+      .poster-center-text {
+        padding: 24px 16px;
+      }
+
+      /* Confirmation Bill - Small Mobile */
+      .bill-delivery {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      .bill-delivery-free {
+        font-size: 0.85rem;
+        padding: 3px 10px;
+      }
+
+      /* Confirmation Modal Responsive */
+      .confirmation-content {
+        max-width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+
+      .confirmation-header,
+      .confirmation-body,
+      .confirmation-actions {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
+      .confirmation-details-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .confirmation-actions {
+        flex-direction: column;
+      }
+
+      .btn-secondary,
+      .btn-confirm {
+        width: 100%;
+      }
+
+      .product-price {
+        font-size: 1.1rem;
+      }
+
+      .bill-amount {
+        font-size: 1.6rem;
+      }
+
+      /* FAQ Responsive */
+      .faq-q {
+        padding: 18px 20px;
+        font-size: 1rem;
+      }
+
+      .faq-q::before {
+        font-size: 1.1rem;
+        margin-right: 8px;
+      }
+
+      .faq-a {
+        font-size: 0.95rem;
+        padding: 0 20px;
+      }
+
+      .faq-item.open .faq-a {
+        padding: 0 20px 20px 20px;
+      }
+
+      .faq-stat {
+        padding: 20px;
+      }
+
+      .faq-stat-text {
+        font-size: 0.95rem;
+      }
+
+      .faq-stat-cta {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -1747,20 +2432,10 @@
   <div class="topbar">🚚 ₹500 થી વધુ ઓર્ડર પર મફત ડિલિવરી &nbsp;|&nbsp; ⚠️ સાવધાન: છેતરપિંડીથી બચો &nbsp;|&nbsp;
     📦 ડિલિવરી ૩-૫ કાર્ય દિવસોમાં</div>
 
-  <!-- HEADER BANNER -->
-  <div class="header-banner" role="banner">
-    <div class="banner-panel banner-panel--left">
-      <img src="./Image/2.avif" alt="ખીચડા પાપડ ઉત્પાદન દૃશ્ય ૧" decoding="async">
-    </div>
-    <div class="banner-panel banner-panel--right">
-      <img src="./Image/1.avif" alt="ખીચડા પાપડ ઉત્પાદન દૃશ્ય ૨" decoding="async">
-    </div>
-  </div>
-
-  <!-- NAV -->
+    <!-- NAV -->
   <header>
     <div class="logo-wrap">
-      <div class="logo-circle"><span>BP</span></div>
+      <div class="logo-circle"><span>KP</span></div>
       <div>
         <div class="brand-name">ખીચડા પાપડ</div>
         <div class="brand-tagline">પરંપરાનો સ્વાદ</div>
@@ -1773,15 +2448,23 @@
       <a href="#">ઘી</a>
       <a href="#">પીણાં</a>
     </nav>
-    <a class="btn-cart" href="#order-form">🛒 ઓર્ડર કરો</a>
+    <a class="btn-cart" href="#order-form">Order</a>
   </header>
+
+  <!-- HEADER BANNER -->
+  <div class="poster-container">
+    <img src="./Image/Banner1.png" alt="ખીચિયા પાપડ વિવિધતા" loading="lazy" decoding="async">
+  </div>
+
+
+  
 
   <!-- HERO -->
   <section class="hero" style="padding:0">
     <div class="hero-bg-pattern"></div>
     <div class="hero-left">
       <div class="hero-eyebrow">
-        <div class="dot"></div> પારંપરિક રાજસ્થાની રેસિપી · સ્ટોકમાં ઉપલબ્ધ
+        <div class="dot"></div> પારંપરિક ગુજરાતી રેસિપી · સ્ટોકમાં ઉપલબ્ધ
       </div>
       <h1 class="hero-title">દરેક ડંખમાં મળે<br><em>તીખી ક્રંચ</em><br>અને ઘર જેવો સ્વાદ</h1>
       <p class="hero-subtitle">જે જીવનની દરેક ક્ષણને વધુ સ્વાદિષ્ટ બનાવે — સાદું ભોજન હોય કે ખાસ ડિનર, દરેક ભોજનનો
@@ -1822,7 +2505,7 @@
       <div class="product-image-wrap">
         <div class="product-glow"></div>
         <div class="hero-image">
-          <img src="./Image/Product.avif" alt="ખીચડા પાપડ પેક" loading="lazy" decoding="async">
+          <img src="./Image/Product.png" alt="ખીચડા પાપડ પેક" loading="lazy" decoding="async">
         </div>
         <div class="floating-badge">ટોપ<br>ચોઈસ</div>
       </div>
@@ -1846,6 +2529,9 @@
       <span>સ્વાદનો ફર્ક અનુભવો</span><span class="sep">✦</span>
     </div>
   </div>
+
+  <!-- POSTER CONTAINER -->
+
 
   <!-- HERITAGE -->
   <section class="heritage">
@@ -1875,28 +2561,32 @@
     </div>
     <div class="ingredients-grid">
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind1.avif" alt="અડદ દાળ" loading="lazy" decoding="async"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind1.avif" alt="અડદ દાળ" loading="lazy" decoding="async">
+        </div>
         <div class="ingredient-body">
           <div class="ingredient-name">અડદ દાળ</div>
           <div class="ingredient-desc">અડદ દાળનો અસ્સલ આધાર, જે દરેક પારંપરિક પાપડને તેની ખાસ ક્રિસ્પ આપે છે.</div>
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind2.avif" alt="મગ દાળ" loading="lazy" decoding="async"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind2.avif" alt="મગ દાળ" loading="lazy" decoding="async">
+        </div>
         <div class="ingredient-body">
           <div class="ingredient-name">મગ દાળ</div>
           <div class="ingredient-desc">મગ દાળથી મળે છે હળવી, સુપાચ્ય ટેક્સ્ચર અને અસ્સલ બિકાનેરી સ્વાદ.</div>
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind3.avif" alt="ચોખાનો લોટ" loading="lazy" decoding="async"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind3.avif" alt="ચોખાનો લોટ" loading="lazy" decoding="async">
+        </div>
         <div class="ingredient-body">
           <div class="ingredient-name">ચોખાનો લોટ</div>
           <div class="ingredient-desc">આ આપે છે ક્રિસ્પી અને હળવો ડંખ જે દરેક ટુકડાને વધુ આકર્ષક બનાવે છે.</div>
         </div>
       </div>
       <div class="ingredient-card fade-up">
-        <div class="ingredient-img-wrap"><img src="./Image/Ind4.avif" alt="મસાલાઓનો મિશ્રણ" loading="lazy" decoding="async"></div>
+        <div class="ingredient-img-wrap"><img src="./Image/Ind4.avif" alt="મસાલાઓનો મિશ્રણ" loading="lazy"
+            decoding="async"></div>
         <div class="ingredient-body">
           <div class="ingredient-name">મસાલાઓનો મિશ્રણ</div>
           <div class="ingredient-desc">ગુપ્ત મસાલા મિશ્રણ જે દરેક ભોજનમાં ચટ-પટ સ્વાદ ઉમેરે છે.</div>
@@ -1957,7 +2647,8 @@
     <h2 class="section-heading">માણવાની અનંત રીતો</h2>
     <div class="serve-steps">
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo1.avif" alt="દાળ ભાત સાથે પાપડ" loading="lazy" decoding="async"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo1.avif" alt="દાળ ભાત સાથે પાપડ" loading="lazy"
+            decoding="async"></div>
         <div class="step-body">
           <div class="step-num">1</div>
           <div class="step-title">ક્લાસિક દાળ-ભાત કોમ્બો</div>
@@ -1966,7 +2657,8 @@
         </div>
       </div>
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo2.avif" alt="ચટ-પટ સ્ટ્રીટ મિક્સ" loading="lazy" decoding="async"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo2.avif" alt="ચટ-પટ સ્ટ્રીટ મિક્સ" loading="lazy"
+            decoding="async"></div>
         <div class="step-body">
           <div class="step-num">2</div>
           <div class="step-title">ચટ-પટ સ્ટ્રીટ મિક્સ</div>
@@ -1975,7 +2667,8 @@
         </div>
       </div>
       <div class="step fade-up">
-        <div class="step-img-wrap"><img src="./Image/Combo3.avif" alt="ચા સાથે નાસ્તો" loading="lazy" decoding="async"></div>
+        <div class="step-img-wrap"><img src="./Image/Combo3.avif" alt="ચા સાથે નાસ્તો" loading="lazy" decoding="async">
+        </div>
         <div class="step-body">
           <div class="step-num">3</div>
           <div class="step-title">ચા-સમયનો નાસ્તો</div>
@@ -2096,7 +2789,8 @@
         <div class="quality-card-watermark">GMP</div>
       </div>
       <div class="quality-card fade-up">
-        <div class="quality-card-icon"><img src="./Image/Trust3.avif" alt="કોઈ પ્રીઝર્વેટિવ નહીં" loading="lazy" decoding="async"></div>
+        <div class="quality-card-icon"><img src="./Image/Trust3.avif" alt="કોઈ પ્રીઝર્વેટિવ નહીં" loading="lazy"
+            decoding="async"></div>
         <div class="quality-card-badge quality-card-badge--gold">100% કુદરતી</div>
         <div class="quality-card-title">કોઈ પ્રીઝર્વેટિવ નહીં</div>
         <div class="quality-card-watermark">Pure</div>
@@ -2106,44 +2800,6 @@
         <div class="quality-card-badge quality-card-badge--red">શેલ્ફ લાઈફ</div>
         <div class="quality-card-title">૬ મહિનાની તાજગી</div>
         <div class="quality-card-watermark">6M</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq">
-    <div class="section-label">વારંવાર પૂછાતા પ્રશ્નો</div>
-    <h2 class="section-heading">FAQ</h2>
-    <div class="faq-list">
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">બિકાનેરી કાતરણ પાપડમાં 'કાતરણ' નો અર્થ શું છે?<span
-            class="faq-toggle">+</span></div>
-        <div class="faq-a">'કાતરણ' એટલે પાપડના પાતળા, નાના અને છૂટ્ટા ટુકડા. ગોળ પાપડથી અલગ, આ
-          નાસ્તા ફૉર્મેટ માટે પર્ફેક્ટ રહે છે.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">જો પાપડ નરમ થઈ જાય તો શું તેને ફરીથી ક્રિસ્પ કરી
-          શકાય?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">હા, સૂકા તવા અથવા સ્કિલેટ પર મધ્યમ તાપે ૧-૨ મિનિટ ગરમ કરીને પાપડ ફરીથી
-          ક્રિસ્પ બનાવી શકાય છે.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">ખીચડા પાપડ ને અલગ અંદાજ માં કેવી રીતે પીરસશો?<span
-            class="faq-toggle">+</span></div>
-        <div class="faq-a">ટામેટા, ડુંગળી, થોડું મીઠું, ચાટ મસાળો, મગફળી અને મરચાં સાથે ભેળ
-          કરીને તરત ચટ-પટ વાટકો બનાવી શકો છો.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">બિકાનેરી કાતરણ પાપડ ને તાજો રાખવા માટે કેવી
-          રીતે સ્ટોર કરવો?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">પાપડ ને ઠંડી અને સૂકી જગ્યાએ રાખો. પેકેટ ખોલ્યા પછી એર-ટાઈટ ડબ્બામાં
-          સ્ટોર કરો.</div>
-      </div>
-      <div class="faq-item">
-        <div class="faq-q" onclick="toggleFaq(this)">શું આ ઉત્પાદન સમગ્ર ભારતમાં ડિલિવરી માટે ઉપલબ્ધ
-          છે?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">હા, આ ઉત્પાદન સમગ્ર ભારતમાં ડિલિવર થાય છે. સ્ટાન્ડર્ડ ડિલિવરી સમય ૩-૫
-          કાર્ય દિવસ છે.</div>
       </div>
     </div>
   </section>
@@ -2173,8 +2829,8 @@
         </div>
         <div class="order-field order-field-full">
           <label class="order-label" for="customerAddress">સરનામું (Address)</label>
-          <textarea class="order-textarea" id="customerAddress" name="address"
-            placeholder="ઘર નં., શેરી, વિસ્તાર, શહેર" required></textarea>
+          <textarea class="order-textarea" id="customerAddress" name="address" placeholder="ઘર નં., શેરી, વિસ્તાર, શહેર"
+            required></textarea>
         </div>
         <div class="order-field">
           <label class="order-label" for="customerPincode">પિનકોડ</label>
@@ -2186,38 +2842,62 @@
           <div class="package-choices">
             <label class="package-choice">
               <span class="package-choice-left">
-                <input type="checkbox" class="package-check" name="packageSize" value="ખીચિયા પ્લેન 1 kg" data-price="220">
+                <input type="checkbox" class="package-check" name="packageSize" value="ખીચિયા પ્લેન 1 kg"
+                  data-price="220">
                 ખીચિયા પ્લેન ૧ કીલો<span class="package-live-price"></span>
               </span>
-              <input type="number" class="package-qty" name="qty_plain" min="1" value="1" disabled>
+              <div class="package-qty-wrapper">
+                <button type="button" class="qty-btn qty-decrease">−</button>
+                <input type="number" class="package-qty" name="qty_plain" min="1" value="1" readonly>
+                <button type="button" class="qty-btn qty-increase">+</button>
+              </div>
             </label>
             <label class="package-choice">
               <span class="package-choice-left">
-                <input type="checkbox" class="package-check" name="packageSize" value="ખીચિયા જીરા 1 kg" data-price="230">
+                <input type="checkbox" class="package-check" name="packageSize" value="ખીચિયા જીરા 1 kg"
+                  data-price="230">
                 ખીચિયા જીરા ૧ કીલો<span class="package-live-price"></span>
               </span>
-              <input type="number" class="package-qty" name="qty_khichiya_jeera" min="1" value="1" disabled>
+              <div class="package-qty-wrapper">
+                <button type="button" class="qty-btn qty-decrease">−</button>
+                <input type="number" class="package-qty" name="qty_khichiya_jeera" min="1" value="1" readonly>
+                <button type="button" class="qty-btn qty-increase">+</button>
+              </div>
             </label>
             <label class="package-choice">
               <span class="package-choice-left">
                 <input type="checkbox" class="package-check" name="packageSize" value="ચોખા જીરા 1 kg" data-price="240">
                 ચોખા જીરા ૧ કીલો<span class="package-live-price"></span>
               </span>
-              <input type="number" class="package-qty" name="qty_chokha_jeera" min="1" value="1" disabled>
+              <div class="package-qty-wrapper">
+                <button type="button" class="qty-btn qty-decrease">−</button>
+                <input type="number" class="package-qty" name="qty_chokha_jeera" min="1" value="1" readonly>
+                <button type="button" class="qty-btn qty-increase">+</button>
+              </div>
             </label>
             <label class="package-choice">
               <span class="package-choice-left">
-                <input type="checkbox" class="package-check" name="packageSize" value="ચોખા જીરા લીલી મરચી 1 kg" data-price="250">
+                <input type="checkbox" class="package-check" name="packageSize" value="ચોખા જીરા લીલી મરચી 1 kg"
+                  data-price="250">
                 ચોખા જીરા સાથે લીલી મરચી ૧ કીલો<span class="package-live-price"></span>
               </span>
-              <input type="number" class="package-qty" name="qty_chokha_chili" min="1" value="1" disabled>
+              <div class="package-qty-wrapper">
+                <button type="button" class="qty-btn qty-decrease">−</button>
+                <input type="number" class="package-qty" name="qty_chokha_chili" min="1" value="1" readonly>
+                <button type="button" class="qty-btn qty-increase">+</button>
+              </div>
             </label>
             <label class="package-choice">
               <span class="package-choice-left">
-                <input type="checkbox" class="package-check" name="packageSize" value="અડદ ડબલ મરી 1 kg" data-price="280">
+                <input type="checkbox" class="package-check" name="packageSize" value="અડદ ડબલ મરી 1 kg"
+                  data-price="280">
                 અડદ ડબલ મરી ૧ કીલો<span class="package-live-price"></span>
               </span>
-              <input type="number" class="package-qty" name="qty_adad_mari" min="1" value="1" disabled>
+              <div class="package-qty-wrapper">
+                <button type="button" class="qty-btn qty-decrease">−</button>
+                <input type="number" class="package-qty" name="qty_adad_mari" min="1" value="1" readonly>
+                <button type="button" class="qty-btn qty-increase">+</button>
+              </div>
             </label>
           </div>
         </div>
@@ -2234,6 +2914,146 @@
         </div>
       </form>
       <div id="formMessage" class="form-message"></div>
+    </div>
+  </section>
+
+  <!-- ORDER CONFIRMATION MODAL -->
+  <div id="confirmationModal" class="confirmation-modal">
+    <div class="confirmation-overlay"></div>
+    <div class="confirmation-content">
+      <div class="confirmation-header">
+        <div class="section-label">ઓર્ડર કન્ફર્મેશન</div>
+        <h2 class="section-heading" style="margin-bottom:8px; font-size:2rem;">તમારી વિગતો ચકાસો</h2>
+        <p class="section-body" style="max-width:100%; font-size:0.95rem;">કૃપા કરીને તમારી માહિતી અને ઓર્ડર વિગતો ચકાસો
+        </p>
+      </div>
+
+      <div class="confirmation-body">
+        <!-- Customer Details -->
+        <div class="confirmation-section">
+          <h3 class="confirmation-section-title">તમારી વિગતો</h3>
+          <div class="confirmation-details-grid">
+            <div class="confirmation-detail-item">
+              <span class="detail-label">નામ:</span>
+              <span class="detail-value" id="confirmName"></span>
+            </div>
+            <div class="confirmation-detail-item">
+              <span class="detail-label">મોબાઈલ નંબર:</span>
+              <span class="detail-value" id="confirmPhone"></span>
+            </div>
+            <div class="confirmation-detail-item confirmation-detail-full">
+              <span class="detail-label">સરનામું:</span>
+              <span class="detail-value" id="confirmAddress"></span>
+            </div>
+            <div class="confirmation-detail-item">
+              <span class="detail-label">પિનકોડ:</span>
+              <span class="detail-value" id="confirmPincode"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Details -->
+        <div class="confirmation-section">
+          <h3 class="confirmation-section-title">ઓર્ડર વિગતો</h3>
+          <div class="confirmation-products" id="confirmProducts"></div>
+        </div>
+
+        <!-- Bill Summary -->
+        <div class="confirmation-section">
+          <div class="confirmation-bill">
+            <div class="bill-row bill-row-subtotal">
+              <span class="bill-label">ઉપ-કુલ:</span>
+              <span class="bill-amount" style="font-size: 1.3rem;">₹<span id="confirmSubtotal">0</span></span>
+            </div>
+            <div class="bill-row">
+              <span class="bill-label">ડિલિવરી ચાર્જ:</span>
+              <div class="bill-delivery">
+                <span class="bill-delivery-struck">₹<span id="deliveryCharge">0</span></span>
+                <span class="bill-delivery-free">FREE ✓</span>
+              </div>
+            </div>
+            <div class="bill-row">
+              <span class="bill-label">હેન્ડલિંગ ચાર્જ:</span>
+              <div class="bill-delivery">
+                <span class="bill-delivery-struck">₹<span id="handlingCharge">0</span></span>
+                <span class="bill-delivery-free">FREE ✓</span>
+              </div>
+            </div>
+            <div class="bill-row">
+              <span class="bill-label">COD ચાર્જ:</span>
+              <div class="bill-delivery">
+                <span class="bill-delivery-struck">₹<span id="codCharge">0</span></span>
+                <span class="bill-delivery-free">FREE ✓</span>
+              </div>
+            </div>
+            <div class="bill-row bill-total">
+              <span class="bill-label">કુલ રકમ:</span>
+              <span class="bill-amount">₹<span id="confirmTotal">0</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="confirmation-actions">
+        <button type="button" class="btn-secondary" id="backToEditBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M19 12H5M12 19l-7-7 7-7" />
+          </svg>
+          પાછા જાઓ અને બદલો
+        </button>
+        <button type="button" class="btn-primary btn-confirm" id="confirmOrderBtn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M20 6L9 17l-5-5" />
+          </svg>
+          ઓર્ડર કન્ફર્મ કરો
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="faq-container">
+      <div class="section-label">વારંવાર પૂછાતા પ્રશ્નો</div>
+      <h2 class="section-heading">તમારા પ્રશ્નોના જવાબો</h2>
+      <div class="faq-list">
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">બિકાનેરી કાતરણ પાપડમાં 'કાતરણ' નો અર્થ શું છે?<span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">'કાતરણ' એટલે પાપડના પાતળા, નાના અને છૂટ્ટા ટુકડા. ગોળ પાપડથી અલગ, આ
+            નાસ્તા ફૉર્મેટ માટે પર્ફેક્ટ રહે છે અને તેને તુટ્યા વગર ખાવામાં સરળતા રહે છે.</div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">જો પાપડ નરમ થઈ જાય તો શું તેને ફરીથી ક્રિસ્પ કરી
+            શકાય?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">હા, સૂકા તવા અથવા સ્કિલેટ પર મધ્યમ તાપે ૧-૨ મિનિટ ગરમ કરીને પાપડ ફરીથી
+            ક્રિસ્પ બનાવી શકાય છે. માઈક્રોવેવમાં પણ ૩૦-૪૫ સેકંડ માટે ગરમ કરી શકો છો.</div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">ખીચડા પાપડ ને અલગ અંદાજ માં કેવી રીતે પીરસશો?<span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">ટામેટા, ડુંગળી, થોડું મીઠું, ચાટ મસાળો, મગફળી અને મરચાં સાથે ભેળ
+            કરીને તરત ચટ-પટ વાટકો બનાવી શકો છો. નાસ્તા તરીકે અથવા ચા સાથે પરફેક્ટ!</div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">બિકાનેરી કાતરણ પાપડ ને તાજો રાખવા માટે કેવી
+            રીતે સ્ટોર કરવો?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">પાપડ ને ઠંડી અને સૂકી જગ્યાએ રાખો. પેકેટ ખોલ્યા પછી એર-ટાઈટ ડબ્બામાં
+            સ્ટોર કરો. સીધા સૂર્યપ્રકાશ અને ભેજથી દૂર રાખો.</div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">શું આ ઉત્પાદન સમગ્ર ભારતમાં ડિલિવરી માટે ઉપલબ્ધ
+            છે?<span class="faq-toggle">+</span></div>
+          <div class="faq-a">હા, આ ઉત્પાદન સમગ્ર ભારતમાં ડિલિવર થાય છે. સ્ટાન્ડર્ડ ડિલિવરી સમય ૩-૫
+            કાર્ય દિવસ છે. આગ્રમ ઓર્ડર માટે એક્સપ્રેસ ડિલિવરી પણ ઉપલબ્ધ છે.</div>
+        </div>
+        <div class="faq-item fade-up">
+          <div class="faq-q" onclick="toggleFaq(this)">શું બલ્ક ઓર્ડર માટે કોઈ ડિસ્કાઉન્ટ છે?<span
+              class="faq-toggle">+</span></div>
+          <div class="faq-a">હા, ૧૦ કીલો કે તેથી વધુના ઓર્ડર પર ખાસ હોલસેલ ભાવ મળે છે. વધુ માહિતી માટે કૃપા કરીને અમારી
+            ટીમનો સંપર્ક કરો.</div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2319,18 +3139,47 @@
       else { priceTag.style.display = 'none'; priceTag.textContent = ''; }
     }
     packageChecks.forEach((check) => {
-      const qtyInput = check.closest('.package-choice').querySelector('.package-qty');
+      const row = check.closest('.package-choice');
+      const qtyWrapper = row.querySelector('.package-qty-wrapper');
+      const qtyInput = row.querySelector('.package-qty');
+      const increaseBtn = row.querySelector('.qty-increase');
+      const decreaseBtn = row.querySelector('.qty-decrease');
+
       check.addEventListener('change', () => {
-        qtyInput.disabled = !check.checked;
-        if (!check.checked) qtyInput.value = 1;
+        if (check.checked) {
+          qtyWrapper.classList.add('active');
+        } else {
+          qtyWrapper.classList.remove('active');
+          qtyInput.value = 1;
+        }
         updatePackagePriceDisplay(check);
         calculateTotal();
       });
-      qtyInput.addEventListener('input', () => {
-        if (!qtyInput.value || Number(qtyInput.value) < 1) qtyInput.value = 1;
-        updatePackagePriceDisplay(check);
-        calculateTotal();
+
+      // Increase quantity
+      increaseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (check.checked) {
+          const currentVal = parseInt(qtyInput.value) || 1;
+          qtyInput.value = currentVal + 1;
+          updatePackagePriceDisplay(check);
+          calculateTotal();
+        }
       });
+
+      // Decrease quantity
+      decreaseBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (check.checked) {
+          const currentVal = parseInt(qtyInput.value) || 1;
+          if (currentVal > 1) {
+            qtyInput.value = currentVal - 1;
+            updatePackagePriceDisplay(check);
+            calculateTotal();
+          }
+        }
+      });
+
       updatePackagePriceDisplay(check);
     });
 
@@ -2374,7 +3223,7 @@
         packages: orderData.packages.join('|'),
         total: orderData.total
       });
-        submitBtn.style.display = 'none';
+      submitBtn.style.display = 'none';
       await fetch(`${API_URL}?${params.toString()}`, { method: 'GET', redirect: 'follow' });
       return { result: 'success' };
     }
@@ -2399,25 +3248,111 @@
     orderForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-        submitBtn.style.display = 'none';
       const selectedChecks = document.querySelectorAll('.package-check:checked');
       if (selectedChecks.length === 0) {
         showError('કૃપા કરીને ઓછામાં ઓછો એક પેકેજ પસંદ કરો.');
         return;
       }
-      submitBtn.disabled = true;
-      showLoading('તમારો ઓર્ડર સબમિટ થઈ રહ્યો છે...');
+
+      // Show confirmation modal instead of submitting directly
+      showConfirmationModal();
+    });
+
+    // Show confirmation modal with order details
+    function showConfirmationModal() {
+      const orderData = getOrderData();
+      const modal = document.getElementById('confirmationModal');
+
+      // Populate customer details
+      document.getElementById('confirmName').textContent = orderData.name;
+      document.getElementById('confirmPhone').textContent = orderData.phone;
+      document.getElementById('confirmAddress').textContent = orderData.address;
+      document.getElementById('confirmPincode').textContent = orderData.pincode;
+
+      // Populate products
+      const productsContainer = document.getElementById('confirmProducts');
+      productsContainer.innerHTML = '';
+
+      const selectedChecks = document.querySelectorAll('.package-check:checked');
+      selectedChecks.forEach(check => {
+        const row = check.closest('.package-choice');
+        const qty = parseInt(row.querySelector('.package-qty').value) || 1;
+        const price = parseInt(check.getAttribute('data-price')) || 0;
+        const totalPrice = price * qty;
+
+        const productItem = document.createElement('div');
+        productItem.className = 'confirmation-product-item';
+        productItem.innerHTML = `
+          <div class="product-info">
+            <div class="product-name">${check.value}</div>
+            <div class="product-qty">જથ્થો: ${qty} કીલો × ₹${price} = ₹${totalPrice}</div>
+          </div>
+          <div class="product-price">₹${totalPrice}</div>
+        `;
+        productsContainer.appendChild(productItem);
+      });
+
+      // Calculate charges (random amounts, but shown as FREE)
+      const deliveryCharge = Math.floor(Math.random() * 41) + 40; // Random 40-80
+      const handlingCharge = Math.floor(Math.random() * 21) + 20; // Random 20-40
+      const codCharge = Math.floor(Math.random() * 16) + 15; // Random 15-30
+      
+      // Populate total and charges
+      document.getElementById('confirmSubtotal').textContent = orderData.total;
+      document.getElementById('deliveryCharge').textContent = deliveryCharge;
+      document.getElementById('handlingCharge').textContent = handlingCharge;
+      document.getElementById('codCharge').textContent = codCharge;
+      document.getElementById('confirmTotal').textContent = orderData.total; // Total stays same (all charges are free)
+
+      // Show modal
+      modal.classList.add('show');
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Hide confirmation modal
+    function hideConfirmationModal() {
+      const modal = document.getElementById('confirmationModal');
+      modal.classList.remove('show');
+      document.body.style.overflow = '';
+    }
+
+    // Back to edit button
+    document.getElementById('backToEditBtn').addEventListener('click', () => {
+      hideConfirmationModal();
+    });
+
+    // Confirm order button - actually submit the order
+    document.getElementById('confirmOrderBtn').addEventListener('click', async () => {
+      const confirmBtn = document.getElementById('confirmOrderBtn');
+      const backBtn = document.getElementById('backToEditBtn');
+
+      confirmBtn.disabled = true;
+      backBtn.disabled = true;
+      confirmBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg> સબમિટ થઈ રહ્યું છે...';
+
       try {
         const orderData = getOrderData();
         await submitOrder(orderData);
+
+        // Hide modal and show success message
+        hideConfirmationModal();
         showSuccess('ઓર્ડર સફળતાપૂર્વક સબમિટ થયો! રીડાયરેક્ટ થઈ રહ્યા છો...');
-      
-        setTimeout(() => { window.location.href = 'thankyou.html'; }, 1000);
+        submitBtn.style.display = 'none';
+
+        setTimeout(() => { window.location.href = 'thankyou.html'; }, 1500);
       } catch (err) {
         console.error(err);
+        hideConfirmationModal();
         showError('સબમિશન નિષ્ફળ. કૃપા કરીને ફરી પ્રયાસ કરો.');
-        submitBtn.disabled = false;
+        confirmBtn.disabled = false;
+        backBtn.disabled = false;
+        confirmBtn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> ઓર્ડર કન્ફર્મ કરો';
       }
+    });
+
+    // Close modal when clicking overlay
+    document.querySelector('.confirmation-overlay').addEventListener('click', () => {
+      hideConfirmationModal();
     });
 
     // UI Helpers
