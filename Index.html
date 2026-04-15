@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://script.google.com">
   <link rel="dns-prefetch" href="https://script.google.com">
+   <link rel="icon" href="./Image/icon.png" type="image/png">
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Khand:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
     rel="stylesheet">
@@ -467,35 +468,21 @@
       position: relative;
     }
 
-    /* Auto-swiper carousel */
-    .hero-swiper {
+    /* Static product image */
+    .hero-image {
       width: 420px;
-      height: 80vh;
       border-radius: 12px;
       overflow: hidden;
       border: 3px solid rgba(255, 255, 255, 0.35);
       box-shadow: 24px 24px 70px rgba(0, 0, 0, 0.55), -6px -6px 24px rgba(255, 200, 80, 0.18);
       position: relative;
       background: #f9e8c4;
-    }
-
-    .hero-swiper-track {
       display: flex;
-      width: 400%;
-      /* 4 slides */
-      height: 100%;
-      transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-swiper-slide {
-      width: 25%;
-      /* each slide = 100% / 4 */
-      height: 100%;
-      flex-shrink: 0;
-      overflow: hidden;
-    }
-
-    .hero-swiper-slide img {
+    .hero-image img {
       width: 100%;
       height: 100%;
       object-fit: contain;
@@ -1728,7 +1715,7 @@
         padding: 44px 22px 22px;
       }
 
-      .hero-swiper {
+      .hero-image {
         width: 280px;
         height: 360px;
       }
@@ -1746,7 +1733,7 @@
         display: none;
       }
 
-      .hero-swiper {
+      .hero-image {
         width: 240px;
         height: 300px;
       }
@@ -1830,25 +1817,12 @@
       </div>
     </div>
 
-    <!-- HERO RIGHT — AUTO-SWIPER (4 images, no icons/dots) -->
+    <!-- HERO RIGHT — PRODUCT IMAGE -->
     <div class="hero-right">
       <div class="product-image-wrap">
         <div class="product-glow"></div>
-        <div class="hero-swiper" id="heroSwiper">
-          <div class="hero-swiper-track" id="heroTrack">
-            <div class="hero-swiper-slide">
-              <img src="./Image/10.avif" alt="ખીચડા પાપડ પેક ૧" loading="lazy" decoding="async">
-            </div>
-            <div class="hero-swiper-slide">
-              <img src="./Image/5.avif" alt="ખીચડા પાપડ પેક ૨" loading="lazy" decoding="async">
-            </div>
-            <div class="hero-swiper-slide">
-              <img src="./Image/200gm.avif" alt="ખીચડા પાપડ પેક ૩" loading="lazy" decoding="async">
-            </div>
-            <div class="hero-swiper-slide">
-              <img src="./Image/500gm.avif" alt="ખીચડા પાપડ પેક ૪" loading="lazy" decoding="async">
-            </div>
-          </div>
+        <div class="hero-image">
+          <img src="./Image/Product.avif" alt="ખીચડા પાપડ પેક" loading="lazy" decoding="async">
         </div>
         <div class="floating-badge">ટોપ<br>ચોઈસ</div>
       </div>
@@ -2332,27 +2306,6 @@
       });
     }, { threshold: 0.1 });
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    /* ── AUTO-SWIPER (hero section, 4 images, no icons) ── */
-    (function () {
-      const track = document.getElementById('heroTrack');
-      const totalSlides = 4;
-      let current = 0;
-      let autoTimer = null;
-
-      function goTo(index) {
-        current = ((index % totalSlides) + totalSlides) % totalSlides;
-        track.style.transform = 'translateX(-' + (current * 25) + '%)';
-      }
-
-      function startAuto() {
-        autoTimer = setInterval(function () {
-          goTo(current + 1);
-        }, 3000);
-      }
-
-      startAuto();
-    })();
 
     /* ── PACKAGE CHOICES ── */
     const packageChecks = document.querySelectorAll('.package-check');
